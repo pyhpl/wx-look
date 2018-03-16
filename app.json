@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "课下约",
+    "navigationBarTextStyle":"black",
+    "onReachBottomDistance": 100
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "专题"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "搜寻"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的"
+      }
+    ]
+  }
+}
