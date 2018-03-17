@@ -2,7 +2,7 @@
   "pages":[
     "pages/activity/activity",
     "pages/topic/topic",
-    "pages/search/search",
+    "pages/publish/publish",
     "pages/message/message",
     "pages/my-space/my-space"
   ],
@@ -21,8 +21,8 @@
     "list": [
       {
         "pagePath": "pages/activity/activity",
-        "iconPath": "image/look_icon.png",
-        "selectedIconPath": "image/look_icon_HL.png",
+        "iconPath": "image/activity.png",
+        "selectedIconPath": "image/activity_HL.png",
         "text": "活动"
       },
       {
@@ -32,10 +32,10 @@
         "text": "主题"
       },
       {
-        "pagePath": "pages/search/search",
-        "iconPath": "image/search.png",
-        "selectedIconPath": "image/search_HL.png",
-        "text": "搜索"
+        "pagePath": "pages/publish/publish",
+        "iconPath": "image/publish.png",
+        "selectedIconPath": "image/publish_HL.png",
+        "text": "发布"
       },
       {
         "pagePath": "pages/message/message",

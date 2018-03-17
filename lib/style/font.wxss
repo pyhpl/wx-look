@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 594775 */
+  src: url('//at.alicdn.com/t/font_594775_56g87j1zepzaor.eot');
+  src: url('//at.alicdn.com/t/font_594775_56g87j1zepzaor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_594775_56g87j1zepzaor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_594775_56g87j1zepzaor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_594775_56g87j1zepzaor.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sousuo:before { 
+  content: "\e61a"; 
+} 
