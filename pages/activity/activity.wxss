@@ -1,37 +1,3 @@
 @import '../../lib/style/font.wxss';
-
-.nav-bar {
-  width: 100%;
-}
-
-.navbar-search {
-  float: left;
-  width: 15%;
-  text-align: center;
-}
-
-.navbar-search-text {
-  font-size: 20pt;
-}
-
-.navbar-tags {
-  /* border: 1px solid gainsboro; */
-  margin-left: 15%;
-  width: 75%;
-  white-space: nowrap;
-}
-
-.nav-text {
-  padding-right: 50rpx;
-  font-size: 12pt;
-}
-
-.navbar-tag-add {
-  border-left: 1px solid gray;
-  position: absolute;
-  background-color: white;
-  top: 0px;
-  right: 4%;
-  z-index: 100;
-  padding-left: 12rpx;
-}
+@import './resource/style/navbar.wxss';
+@import './resource/style/activity-content.wxss';

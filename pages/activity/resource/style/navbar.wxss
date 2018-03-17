@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.navbar .navbar-search {
+  width: 15%;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+}
+
+.navbar .navbar-search-text {
+  font-size: 20pt;
+}
+
+.navbar .navbar-tags {
+  width: 75%;
+  white-space: nowrap;
+}
+
+.navbar .navbar-tags .navbar-tag {
+  padding-right: 50rpx;
+  font-size: 12pt;
+}
+
+.navbar-tag-selcted {
+  color: #1296db; 
+}
+
+.navbar .navbar-tag-add {
+  background-color: white;
+  color: #1296db; 
+  padding-top: 10rpx;
+  width: 15%;
+  text-align: center;
+}
