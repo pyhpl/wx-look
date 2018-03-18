@@ -12,7 +12,9 @@ Page({
     ],
     currentId: 1,
     images: [
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"
+      // "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      // "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
     ]
   },
   // 导航标签点击
@@ -29,5 +31,9 @@ Page({
       current: src, // 当前显示图片的http链接
       urls: imgList // 需要预览的图片http链接列表
     })
+  },
+  // 触底加载
+  onReachBottom: function () {    
+    console.log('circle 下一页');
   }
 })

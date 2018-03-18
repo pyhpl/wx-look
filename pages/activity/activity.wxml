@@ -13,115 +13,79 @@
   </view>
 </view>
 <view class="header-gap"></view>
-<!-- activity  -->
-<view class="activity">
-  <view class="header">
-    <view class="people-info">
-      <image src="./resource/image/zuozhu.jpg"></image>
-      <text class="name">随风</text>
-    </view>
-    <text class="school">云南大学</text>
-  </view>
-  <view class="content">
-    <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
-  </view>
-  <view class="desc-picture">
-    <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
-  </view>
-  <view class="tag">
-    <text>火影忍者</text>
-  </view>
-  <view class="bottom">
-    <view class="left">
-      <view class="comment">
-        <i class="iconfont icon-comment"></i>
-        <text>1234</text>
-      </view>
-      <view class="like">
-        <i class="iconfont icon-top-arrow"></i>
-        <text>1234</text>
-      </view>
-    </view>
-    <view class="to-detail">
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-    </view> 
-  </view>
-</view>
 
-<view class="content-gap"></view>
+<scroll-view scroll-y="true">
+  <!-- activity  -->
+  <view class="activity">
+    <view class="header">
+      <view class="people-info">
+        <image src="./resource/image/zuozhu.jpg"></image>
+        <text class="name">随风</text>
+      </view>
+      <text class="school">云南大学</text>
+    </view>
+    <view class="content">
+      <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
+    </view>
+    <view class="desc-picture">
+      <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
+    </view>
+    <view class="tag">
+      <text>火影忍者</text>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <view class="comment">
+          <i class="iconfont icon-comment"></i>
+          <text>1234</text>
+        </view>
+        <view class="like">
+          <i class="iconfont icon-like"></i>
+          <text>1234</text>
+        </view>
+      </view>
+      <view class="date">
+        <text>2018-03-18</text>
+      </view> 
+    </view>
+  </view>
 
-<view class="activity">
-  <view class="header">
-    <view class="people-info">
-      <image src="./resource/image/zuozhu.jpg"></image>
-      <text class="name">随风</text>
-    </view>
-    <text class="school">云南大学</text>
-  </view>
-  <view class="content">
-    <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
-  </view>
-  <view class="desc-picture">
-    <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
-  </view>
-  <view class="tag">
-    <text>火影忍者</text>
-  </view>
-  <view class="bottom">
-    <view class="left">
-      <view class="comment">
-        <i class="iconfont icon-comment"></i>
-        <text>1234</text>
-      </view>
-      <view class="like">
-        <i class="iconfont icon-top-arrow"></i>
-        <text>1234</text>
-      </view>
-    </view>
-    <view class="to-detail">
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-    </view> 
-  </view>
-</view>
+  <view class="content-gap"></view>
 
-<view class="content-gap"></view>
+  <view class="activity">
+    <view class="header">
+      <view class="people-info">
+        <image src="./resource/image/zuozhu.jpg"></image>
+        <text class="name">随风</text>
+      </view>
+      <text class="school">云南大学</text>
+    </view>
+    <view class="content">
+      <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
+    </view>
+    <view class="desc-picture">
+      <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
+    </view>
+    <view class="tag">
+      <text>火影忍者</text>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <view class="comment">
+          <i class="iconfont icon-comment"></i>
+          <text>1234</text>
+        </view>
+        <view class="like">
+          <i class="iconfont icon-like"></i>
+          <text>1234</text>
+        </view>
+      </view>
+      <view class="date">
+        <text>2018-03-18</text>
+      </view> 
+    </view>
+  </view>
 
-<view class="activity">
-  <view class="header">
-    <view class="people-info">
-      <image src="./resource/image/zuozhu.jpg"></image>
-      <text class="name">随风</text>
-    </view>
-    <text class="school">云南大学</text>
-  </view>
-  <view class="content">
-    <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
-  </view>
-  <view class="desc-picture">
-    <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
-  </view>
-  <view class="tag">
-    <text>火影忍者</text>
-  </view>
-  <view class="bottom">
-    <view class="left">
-      <view class="comment">
-        <i class="iconfont icon-comment"></i>
-        <text>1234</text>
-      </view>
-      <view class="like">
-        <i class="iconfont icon-top-arrow"></i>
-        <text>1234</text>
-      </view>
-    </view>
-    <view class="to-detail">
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-      <i class="iconfont icon-right-arrow"></i>
-    </view> 
-  </view>
-</view>
+  <view class="content-gap"></view>
+</scroll-view>
+

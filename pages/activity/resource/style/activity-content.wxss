@@ -40,6 +40,7 @@
 .activity .desc-picture {
   display: flex;
   margin-top: 30rpx;
+  justify-content: space-between;
 }
 
 .activity .desc-picture image {
@@ -66,6 +67,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 5rpx;
+  margin-bottom: 20rpx;
 }
 
 .activity .bottom .left {
@@ -73,8 +76,8 @@
   align-items: center;
 }
 
-.activity .bottom left .comment,
-.activity .bottom left .like {
+.activity .bottom .left .comment,
+.activity .bottom .left .like {
   display: flex;
   align-items: center;
 }
@@ -86,11 +89,11 @@
 
 .activity .bottom .left .comment text,
 .activity .bottom .left .like text {
-  font-size:25rpx;  
+  font-size: 25rpx;  
 }
 
 .activity .bottom .left .comment text {
-  margin-left:10rpx;
+  margin-left: 10rpx;
 }
 
 .activity .bottom .left .like {
@@ -99,4 +102,17 @@
 
 .activity .bottom .left .like i {
   margin-left: 10rpx;
+}
+
+.activity .bottom .left .like text {
+  margin-left: 3rpx;
+}
+
+.activity .date {
+  display: flex;
+  align-items: center;
+}
+
+.activity .date text {
+  font-size: 25rpx;
 }
