@@ -1,14 +1,14 @@
 .navbar {
   display: flex;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-.navbar .navbar-search {
-  width: 15%;
-  padding-top: 10rpx;
-  padding-left: 10rpx;
+  flex-direction: row;  
+  justify-content: space-between;
+  background-color: white;
+  padding-left: 7rpx;
+  padding-right: 7rpx;
+  position: fixed;
+  height: 70rpx;
+  width: 100%;
 }
 
 .navbar .navbar-search-text {
@@ -26,13 +26,15 @@
 }
 
 .navbar-tag-selcted {
-  color: #1296db; 
+  color: #3db4ff; 
 }
 
 .navbar .navbar-tag-add {
   background-color: white;
-  color: #1296db; 
-  padding-top: 10rpx;
-  width: 15%;
-  text-align: center;
+  color: #3db4ff;
+  padding-right: 15rpx;  
+}
+
+.navbar .navbar-tag-add text {
+  font-size: 20pt;
 }

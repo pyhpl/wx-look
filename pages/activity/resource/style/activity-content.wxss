@@ -1,6 +1,5 @@
-.activity {  
-  /* border-top: 1px solid rebeccapurple; */
-  padding-left: 20rpx;
+.activity {
+  padding: 0 20rpx;
   background-color: white;
 }
 
@@ -9,26 +8,95 @@
   align-items: center;
   flex-direction: row;
   height: 120rpx;
+  justify-content: space-between;
 }
 
-.activity .header image {
+.activity .header .people-info {
+  display: flex;
+  align-items: center;
+}
+
+.activity .header .people-info image {
   width: 70rpx;
   height: 70rpx;
   border-radius: 50%;
 }
 
 .activity .header .name {
-  margin-left: 20rpx; 
+  margin-left: 20rpx;
   font-size: 30rpx;
   color: gray;
 }
 
 .activity .header .school {
-  margin-left: 435rpx;
   font-size: 30rpx;
   color: gray;
 }
 
 .activity .content {
   font-size: 35rpx;
+}
+
+.activity .desc-picture {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.activity .desc-picture image {
+  flex-grow: 1;
+}
+
+.activity .tag {
+  display: flex;
+  padding: 16rpx 0;
+  font-size: 24rpx;
+  line-height: 42rpx;
+}
+
+.activity .tag text {
+  font-size: 22rpx;
+  background: #3db4ff;
+  color: #fff;
+  padding: 0 12rpx;
+  line-height: 2;
+  border-radius: 20rpx;
+}
+
+.activity .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity .bottom .left {
+  display: flex;
+  align-items: center;
+}
+
+.activity .bottom left .comment,
+.activity .bottom left .like {
+  display: flex;
+  align-items: center;
+}
+
+.activity .bottom .left .comment i,
+.activity .bottom .left .like i {
+  font-size: 15pt;
+}
+
+.activity .bottom .left .comment text,
+.activity .bottom .left .like text {
+  font-size:25rpx;  
+}
+
+.activity .bottom .left .comment text {
+  margin-left:10rpx;
+}
+
+.activity .bottom .left .like {
+  margin-left: 5rpx;
+}
+
+.activity .bottom .left .like i {
+  margin-left: 10rpx;
 }
