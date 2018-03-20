@@ -41,10 +41,30 @@
   display: flex;
   margin-top: 30rpx;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.activity .desc-picture image {
+/* 1 X 1  */
+.activity .desc-picture .img_1X1 {
   flex-grow: 1;
+  height: 480rpx;  
+  margin-bottom: 10rpx;
+}
+/* 1 X 2  */
+.activity .desc-picture .img_1X2 {
+  width: 350rpx;
+  height: 350rpx;
+  margin-bottom: 10rpx;
+}
+/* 1 X 3  */
+.activity .desc-picture .img_1X3 {
+  width: 230rpx; 
+  height: 230rpx;
+  margin-bottom: 10rpx;
+}
+/* 1 X 3_5_8  */
+.activity .desc-picture .img_1X3_5_8 {
+  margin-right: 240rpx;
 }
 
 .activity .tag {
@@ -76,23 +96,23 @@
   align-items: center;
 }
 
-.activity .bottom .left .comment,
+.activity .bottom .left .join-people,
 .activity .bottom .left .like {
   display: flex;
   align-items: center;
 }
 
-.activity .bottom .left .comment i,
+.activity .bottom .left .join-people i,
 .activity .bottom .left .like i {
   font-size: 15pt;
 }
 
-.activity .bottom .left .comment text,
+.activity .bottom .left .join-people text,
 .activity .bottom .left .like text {
   font-size: 25rpx;  
 }
 
-.activity .bottom .left .comment text {
+.activity .bottom .left .join-people text {
   margin-left: 10rpx;
 }
 

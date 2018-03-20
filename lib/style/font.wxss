@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 594775 */
-  src: url('//at.alicdn.com/t/font_594775_0s7gn90nzrveipb9.eot');
-  src: url('//at.alicdn.com/t/font_594775_0s7gn90nzrveipb9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_594775_0s7gn90nzrveipb9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_594775_0s7gn90nzrveipb9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_594775_0s7gn90nzrveipb9.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.eot');
+  src: url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.woff') format('woff'),
+  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -23,4 +23,4 @@
 
 .icon-like:before { content: "\e661"; }
 
-.icon-comment:before { content: "\e603"; }
+.icon-join-people:before { content: "\e696"; }

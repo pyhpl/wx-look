@@ -1,6 +1,6 @@
 <!-- navbar  -->
 <view class='navbar'>
-  <view class='navbar-search'>
+  <view catchtap="toSearch" class='navbar-search'>
     <text class='navbar-search-text iconfont icon-search'></text>
   </view>
   <view class='navbar-tags'>
@@ -15,77 +15,44 @@
 <view class="header-gap"></view>
 
 <scroll-view scroll-y="true">
-  <!-- activity  -->
-  <view class="activity">
-    <view class="header">
-      <view class="people-info">
-        <image src="./resource/image/zuozhu.jpg"></image>
-        <text class="name">随风</text>
-      </view>
-      <text class="school">云南大学</text>
-    </view>
-    <view class="content">
-      <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
-    </view>
-    <view class="desc-picture">
-      <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
-    </view>
-    <view class="tag">
-      <text>火影忍者</text>
-    </view>
-    <view class="bottom">
-      <view class="left">
-        <view class="comment">
-          <i class="iconfont icon-comment"></i>
-          <text>1234</text>
+  <!-- activitys  -->
+  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="*this">
+    <!-- activity  -->
+    <view class="activity">
+      <view class="header">
+        <view class="people-info">
+          <image src="{{activity.avatarUrl}}"></image>
+          <text class="name">{{activity.initiator}}</text>
         </view>
-        <view class="like">
-          <i class="iconfont icon-like"></i>
-          <text>1234</text>
-        </view>
+        <text class="school">{{activity.school}}</text>
       </view>
-      <view class="date">
-        <text>2018-03-18</text>
-      </view> 
-    </view>
-  </view>
-
-  <view class="content-gap"></view>
-
-  <view class="activity">
-    <view class="header">
-      <view class="people-info">
-        <image src="./resource/image/zuozhu.jpg"></image>
-        <text class="name">随风</text>
+      <view class="content">
+        <text class="text-content">{{activity.title}}</text>
       </view>
-      <text class="school">云南大学</text>
-    </view>
-    <view class="content">
-      <text class="text-content">世人谓我恋长安，其实只恋长安某世人谓我恋长安，其实只恋长安某</text>
-    </view>
-    <view class="desc-picture">
-      <image wx:for="{{images}}" wx:for-item="imageUrl" wx:key="*this" catchtap="imagePreview" src="{{imageUrl}}" data-list="{{images}}" data-src="{{imageUrl}}"></image>
-    </view>
-    <view class="tag">
-      <text>火影忍者</text>
-    </view>
-    <view class="bottom">
-      <view class="left">
-        <view class="comment">
-          <i class="iconfont icon-comment"></i>
-          <text>1234</text>
-        </view>
-        <view class="like">
-          <i class="iconfont icon-like"></i>
-          <text>1234</text>
-        </view>
+      <view class="desc-picture">
+        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="*this" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
       </view>
-      <view class="date">
-        <text>2018-03-18</text>
-      </view> 
+      <view class="tag">
+        <text>{{activity.tag}}</text>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <view class="join-people">
+            <i class="iconfont icon-join-people"></i>
+            <text>{{activity.joinPeople}}</text>
+          </view>
+          <view class="like">
+            <i class="iconfont icon-like"></i>
+            <text>{{activity.likeCount}}</text>
+          </view>
+        </view>
+        <view class="date">
+          <text>{{activity.publishDate}}</text>
+        </view> 
+      </view>
     </view>
-  </view>
-
-  <view class="content-gap"></view>
+    <!-- gap  -->
+    <view class="content-gap"></view>
+  </block>
 </scroll-view>
 

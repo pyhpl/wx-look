@@ -4,14 +4,15 @@
     "pages/topic/topic",
     "pages/publish/publish",
     "pages/message/message",
-    "pages/my-space/my-space"
+    "pages/my-space/my-space",
+    "pages/search/search"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "千寻",
     "navigationBarTextStyle":"black",
-    "onReachBottomDistance": 100
+    "onReachBottomDistance": 400
   },
   "tabBar": {
     "color": "#2c2c2c",

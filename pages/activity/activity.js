@@ -1,5 +1,6 @@
+import grace from "../../lib/js/grace/grace.js"
 
-Page({
+grace.page({
   data: {    
     tags: [
       { id: 1, name: "推荐" },
@@ -11,17 +12,64 @@ Page({
       { id: 7, name: "电影" }
     ],
     currentId: 1,
-    images: [
-      // "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      // "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
+    activitys: [
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      },
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      },
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      }
     ]
+  },
+  // 点击搜索
+  toSearch: function() {
+    var url = "../search/search";
+    wx.navigateTo({
+      url: url
+    })
   },
   // 导航标签点击
   navbarTagTaped: function (e) {
-    this.setData({
-      currentId: e.target.dataset.id
-    });
+    this.$data.currentId = e.target.dataset.id;
   },
   // 预览图片
   imagePreview: function (e) {
@@ -33,7 +81,21 @@ Page({
     })
   },
   // 触底加载
-  onReachBottom: function () {    
-    console.log('circle 下一页');
+  onReachBottom: function () {
+    this.$data.activitys = this.$data.activitys.concat([
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      }
+    ]);
   }
 })
