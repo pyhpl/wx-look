@@ -1,0 +1,33 @@
+page {
+  font-size: 32rpx;
+}
+
+.navbar-content__bd {
+    padding-bottom: 80rpx;
+}
+
+page,
+.navbar-content,
+.navbar-content__bd{
+    height: 100%;
+}
+.navbar-content__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    /* padding-top: 120rpx; */
+    text-align: center;
+}
+
+.weui-navbar {
+  background-color: white;
+  top: 
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #3db4ff;
+}
+
+.weui-navbar__slider {
+  background-color: #3db4ff;
+}

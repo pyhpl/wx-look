@@ -87,8 +87,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 5rpx;
-  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 27rpx;
+  color: gray;
 }
 
 .activity .bottom .left {
@@ -102,9 +103,12 @@
   align-items: center;
 }
 
-.activity .bottom .left .join-people i,
-.activity .bottom .left .like i {
+.activity .bottom .left .join-people i {
   font-size: 15pt;
+}
+
+.activity .bottom .left .like i {
+  font-size: 17pt;
 }
 
 .activity .bottom .left .join-people text,
@@ -117,7 +121,7 @@
 }
 
 .activity .bottom .left .like {
-  margin-left: 5rpx;
+  margin-left: 40rpx;
 }
 
 .activity .bottom .left .like i {

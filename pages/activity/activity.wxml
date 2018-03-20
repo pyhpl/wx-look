@@ -42,7 +42,7 @@
             <text>{{activity.joinPeople}}</text>
           </view>
           <view class="like">
-            <i class="iconfont icon-like"></i>
+            <i class="iconfont icon-like" ></i>
             <text>{{activity.likeCount}}</text>
           </view>
         </view>
@@ -56,3 +56,6 @@
   </block>
 </scroll-view>
 
+<!-- 
+<import src="../../lib/ui/zanui/loadmore/index.wxml" />
+<template is="zan-loadmore" data="{{ nomore: true }}"></template> -->

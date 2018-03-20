@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 594775 */
-  src: url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.eot');
-  src: url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.woff') format('woff'),
-  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_594775_aaj2s0iakc8r529.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_594775_8fc0gpi9u9l1h5mi.eot');
+  src: url('//at.alicdn.com/t/font_594775_8fc0gpi9u9l1h5mi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_594775_8fc0gpi9u9l1h5mi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_594775_8fc0gpi9u9l1h5mi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_594775_8fc0gpi9u9l1h5mi.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -24,3 +24,5 @@
 .icon-like:before { content: "\e661"; }
 
 .icon-join-people:before { content: "\e696"; }
+
+.icon-cancel:before { content: "\e61b"; }

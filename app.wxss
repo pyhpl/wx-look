@@ -1,3 +1,9 @@
 /**app.wxss**/
+@import './lib/style/font.wxss';
 @import "./lib/ui/zanui/index.wxss"; /* 引入有赞ui库  */
-@import "./lib/ui/weui/index.wxss";
+@import "./lib/ui/weui/index.wxss"; /* 引入微信官方库 */
+@import "./lib/ui/ripplesui/ripples.min.wxss"; /* 引入ripple特效库 */
+
+page {    
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}

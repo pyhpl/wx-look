@@ -1,4 +1,3 @@
-@import '../../lib/style/font.wxss';
 @import './resource/style/navbar.wxss';
 @import './resource/style/activity-content.wxss';
 

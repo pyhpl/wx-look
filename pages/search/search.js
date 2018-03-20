@@ -1,66 +1,36 @@
+import grace from "../../lib/js/grace/grace.js"
 
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+grace.page({
   data: {
-    
+    tabs: ["活动", "主题", "学校"],
+    activeIndex: 1,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  onLoad: function () {
+    var that = this;
+    var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+    wx.getSystemInfo({
+      success: function (res) {
+        that.$data.sliderLeft = (res.windowWidth / that.data.tabs.length - sliderWidth) / 2;
+        that.$data.sliderOffset = res.windowWidth / that.data.tabs.length * that.data.activeIndex;
+        // that.setData({
+        //   sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+        //   sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        // });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  tabClick: function (e) {
+    this.$data.sliderOffset = e.currentTarget.offsetLeft;
+    this.$data.activeIndex = e.currentTarget.id;
+    // this.setData({
+    //   sliderOffset: e.currentTarget.offsetLeft,
+    //   activeIndex: e.currentTarget.id
+    // });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  // 触底加载
+  hello: function () {
+    console.log("hello");
   }
-})
+});

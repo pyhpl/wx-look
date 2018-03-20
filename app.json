@@ -1,18 +1,18 @@
 {
-  "pages":[
-    "pages/activity/activity",
+  "pages":[        
+    "pages/search/search",
+    "pages/activity/activity",        
     "pages/topic/topic",
     "pages/publish/publish",
     "pages/message/message",
-    "pages/my-space/my-space",
-    "pages/search/search"
+    "pages/my-space/my-space"    
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "千寻",
     "navigationBarTextStyle":"black",
-    "onReachBottomDistance": 400
+    "onReachBottomDistance": 40
   },
   "tabBar": {
     "color": "#2c2c2c",
