@@ -1,0 +1,11 @@
+<view class='navbar'>
+  <view class='navbar-search-icon' catchtap="toSearch">
+    <text class='iconfont icon-search'></text>
+  </view>
+  <scroll-view scroll-x="true" class='navbar-tags'>
+    <text data-tag-on="{{index}}" wx:for="{{tags}}" wx:key="*this" wx:for-item="tag" catchtap="_navbarTagTaped" class="{{index === tagOn ? 'navbar-tag-selcted' : ''}}">{{tag}}</text>
+  </scroll-view>
+  <view class='navbar-tag-add-icon'>
+    <i class='iconfont icon-add'></i>
+  </view>
+</view>

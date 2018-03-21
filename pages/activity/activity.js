@@ -3,15 +3,15 @@ import grace from "../../lib/js/grace/grace.js"
 grace.page({
   data: {    
     tags: [
-      { id: 1, name: "推荐" },
-      { id: 2, name: "电影" },
-      { id: 3, name: "电影" },
-      { id: 4, name: "电影" },
-      { id: 5, name: "电影" },
-      { id: 6, name: "电影" },
-      { id: 7, name: "电影" }
+      "推荐",
+      "XX大学",
+      "课余讨论",
+      "桌游",
+      "火影忍者",
+      "花花草草",
+      "电影"
     ],
-    currentId: 1,
+    tagOn: 0,
     activitys: [
       {
         avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
@@ -67,9 +67,12 @@ grace.page({
       url: url
     })
   },
+  tagTaped: function() {
+    console.log("tag is taped");
+  },
   // 导航标签点击
   navbarTagTaped: function (e) {
-    this.$data.currentId = e.target.dataset.id;
+    this.$data.tagOn = e.currentTarget.dataset.tagOn;
   },
   // 预览图片
   imagePreview: function (e) {

@@ -1,19 +1,19 @@
+ @import '../../../../lib/style/font.wxss';
+
 .navbar {
-  border-top: 1px solid #3db4ff;
   display: flex;
   align-items: center;
   flex-direction: row;  
   justify-content: space-between;
   background-color: white;
-  padding-left: 7rpx;
-  padding-right: 7rpx;
-  position: fixed;
   height: 70rpx;
-  width: 100%;
-  z-index: 100;
 }
 
-.navbar .navbar-search-text {
+.navbar .navbar-search-icon {
+  margin-left: 7rpx;
+}
+
+.navbar .navbar-search-icon text {  
   font-size: 20pt;
 }
 
@@ -22,8 +22,8 @@
   white-space: nowrap;
 }
 
-.navbar .navbar-tags .navbar-tag {
-  padding-right: 50rpx;
+.navbar .navbar-tags text {
+  margin-right: 50rpx;
   font-size: 12pt;
 }
 
@@ -31,11 +31,12 @@
   color: #3db4ff; 
 }
 
-.navbar .navbar-tag-add {
+.navbar .navbar-tag-add-icon {
   color: #3db4ff;
-  padding-right: 15rpx;  
+  overflow: hidden;
 }
 
-.navbar .navbar-tag-add text {
-  font-size: 20pt;
-}
+.navbar .navbar-tag-add-icon i {
+  font-size: 20pt;  
+  padding-right: 8rpx;
+} 

@@ -5,7 +5,7 @@
   </view>
   <view class='navbar-tags'>
     <scroll-view scroll-x="true">
-      <text data-id="{{tag.id}}" wx:key="id" wx:for="{{tags}}" wx:for-item="tag" catchtap="navbarTagTaped" class="navbar-tag {{tag.id === currentId ? 'navbar-tag-selcted' : ''}}">{{tag.name}}      </text>
+      <text data-tag-on="{{index}}" wx:key="id" wx:for="{{tags}}" wx:for-item="tag" catchtap="navbarTagTaped" class="navbar-tag {{tagOn === index ? 'navbar-tag-selcted' : ''}}">{{tag}}</text>
     </scroll-view>
   </view>
   <view class='navbar-tag-add'>
