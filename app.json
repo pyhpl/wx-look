@@ -1,7 +1,7 @@
 {
-  "pages":[            
+  "pages":[                    
+    "pages/activity/activity",
     "pages/search/search",    
-    "pages/activity/activity",        
     "pages/topic/topic",
     "pages/publish/publish",
     "pages/message/message",

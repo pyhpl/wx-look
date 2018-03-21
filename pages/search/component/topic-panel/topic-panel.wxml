@@ -2,8 +2,14 @@
   <view class="page__hd__gap"></view>
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
-      <view class="weui-panel__hd left">
-        <view class="weui-media-box__title left" style="color: black;">{{activity.title}}</view>
+      <view class="weui-panel__hd panel-header">
+        <view class="people-info">
+          <image src="{{activity.avatarUrl}}"></image>
+          <text class="name">{{activity.initiator}}</text>
+        </view>
+        <view class="tag">
+          <text>{{activity.tag}}</text>
+        </view>
       </view>
       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
@@ -11,19 +17,16 @@
             <image class="weui-media-box__thumb" src="{{activity.descPictureUrls[0]}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title left">{{activity.title}}</view>
             <view class="weui-media-box__desc left">{{activity.content}}</view>
           </view>
         </navigator>
       </view>
       <view class="weui-panel__ft">
-        <view class="weui-cell weui-cell_access weui-cell_link" style='padding: 10rpx 30rpx 0;'>
+        <view class="weui-cell weui-cell_access weui-cell_link">
           <view class="weui-cell__bd left">
-            <view class="weui-media-box__info bottom">
-              <view class="weui-media-box__info__meta">
-                <view class="tag">
-                  <text>{{activity.tag}}</text>
-                </view>
-              </view>
+            <view class="weui-media-box__info" style='margin-top: 14rpx;'>
+              <view class="weui-media-box__info__meta">{{activity.school}}</view>
               <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">截止：{{activity.deadline}}</view>
             </view>
           </view>

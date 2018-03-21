@@ -2,8 +2,14 @@
   <view class="page__hd__gap"></view>
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
-      <view class="weui-panel__hd left">
-        <view class="weui-media-box__title left" style="color: black;">{{activity.title}}</view>
+      <view class="weui-panel__hd panel-header">
+        <view class="people-info">
+          <image src="{{activity.avatarUrl}}"></image>
+          <text class="name">{{activity.initiator}}</text>
+        </view>
+        <view>
+          <text>{{activity.school}}</text>
+        </view>
       </view>
       <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
@@ -11,6 +17,7 @@
             <image class="weui-media-box__thumb" src="{{activity.descPictureUrls[0]}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title left">{{activity.title}}</view>
             <view class="weui-media-box__desc left">{{activity.content}}</view>
           </view>
         </navigator>
