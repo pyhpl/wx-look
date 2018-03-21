@@ -20,6 +20,24 @@ grace.page({
         title: "世人谓我恋长安，其实只恋长安某",
         descPictureUrls: [
           "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      },
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
           "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
           "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
         ],

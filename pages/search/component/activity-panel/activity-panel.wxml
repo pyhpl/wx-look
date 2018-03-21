@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="page__hd__gap"></view>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd" style="text-align: left;">
+        <!-- <view class="people-info">
+          <image src="https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"></image>
+          <text class="name">随风</text>          
+        </view> -->
+         <view class="weui-media-box__title" style='text-align: left;'>{{activity.title}}</view>         
+      </view>
+      <view class="weui-panel__bd">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{activity.descPictureUrls[0]}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__desc" style='text-align: left;'>
+              {{activity.content}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd" style="text-align: left;">
+            <view class="weui-media-box__info" style='margin-top: 14rpx;'>
+              <view class="weui-media-box__info__meta">{{activity.tag}}</view>             
+              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">截止：{{activity.deadline}}</view>
+            </view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

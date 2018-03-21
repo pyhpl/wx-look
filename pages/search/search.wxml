@@ -26,7 +26,13 @@
         <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}"></view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <activity-panel activity="{{activity}}"></activity-panel>
+          <activity-panel activity="{{activity}}"></activity-panel>
+          <activity-panel activity="{{activity}}"></activity-panel>
+          <activity-panel activity="{{activity}}"></activity-panel>
+          <activity-panel activity="{{activity}}"></activity-panel>
+        </view>
         <scroll-view scroll-y bindscrolltolower="hello" class="weui-tab__content" hidden="{{activeIndex != 1}}">                             
         </scroll-view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}"></view>

@@ -3,12 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20rpx;
-  margin: 4rpx 0 18rpx 0;
-
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-
+  margin-top: 10rpx;
 }
 
 .search-header .left,

@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "activity-panel": "./component/activity-panel/activity-panel"
+  }
+}

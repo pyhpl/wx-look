@@ -1,7 +1,7 @@
 {
   "pages":[            
-    "pages/activity/activity",   
-    "pages/search/search",     
+    "pages/search/search",    
+    "pages/activity/activity",        
     "pages/topic/topic",
     "pages/publish/publish",
     "pages/message/message",
@@ -10,7 +10,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "千寻",
+    "navigationBarTitleText": "课下约",
     "navigationBarTextStyle":"black",
     "onReachBottomDistance": 40
   },
