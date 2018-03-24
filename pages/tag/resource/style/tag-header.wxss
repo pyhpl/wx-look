@@ -1,0 +1,52 @@
+.tag-add-bar {
+  position: relative;
+  padding: 16rpx 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #efeff4;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+
+.tag-add-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 10rpx;
+  background: #fff;
+  border: 1rpx solid #e6e6ea;
+}
+
+.tag-add-bar__box {
+  position: relative;
+  padding-left: 20rpx;
+  padding-right: 60rpx;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.tag-add-bar__input {
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  margin-left: 16rpx;
+}
+
+.tag-add-bar__add-btn {
+  margin-left: 20rpx;
+  line-height: 56rpx;
+  color: #3db4ff;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.tag-add-bar__add-btn i {
+  font-size: 56rpx;
+}

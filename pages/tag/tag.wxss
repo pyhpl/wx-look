@@ -1,0 +1,2 @@
+@import './resource/style/tag-header.wxss';
+@import './resource/style/tags.wxss';

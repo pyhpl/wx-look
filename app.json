@@ -1,11 +1,12 @@
 {
   "pages":[                    
+    "pages/tag/tag",
     "pages/activity/activity",
     "pages/search/search",    
     "pages/topic/topic",
     "pages/publish/publish",
     "pages/message/message",
-    "pages/my-space/my-space"    
+    "pages/my-space/my-space"
   ],
   "window":{
     "backgroundTextStyle":"light",

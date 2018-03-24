@@ -1,0 +1,21 @@
+<view class="tag-add-bar">
+  <view class="tag-add-bar__form">
+    <view class="tag-add-bar__box">
+      <i class="iconfont icon-tag"></i>
+      <input bindconfirm="addTag" bindinput="onTagInput" type="text" class="tag-add-bar__input" placeholder="标签" />
+    </view>
+  </view>
+  <view class="tag-add-bar__add-btn" catchtap='addTag'>
+    <i class="iconfont icon-add-circle-fill"></i>
+  </view>
+</view>
+
+<view class='tags'>
+  <view wx:for="{{tags}}" wx:for-item="tag" class='tag-container'>    
+    <view class='tag'>{{tag}}</view>
+    <i data-index="{{index}}" data-tag="{{tag}}" catchtap="tagDeleteConfirm" class="iconfont icon-delete tag-delete"></i>
+  </view>
+</view>
+
+<import src="../../lib/ui/zanui/toptips/index.wxml" />
+<template is="zan-toptips"></template>
