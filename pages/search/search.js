@@ -23,27 +23,27 @@ grace.page({
       content: "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。"
     }
   },
-  onLoad: function () {
+  // ************************************************** 页面生命周期方法 ************************************************** //
+  onLoad: function (query) {
+    if (query[0].args != undefined) {
+      var initArgs = JSON.parse(query[0].args);
+      this.$data.activeIndex = initArgs.type;
+      // this.$data.
+    }
     var that = this;
     var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
     wx.getSystemInfo({
       success: function (res) {
         that.$data.sliderLeft = (res.windowWidth / that.data.tabs.length - sliderWidth) / 2;
         that.$data.sliderOffset = res.windowWidth / that.data.tabs.length * that.data.activeIndex;
-        // that.setData({
-        //   sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-        //   sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
-        // });
       }
     });
   },
+  // ************************************************** 自定义方法 ************************************************** //
+  // tab点击响应方法
   tabClick: function (e) {
     this.$data.sliderOffset = e.currentTarget.offsetLeft;
     this.$data.activeIndex = e.currentTarget.id;
-    // this.setData({
-    //   sliderOffset: e.currentTarget.offsetLeft,
-    //   activeIndex: e.currentTarget.id
-    // });
   },
   // 触底加载
   hello: function () {

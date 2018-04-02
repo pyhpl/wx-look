@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    service: {
+      cloud: 'http://10.100.22.230:8890',
+    }
   }
 })

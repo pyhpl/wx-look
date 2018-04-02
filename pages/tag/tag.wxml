@@ -1,3 +1,4 @@
+<import src="../../lib/ui/zanui/toptips/index.wxml" />
 <view class="tag-add-bar">
   <view class="tag-add-bar__form">
     <view class="tag-add-bar__box">
@@ -17,5 +18,4 @@
   </view>
 </view>
 
-<import src="../../lib/ui/zanui/toptips/index.wxml" />
-<template is="zan-toptips"></template>
+<template is="zan-toptips" data="{{ zanTopTips }}" > </template>

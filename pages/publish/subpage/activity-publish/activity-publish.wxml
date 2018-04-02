@@ -1,0 +1,19 @@
+<form class='activity-publish'>
+  <view class='activity-title-container'>
+    <view class='top'>
+      <label for='activity-title'>活动名称</label>
+      <text>创建</text>
+    </view>
+    <input id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
+  </view>
+  <view class='activity-detail-container'>
+    <view class='label-container'>
+      <label for='activity-detail'>活动详情</label>
+    </view>    
+    <textarea id='activity-detail' auto-height placeholder="400字以内" maxlength="400" bindinput='onActivityDetailInput' />
+  </view>
+  <view class='activity-topic'>
+    <text>选择主题</text>
+  </view>
+  
+</form>

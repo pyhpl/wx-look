@@ -78,9 +78,42 @@ grace.page({
       }
     ]
   },
+  // ********************** 页面生命周期方法 ******************************** //
+  onReady: function() {
+    this.$bus.$on("tagChange", (tags) => {
+      this.$data.tags = tags;
+    })
+  },
+  // ********************** 页面事件 *************************************** //
+  // 触底加载
+  onReachBottom: function () {
+    this.$data.activitys = this.$data.activitys.concat([
+      {
+        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+        initiator: "随风",
+        school: "云南大学",
+        title: "世人谓我恋长安，其实只恋长安某",
+        descPictureUrls: [
+          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
+        ],
+        tag: "火影忍者",
+        joinPeople: 1234,
+        likeCount: 1234,
+        publishDate: "2018-03-18"
+      }
+    ]);
+  },
+  // ********************** 自定义方法 ************************************* //
   // 点击搜索
   toSearch: function() {
     var url = "../search/search";
+    wx.navigateTo({
+      url: url
+    })
+  },
+  // 点击添加标签
+  toAddTag: function() {
+    var url = "../tag/tag?tags=" + JSON.stringify(this.data.tags);
     wx.navigateTo({
       url: url
     })
@@ -100,23 +133,5 @@ grace.page({
       current: src, // 当前显示图片的http链接
       urls: imgList // 需要预览的图片http链接列表
     })
-  },
-  // 触底加载
-  onReachBottom: function () {
-    this.$data.activitys = this.$data.activitys.concat([
-      {
-        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        initiator: "随风",
-        school: "云南大学",
-        title: "世人谓我恋长安，其实只恋长安某",
-        descPictureUrls: [
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
-        ],
-        tag: "火影忍者",
-        joinPeople: 1234,
-        likeCount: 1234,
-        publishDate: "2018-03-18"
-      }
-    ]);
   }
 })

@@ -1,0 +1,20 @@
+<form class='topic-publish'>
+  <view class='topic-present'>
+    <view class='left'>
+      <view class='topic-image' catchtap='chooseImage'>
+        <image src='{{topicImage}}' class='{{topicImage === "./resource/image/camera.png" ? "thumbnail" : "topic-pull-image"}}' mode="aspectFill"></image>
+      </view>
+      <view class='topic-title-container'>
+        <label for='topic-title'>主题名称</label>
+        <input id='topic-title' type="text" placeholder="给主题取个响亮的名称吧" maxlength="11" />
+      </view>
+    </view>
+    <view class='topic-create'>
+      <text class='text-create'>创建</text>
+    </view>
+  </view>
+  <view class='topic-description-container'>
+    <label for='topic-description'>主题描述{{(topicDescTip)}}</label>
+    <textarea id='topic-description' auto-height placeholder="200字以内" maxlength="200" bindinput='onTopicDescInput' />
+  </view>
+</form>

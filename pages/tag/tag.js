@@ -3,17 +3,18 @@ var Zan = require('../../lib/ui/zanui/index');
 
 grace.page(Object.assign({}, Zan.TopTips, {
   data: {
-    topTips: "aaaaa",
-    tags: [
-      "火影忍者",
-      "火影忍者",
-      "火影忍者",
-      "火影忍者",
-      "火影忍者火影忍者",
-      "火影忍者",
-      "火影忍者",
-      "火影忍者火影忍者",
-    ]
+    zanTopTips: {
+      show: false,
+      content: "",
+      options: {
+        duration: 500
+      },
+      timer: 0
+    },
+    tags: []
+  },
+  onLoad: function (query) {
+    this.$data.tags = JSON.parse(query[0].tags);
   },
   customData: {
     tag: ''
@@ -22,11 +23,12 @@ grace.page(Object.assign({}, Zan.TopTips, {
     this.customData.tag = e.detail.value;
   },
   addTag: function () {
-    // if (this.data.tags.indexOf(this.customData.tag) == -1) {
-      this.$data.tags.push(this.customData.tag);
-    // } else {
-      // this.showZanTopTips('toptips的内容', 500);
-    // }
+    if (this.data.tags.indexOf(this.customData.tag) == -1) {
+      this.$data.tags.push(this.customData.tag);      
+      this.$bus.$emit("tagChange", this.data.tags);
+    } else {
+      this.showZanTopTips('标签已存在', 700);
+    }
   },
   tagDeleteConfirm: function (e) {
     var self = this;

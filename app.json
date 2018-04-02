@@ -1,10 +1,12 @@
 {
-  "pages":[                    
-    "pages/tag/tag",
-    "pages/activity/activity",
-    "pages/search/search",    
-    "pages/topic/topic",
+  "pages":[
+    "pages/publish/subpage/activity-publish/activity-publish",
     "pages/publish/publish",
+    "pages/activity/activity",    
+    "pages/publish/subpage/topic-publish/topic-publish",
+    "pages/tag/tag",
+    "pages/search/search",
+    "pages/topic/topic",    
     "pages/message/message",
     "pages/my-space/my-space"
   ],

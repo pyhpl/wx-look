@@ -1,0 +1,53 @@
+<view class='publish-panel'>
+  <view class="activity-publish-panel" bindtap='toPublishActivity'>
+    <view class='activity-publish-panel-header'>
+      <view class='activity-icon'>
+        <i class='iconfont icon-flag'></i>
+      </view>
+      <view class='search-bar'>
+        <view class="search-icon" catchtap="toActivitySearch">
+          <i class="iconfont icon-search"></i>
+        </view>
+        <view class="search-input">
+          <input bindconfirm="toActivitySearch" bindinput="onActivityInput" type="text" placeholder="搜索" />
+        </view>
+      </view>
+    </view>
+    <view class='activity-publish-panel-body'>
+      <view class='tip'>
+        <text class='title'>活动</text>
+        <i class='iconfont icon-pen'></i>
+      </view>
+      <view class='title-hr'></view>
+    </view>
+    <view class='activity-publish-panel-bottom'>
+      <i class='iconfont icon-right-arrow-circle-fill'></i>
+    </view>
+  </view>
+  <view class='gap'></view>
+  <view class="topic-publish-panel">
+    <view class='topic-publish-panel-header'>
+      <view class='topic-icon'>
+        <i class='iconfont icon-topic'></i>
+      </view>
+      <view class='search-bar'>
+        <view class="search-icon" catchtap='toTopicSearch'>
+          <i class="iconfont icon-search"></i>
+        </view>
+        <view class="search-input">
+          <input bindconfirm="toTopicSearch" bindinput="onTopicInput" type="text" placeholder="搜索" />
+        </view>
+      </view>
+    </view>
+    <view class='topic-publish-panel-body'>
+      <view class='tip'>
+        <text class='title'>主题</text>
+        <i class='iconfont icon-pen'></i>
+      </view>
+      <view class='title-hr'></view>
+    </view>
+    <view class='topic-publish-panel-bottom'>
+      <i class='iconfont icon-right-arrow-circle-fill'></i>
+    </view>
+  </view>
+</view>

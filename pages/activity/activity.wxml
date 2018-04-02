@@ -8,7 +8,7 @@
       <text data-tag-on="{{index}}" wx:key="id" wx:for="{{tags}}" wx:for-item="tag" catchtap="navbarTagTaped" class="navbar-tag {{tagOn === index ? 'navbar-tag-selcted' : ''}}">{{tag}}</text>
     </scroll-view>
   </view>
-  <view class='navbar-tag-add'>
+  <view catchtap="toAddTag" class='navbar-tag-add'>
     <text class='iconfont icon-add'></text>
   </view>
 </view>
