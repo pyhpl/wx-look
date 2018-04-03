@@ -1,19 +1,72 @@
 <form class='activity-publish'>
+  <!-- 活动名称  -->
   <view class='activity-title-container'>
-    <view class='top'>
-      <label for='activity-title'>活动名称</label>
-      <text>创建</text>
-    </view>
+    <i class='star'>*</i>
+    <label for='activity-title'>活动名称</label>
     <input id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
+    <view class='activity-topic'>
+      <text>选择主题</text>
+    </view>
   </view>
+  <!-- 活动详情  -->
   <view class='activity-detail-container'>
-    <view class='label-container'>
-      <label for='activity-detail'>活动详情</label>
-    </view>    
-    <textarea id='activity-detail' auto-height placeholder="400字以内" maxlength="400" bindinput='onActivityDetailInput' />
+    <i class='star'>*</i>
+    <label for='activity-detail'>活动详情</label>
+    <text class='letter-count-tip'>{{letterCountTip}}</text>
+    <view class='textarea-container'>
+      <textarea id='activity-detail' auto-height placeholder="400字以内" maxlength="400" bindinput='onActivityDetailInput' />
+    </view>
   </view>
-  <view class='activity-topic'>
-    <text>选择主题</text>
+  <!-- 学校、人数、时间、交流群  -->
+  <view class='extra-info-container'>
+    <!-- 学校  -->
+    <view class='school'>
+      <i class='star'>*</i>
+      <label for='school'>学校</label>
+      <input id='school' type="text" placeholder="输入学校" maxlength='16' />
+      <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
+    </view>
+    <view class='line'></view>
+    <!-- 时间  -->
+    <view class='time'>
+      <i class='star'>*</i>
+      <label for='school'>时间</label>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="time-detail">
+          {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+        </view>
+      </picker>
+
+    </view>
+    <view class='line'></view>
+    <!-- 人数  -->
+    <view class='people'>
+      <i class='star'>*</i>
+      <label for='people'>人数</label>
+      <input id='people' type='number' placeholder="输入最大参与人数" />
+      <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
+    </view>
+    <view class='line'></view>
+    <!-- 交流群  -->
+    <view class='contact'>
+      <view class='left' bindchange='bindContactWayChange'>
+        <picker bindchange="bindContactWayChange" value="{{contactWayIndex}}" range="{{contactWays}}">
+          <view class="contact-way">
+            {{contactWays[contactWayIndex]}}
+            <view class='inline-right'>
+              <i class='iconfont icon-forward-to'></i>              
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='v-line'></view>
+      <input type="text" placeholder="输入交流群" maxlength='16' />
+    </view>
   </view>
-  
+  <!-- 创建  -->
+  <view class='create-container'>
+    <button class='create-btn' loading='{{submited}}'>
+      创建
+    </button>
+  </view>
 </form>

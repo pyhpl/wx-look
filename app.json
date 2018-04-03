@@ -1,9 +1,9 @@
 {
-  "pages":[
+  "pages":[    
     "pages/publish/subpage/activity-publish/activity-publish",
-    "pages/publish/publish",
-    "pages/activity/activity",    
     "pages/publish/subpage/topic-publish/topic-publish",
+    "pages/publish/publish",
+    "pages/activity/activity",        
     "pages/tag/tag",
     "pages/search/search",
     "pages/topic/topic",    

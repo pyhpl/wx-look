@@ -28,7 +28,7 @@ grace.page({
     if (this.customData.descriptionLength == 0) {
       this.$data.topicDescTip = ""
     } else {
-      this.$data.topicDescTip = "(" + this.customData.descriptionLength + "/200)";
+      this.$data.topicDescTip = "  (" + this.customData.descriptionLength + "/200)";
     }
   }
 })
