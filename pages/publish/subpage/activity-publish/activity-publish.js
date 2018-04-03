@@ -14,14 +14,26 @@ grace.page({
     endYear: 2050,
     // 联系方式相关数据
     contactWayIndex: 0,
-    contactWays: ["微信", "QQ"]
+    contactWays: ["微信", "QQ"],
+    // 图片相关数据
+    pictureCountTip: "",
+    pictureUrls: [
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg", 
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
+      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"],
   },
   // 自定义数据
   customData: {
-    detailLength: 0
+    detailLength: 0,
+    pictureCount: 0,
   },
   // ****************************** 生命周期方法 ********************************* //
   onLoad() {    
+    // ********* 初始化时间picker相关数据 ********* //
     var obj = look.dateTimePicker(this.data.startYear, this.data.endYear);
     // 精确到分的处理，将数组的秒去掉
     var lastArray = obj.dateTimeArray.pop();
@@ -29,6 +41,8 @@ grace.page({
     // 初始化时间数据
     this.$data.dateTime = obj.dateTime;
     this.$data.dateTimeArray = obj.dateTimeArray;
+    // ********* 初始化图片相关数据 ********* //
+    this.$data.pictureCountTip = "(0/9)";
   },
   // ****************************** 自定义方法 ********************************* //
   // 输入活动详情的事件方法
@@ -55,5 +69,14 @@ grace.page({
   // 联系群改变事件方法
   bindContactWayChange: function(e) {
     this.$data.contactWayIndex = e.detail.value;
+  },
+  // 预览图片
+  imagePreview: function (e) {
+    var src = e.currentTarget.dataset.src; //获取data-src
+    var imgList = e.currentTarget.dataset.list; //获取data-list
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: imgList // 需要预览的图片http链接列表
+    })
   }
 })

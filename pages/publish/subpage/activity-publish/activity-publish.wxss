@@ -12,7 +12,7 @@ page {
   flex-direction: column;
 }
 
-.activity-title-container, .activity-detail-container {
+.activity-title-container, .activity-detail-container, .pictures-container {
   margin: 30rpx 0 26rpx 0;
   background-color: #fff;
   padding: 20rpx 12rpx 12rpx 12rpx;
@@ -53,7 +53,7 @@ page {
   width: 100%;
 }
 
-.letter-count-tip {
+.letter-count-tip, .pictures-header text {
   font-size: 32rpx;
   color: #b2b5b2;
   margin-left: 14rpx;
@@ -96,24 +96,16 @@ page {
   height: 100%;
 }
 
-.school,
-.time,
-.people,
-.contact {
+.school, .time, .people, .contact {
   display: flex;
   flex-flow: row;
   align-items: center;
   height: 90rpx;
 }
 
-.school label, 
-.school input,
-.time label,
-.time picker,
-.people label,
-.people input,
-.contact .left picker,
-.contact input {
+.school label, .school input, .time label, .time picker, .people label,
+.people input, .contact .left picker, .contact input, .pictures-header label,
+.pictures-header text {
   font-size: 32rpx;
 }
 
@@ -127,17 +119,81 @@ page {
   margin-left: 34rpx;
 }
 
-.school input,
-.time input,
-.time picker .time-detail,
-.people input {
+.school input, .time input, .time picker .time-detail, .people input {
   margin-left: 120rpx;
   width: 452rpx;
 }
 
-.school icon,
-.people icon {
-  margin-left: 18rpx
+.school icon, .people icon {
+  margin-left: 18rpx;
+}
+
+.pictures-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pictures-header {
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pictures {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 20rpx;
+  margin-top: 24rpx;
+}
+
+.closeable-picture {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: -12rpx; */
+}
+
+.image_common {
+  width: 208rpx;
+  height: 208rpx;
+  margin-right: 30rpx;
+  border-radius: 12rpx;
+}
+
+.image_2_5_8 {
+  margin-right: 0;
+}
+
+.image_3_4_5_6_7_8 {
+  margin-top: -30rpx;
+}
+
+.closeable-picture .closeable {
+  font-size: 40rpx;
+  position: relative;
+  top: -237rpx;
+  color: red;
+  left: -10rpx;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.to-right {
+  text-align: right;
+}
+
+.no-margin-right {
+  margin-right: 0rpx;
+}
+
+.picture-input-box {
+  width: 208rpx;
+  height: 208rpx;
+  margin-top:-30rpx;
+  border-radius:12rpx;
+  box-sizing: border-box;
 }
 
 .create-container {
@@ -158,4 +214,8 @@ page {
   border-radius: 8rpx;
   width: 100%;
   margin: 20rpx;
+}
+
+.gap {
+  height: 120rpx;
 }
