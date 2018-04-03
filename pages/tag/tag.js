@@ -37,7 +37,6 @@ grace.page(Object.assign({}, Zan.TopTips, {
       confirmText: "确定",
       cancelText: "取消",
       success: function (res) {
-        console.log(res);
         if (res.confirm) {
           self.$data.tags.splice(e.currentTarget.dataset.index, 1);
         }

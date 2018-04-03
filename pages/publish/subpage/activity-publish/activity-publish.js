@@ -15,8 +15,7 @@ grace.page({
     // 联系方式相关数据
     contactWayIndex: 0,
     contactWays: ["微信", "QQ"],
-    // 图片相关数据
-    pictureCountTip: "",
+    // 图片相关数据    
     pictureUrls: [
       "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg", 
       "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
@@ -71,12 +70,41 @@ grace.page({
     this.$data.contactWayIndex = e.detail.value;
   },
   // 预览图片
-  imagePreview: function (e) {
+  imagePreview: function(e) {
     var src = e.currentTarget.dataset.src; //获取data-src
     var imgList = e.currentTarget.dataset.list; //获取data-list
     wx.previewImage({
       current: src, // 当前显示图片的http链接
       urls: imgList // 需要预览的图片http链接列表
     })
-  }
+  },
+  // 删除图片
+  deleteImage: function(e) {
+    var self = this;
+    wx.showModal({
+      content: '删除图片？',
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function (res) {
+        if (res.confirm) {
+          self.$data.pictureUrls.splice(e.currentTarget.dataset.index, 1);
+        }
+      }
+    });
+  },
+  // 选择图片
+  chooseImage: function (e) {
+    if (this.data.pictureUrls.length == 9) {
+      return;
+    }
+    var that = this;
+    wx.chooseImage({
+      count: 9 - that.data.pictureUrls.length,
+      sizeType: ['original'],
+      success: function (res) {
+        debugger;
+        that.$data.pictureUrls = that.$data.pictureUrls.concat(res.tempFilePaths);
+      }
+    })
+  },
 })
