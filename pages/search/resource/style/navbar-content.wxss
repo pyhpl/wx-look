@@ -21,7 +21,6 @@ page,
 
 .weui-navbar {
   background-color: white;
-  top: 
 }
 
 .weui-navbar__item.weui-bar__item_on {
