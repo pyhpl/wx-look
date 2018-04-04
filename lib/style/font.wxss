@@ -44,3 +44,5 @@
 .icon-right-arrow-circle-fill:before { content: '\e61d'; }
 
 .icon-forward-to::before { content: '\e70a'; }
+
+.icon-big-forward-to::before { content: '\e64a'; }

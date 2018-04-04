@@ -18,22 +18,25 @@
 <view class='topic-choose-container'>
   <!-- parent topic scoll-view  -->
   <scroll-view scroll-y class='parent-topics'>
-    <view wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='onTaped' class="parent-topic {{index == onParentTopicIndex ? 'parent-topic-on' : ''}}">
+    <view wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='onTaped' class="parent-topic {{index == onParentTopicIndex ? 'parent-topic-on' : ''}}">
       <text style="{{index == onParentTopicIndex ? 'color: #3db4ff;font-size: 34rpx;' : ''}}" class="{{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item}}</text>
     </view>
   </scroll-view>
   <!-- child topic scoll-view  -->
-  <scroll-view scoll-y class='topics'>
-     <view class='topic'>
-      <image src='{{topics[0].pictureUrl}}'></image>
-      <view class='text-explain'>
-        <text class='title'>
-          {{topics[0].title}}
-        </text>
-        <!-- <text class='description'>
-          {{topics[0].description}}
-        </text> -->
+  <scroll-view scroll-y class='topics'>
+    <view wx:key='{{index}}' wx:for='{{topics[onParentTopicIndex]}}' wx:for-item='topic' class='topic'>
+      <image src='{{topic.pictureUrl}}' catchtap='onTopicChoosed' data-topic='{{topic.title}}'></image>
+      <view class='text-explain' catchtap='onTopicChoosed' data-topic='{{topic.title}}'>
+        <view class='title'>
+          {{topic.title}}
+        </view>
+        <view class='description'>
+          {{topic.description}}
+        </view>
       </view>
-    </view> 
+      <view class='to-detail' hover-class='to-detail-hover'>
+        <i class='iconfont icon-big-forward-to' />
+      </view>      
+    </view>
   </scroll-view>
 </view>

@@ -4,8 +4,11 @@
     <i class='star'>*</i>
     <label for='activity-title'>活动名称</label>
     <input id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
-    <view class='activity-topic'>
-      <text>选择主题</text>
+    <view class='navigator-container'>
+      <navigator url='../../../topic/subpage/topic-choose/topic-choose' 
+        class='activity-topic' hover-class='activity-topic-hover'>
+        {{topic}}
+      </navigator>
     </view>
   </view>
   <!-- 活动详情  -->
@@ -70,7 +73,7 @@
       <text>({{pictureUrls.length}}/9)</text>
     </view>
     <view id='pictures' class='pictures'>
-      <view class='closeable-picture' wx:for="{{pictureUrls}}" wx:for-item="pictureUrl" wx:key="*this" catchtap="imagePreview" data-list="{{pictureUrls}}" data-src="{{pictureUrl}}">
+      <view class='closeable-picture' wx:for="{{pictureUrls}}" wx:for-item="pictureUrl" wx:key="{{index}}" catchtap="imagePreview" data-list="{{pictureUrls}}" data-src="{{pictureUrl}}">
         <image src="{{pictureUrl}}" class='image_common {{index == 2 || index == 5 || index == 8 ? "image_2_5_8" : ""}} {{index != 0 && index != 1 && index != 2 ? "image_3_4_5_6_7_8" : ""}}' />
         <view class='to-right'>
           <i catchtap='deleteImage' data-index="{{index}}" class="iconfont icon-delete closeable" style='{{index == 2 || index == 5 || index == 8 ? "left: 20rpx;" : ""}}' />

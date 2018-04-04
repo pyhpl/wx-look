@@ -3,6 +3,7 @@ import look from "../../../../lib/js/look/look.js";
 
 grace.page({
   data: {
+    topic: "选择主题",
     letterCountTip: "",
     submited: false,
     // 时间相关数据
@@ -31,7 +32,7 @@ grace.page({
     pictureCount: 0,
   },
   // ****************************** 生命周期方法 ********************************* //
-  onLoad() {    
+  onLoad() {
     // ********* 初始化时间picker相关数据 ********* //
     var obj = look.dateTimePicker(this.data.startYear, this.data.endYear);
     // 精确到分的处理，将数组的秒去掉
@@ -107,4 +108,8 @@ grace.page({
       }
     })
   },
+  // ****************************** grace方法 ********************************* //
+  $onBackData: function(data) {
+    this.$data.topic = data.topic;
+  }
 })

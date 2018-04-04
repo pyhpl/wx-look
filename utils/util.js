@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const truncate = (str, n) => {
+   return str.substr(0, n) + '...';
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  truncate: truncate
 }

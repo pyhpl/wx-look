@@ -27,21 +27,28 @@ page {
   font-size: 34rpx;
 }
 
+.navigator-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .activity-topic {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   border: 1px solid #3db4ff;
-  width: 146rpx;
   height: 50rpx;
   border-radius: 30rpx;
   margin: 0 0 20rpx 20rpx;
-}
-
-.activity-topic text {
+  padding: 10rpx 20rpx;
   font-size: 26rpx;
   color: #3db4ff;
+}
+
+.activity-topic-hover {
+  background-color: #3db4ff;
+  color: #fff;
 }
 
 .textarea-container {

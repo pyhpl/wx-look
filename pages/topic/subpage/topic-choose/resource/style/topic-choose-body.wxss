@@ -16,7 +16,7 @@
 
 .parent-topics {
   height: 1106rpx;
-  width: 150rpx;
+  width: 190rpx;
 }
 
 .parent-topic {
@@ -56,24 +56,47 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 20rpx;
+  padding: 30rpx 0;
+  margin-left: 40rpx;
+  border-bottom:2rpx solid #eff0f7;
 }
 
 .topic image {
-  width: 120rpx;
-  height: 120rpx;
+  width: 140rpx;
+  height: 140rpx;
   margin-right: 20rpx;
+  border-radius: 12rpx;
 }
 
 .text-explain {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .title { 
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
 
 .description {
   font-size: 26rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 320rpx;
+  line-height: 1.2;
+  color: #7c7e85;
+}
+
+.to-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140rpx;
+  width: 76rpx;
+}
+
+.to-detail-hover {
+  background-color: #efefef;
 }
