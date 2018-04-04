@@ -12,14 +12,53 @@
 </view>
 <!-- gap  -->
 <view class='gap'></view>
-<!-- activity  -->
-<view class='activity'>
+<!-- activitys  -->
+<view class='topic-activity'>
+  <!-- activity navbar -->
   <view class='activity-navbar'>
-    <view class='nav'>
-     <text>最新</text>
+    <view class='nav' catchtap='chooseNav' data-nav="new">
+      <text class='nav-text {{isShowNewest ? "on" : ""}}'>最新</text>
     </view>
-    <view class='nav'>
-      <text>最热</text>
+    <view class='nav' catchtap='chooseNav' data-nav="hot">
+      <text class='nav-text {{isShowHotest ? "on" : ""}}'>最热</text>
     </view>
   </view>
+  <!-- activity content  -->
+  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="*this">    
+    <view class="activity">
+      <view class="header">
+        <view class="people-info">
+          <image src="{{activity.avatarUrl}}"></image>
+          <text class="name">{{activity.initiator}}</text>
+        </view>
+        <text class="school">{{activity.school}}</text>
+      </view>
+      <view class="content">
+        <text class="text-content">{{activity.title}}</text>
+      </view>
+      <view class="desc-picture">
+        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="*this" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+      </view>
+      <view class="tag">
+        <text>{{activity.tag}}</text>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <view class="join-people">
+            <i class="iconfont icon-join-people"></i>
+            <text>{{activity.joinPeople}}</text>
+          </view>
+          <view class="like">
+            <i class="iconfont icon-like"></i>
+            <text>{{activity.likeCount}}</text>
+          </view>
+        </view>
+        <view class="date">
+          <text>{{activity.publishDate}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- gap  -->
+    <view class="content-gap"></view>
+  </block>
 </view>

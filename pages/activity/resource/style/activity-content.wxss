@@ -77,16 +77,17 @@
 .activity .tag {
   display: flex;
   padding: 16rpx 0;
-  font-size: 24rpx;
-  line-height: 42rpx;
 }
 
 .activity .tag text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 22rpx;
   background: #3db4ff;
   color: #fff;
-  padding: 0 12rpx;
-  line-height: 2;
+  padding: 8rpx 12rpx 4rpx 12rpx; 
+  /* line-height: 2; */
   border-radius: 20rpx;
 }
 

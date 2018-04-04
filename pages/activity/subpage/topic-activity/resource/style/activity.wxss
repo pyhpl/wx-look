@@ -1,4 +1,4 @@
-.activity {
+.topic-activity {
   display: flex;
   flex-direction: column;
 }
@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .nav {
@@ -14,13 +18,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20rpx 0 20rpx 0;
+  padding: 20rpx 0 10rpx 0;
 }
 
-.nav text {
-  font-size: 34rpx;  
+.nav-text {
+  font-size: 34rpx;
+  padding-bottom:10rpx;
+  box-sizing: border-box;
+  border-top: 6rpx solid #fff;
+  border-bottom: 6rpx solid #fff;
 }
 
 .on {
-  border-bottom: 2rpx solid #3db4ff;
+  color: #3db4ff;
+  border-bottom-color: #3db4ff;
 }
