@@ -15,7 +15,7 @@ const formatNumber = n => {
 }
 
 const truncate = (str, n) => {
-   return str.substr(0, n) + '...';
+  return str.substr(0, n);
 }
 
 module.exports = {

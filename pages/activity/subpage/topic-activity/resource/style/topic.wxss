@@ -1,0 +1,36 @@
+.topic {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20rpx 24rpx 40rpx 24rpx;
+  background-color: #fff;
+}
+
+.explian {
+  display: flex;
+  flex-direction: column;
+  width: 474rpx;
+  margin-top: 10rpx;
+}
+
+.title {
+  font-size: 32rpx;
+}
+
+.description {
+  font-size: 26rpx;
+  color: #8b8d94;
+  line-height: 1.4;
+  margin-top: 10rpx;
+}
+
+.more,
+.less {
+  color: #3db4ff;
+}
+
+.topic-image {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+}

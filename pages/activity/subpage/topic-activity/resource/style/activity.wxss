@@ -1,0 +1,26 @@
+.activity {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0 20rpx 0;
+}
+
+.nav text {
+  font-size: 34rpx;  
+}
+
+.on {
+  border-bottom: 2rpx solid #3db4ff;
+}

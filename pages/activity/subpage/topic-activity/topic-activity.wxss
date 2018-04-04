@@ -1,0 +1,7 @@
+@import './resource/style/topic.wxss';
+@import './resource/style/activity.wxss';
+
+.gap {
+  background-color: #eff0f7;
+  height: 20rpx;
+}

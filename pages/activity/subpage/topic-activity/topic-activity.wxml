@@ -1,0 +1,25 @@
+<!-- topic  -->
+<view class='topic'>
+  <view class='explian'>
+    <view class='title'>{{topic.title}}</view>
+    <view class='description'>
+      {{topic.description}}
+      <text catchtap='showMore' wx:if='{{more}}' class='more'>...更多</text>
+      <text catchtap='hideMore' wx:if='{{less}}' class='less'>收起</text>
+    </view>
+  </view>
+  <image data-src='{{topic.pictureUrl}}' src='{{topic.pictureUrl}}' class='topic-image' catchtap="imagePreview"></image>
+</view>
+<!-- gap  -->
+<view class='gap'></view>
+<!-- activity  -->
+<view class='activity'>
+  <view class='activity-navbar'>
+    <view class='nav'>
+     <text>最新</text>
+    </view>
+    <view class='nav'>
+      <text>最热</text>
+    </view>
+  </view>
+</view>

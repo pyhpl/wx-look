@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/activity-publish/activity-publish",
     "pages/topic/subpage/topic-choose/topic-choose",    
     "pages/publish/subpage/topic-publish/topic-publish", 
