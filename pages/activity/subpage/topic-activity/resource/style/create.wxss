@@ -1,0 +1,19 @@
+.create-container {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.create-btn {
+  font-size: 32rpx;
+  background-color: #3db4ff;
+  color: #fff;
+  border-radius: 8rpx;
+  width: 100%;
+  margin: 20rpx;
+}

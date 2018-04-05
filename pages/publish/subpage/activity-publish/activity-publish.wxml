@@ -5,10 +5,13 @@
     <label for='activity-title'>活动名称</label>
     <input id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
     <view class='navigator-container'>
-      <navigator url='../../../topic/subpage/topic-choose/topic-choose' 
+      <!-- <navigator url='../../../topic/subpage/topic-choose/topic-choose' 
         class='activity-topic' hover-class='activity-topic-hover'>
         {{topic}}
-      </navigator>
+      </navigator> -->
+      <view catchtap='toChooseTopic' class='activity-topic' hover-class='{{topicHoverClass}}'>
+        {{topic}}
+      </view>
     </view>
   </view>
   <!-- 活动详情  -->

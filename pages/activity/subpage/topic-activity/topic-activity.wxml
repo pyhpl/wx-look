@@ -24,7 +24,7 @@
     </view>
   </view>
   <!-- activity content  -->
-  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="*this">    
+  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="{{index}}">
     <view class="activity">
       <view class="header">
         <view class="people-info">
@@ -37,7 +37,7 @@
         <text class="text-content">{{activity.title}}</text>
       </view>
       <view class="desc-picture">
-        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="*this" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
       </view>
       <view class="tag">
         <text>{{activity.tag}}</text>
@@ -61,4 +61,10 @@
     <!-- gap  -->
     <view class="content-gap"></view>
   </block>
+</view>
+<!-- create -->
+<view class='create-container'>
+  <button class='create-btn' catchtap='toCreateActivityWithTopic'>
+    发布活动
+  </button>
 </view>

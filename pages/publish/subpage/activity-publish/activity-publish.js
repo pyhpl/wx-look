@@ -4,6 +4,7 @@ import look from "../../../../lib/js/look/look.js";
 grace.page({
   data: {
     topic: "选择主题",
+    topicHoverClass: 'activity-topic-hover',
     letterCountTip: "",
     submited: false,
     // 时间相关数据
@@ -28,11 +29,17 @@ grace.page({
   },
   // 自定义数据
   customData: {
+    canChooseTopic: true,
     detailLength: 0,
     pictureCount: 0,
   },
   // ****************************** 生命周期方法 ********************************* //
-  onLoad() {
+  onLoad(data) {
+    if (data[0].topic != undefined) {
+      this.$data.topic = data[0].topic;
+      this.$data.topicHoverClass = 'none';
+      this.customData.canChooseTopic = false;
+    }
     // ********* 初始化时间picker相关数据 ********* //
     var obj = look.dateTimePicker(this.data.startYear, this.data.endYear);
     // 精确到分的处理，将数组的秒去掉
@@ -103,10 +110,17 @@ grace.page({
       count: 9 - that.data.pictureUrls.length,
       sizeType: ['original'],
       success: function (res) {
-        debugger;
         that.$data.pictureUrls = that.$data.pictureUrls.concat(res.tempFilePaths);
       }
     })
+  },
+  // navigate to topic choose
+  toChooseTopic: function() {
+    if (this.customData.canChooseTopic) {
+      wx.navigateTo({
+        url: '../../../topic/subpage/topic-choose/topic-choose',
+      });
+    }
   },
   // ****************************** grace方法 ********************************* //
   $onBackData: function(data) {

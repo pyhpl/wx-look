@@ -84,6 +84,7 @@ grace.page({
   },
   // ************************* 生命周期方法 ************************* //
   onLoad() {
+    wx.setNavigationBarTitle({title: this.data.topic.title});
     this.handleTopicDescription();
   },
   // ************************* 自定义方法 ************************* //
@@ -120,7 +121,7 @@ grace.page({
       urls: imgList // 需要预览的图片http链接列表
     })
   },
-  // 
+  // 点击导航栏 
   chooseNav: function(e) {
     if (e.currentTarget.dataset.nav == 'new') {
       this.$data.isShowNewest = true;
@@ -129,5 +130,11 @@ grace.page({
       this.$data.isShowHotest = true;
       this.$data.isShowNewest = false;
     }
+  },
+  // navigate to activity-publish with this topic
+  toCreateActivityWithTopic: function() {
+    wx.navigateTo({
+      url: '../../../publish/subpage/activity-publish/activity-publish?topic=' + this.data.topic.title,
+    })
   }
 })

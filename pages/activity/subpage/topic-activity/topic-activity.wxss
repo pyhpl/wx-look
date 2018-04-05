@@ -1,5 +1,6 @@
 @import './resource/style/topic.wxss';
 @import './resource/style/activity.wxss';
+@import './resource/style/create.wxss';
 @import '../../resource/style/activity-content.wxss';
 
 .gap {
