@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 594775 */
-  src: url('//at.alicdn.com/t/font_594775_xsnoes6xx647vi.eot');
-  src: url('//at.alicdn.com/t/font_594775_xsnoes6xx647vi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_594775_xsnoes6xx647vi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_594775_xsnoes6xx647vi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_594775_xsnoes6xx647vi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_594775_7pcexpmxt33ul3di.eot');
+  src: url('//at.alicdn.com/t/font_594775_7pcexpmxt33ul3di.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_594775_7pcexpmxt33ul3di.woff') format('woff'),
+  url('//at.alicdn.com/t/font_594775_7pcexpmxt33ul3di.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_594775_7pcexpmxt33ul3di.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -14,6 +14,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.icon-add-topic::before { content: "\e67b"; }
 
 .icon-add:before { content: "\e658"; }
 

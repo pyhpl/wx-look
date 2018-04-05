@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/topic/topic",
     "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/activity-publish/activity-publish",
     "pages/topic/subpage/topic-choose/topic-choose",
@@ -7,8 +8,7 @@
     "pages/publish/publish",
     "pages/activity/activity",        
     "pages/tag/tag",
-    "pages/search/search",
-    "pages/topic/topic",    
+    "pages/search/search",    
     "pages/message/message",
     "pages/my-space/my-space"
   ],

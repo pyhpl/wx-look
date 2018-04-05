@@ -9,7 +9,7 @@
   </view>
   <view class="right">
     <view class="cancel-icon">
-      <i class="iconfont icon-cancel"></i>
+      <i class="iconfont icon-add-circle"></i>
     </view>
   </view>
 </view>
