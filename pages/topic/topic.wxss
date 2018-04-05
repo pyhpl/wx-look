@@ -5,6 +5,7 @@
 
 .swiper {
   height: 400rpx;
+  z-index: 20;
 }
 
 .swiper image {
@@ -32,6 +33,9 @@
   background-color: #fff;
   padding: 6rpx 0;
   /* top: 100rpx; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .parent-topic-container {

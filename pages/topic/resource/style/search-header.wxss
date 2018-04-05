@@ -3,16 +3,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 20rpx 20rpx 0rpx 20rpx;
-  /* position: fixed; */
-  /* top: 0; */
-  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  width: 100%;
   /* z-index: 100; */
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .search-header .left, .search-header .right {
-  /* background-color: rgba(255, 255, 255, 0.3); */
-  background-color: #efefef;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* background-color: #efefef; */
 }
 
 .search-header .left {
@@ -27,8 +27,8 @@
 .search-header .left .search-icon .i {
   font-size: 15pt;
   margin: 0 20rpx;
-  /* color: #fff; */
-  color: #969897;
+  color: #fff;
+  /* color: #969897; */
 }
 
 .search-header .left .search-input {
@@ -36,11 +36,10 @@
   width: 80%;
 }
 
-.search-header .left .search-input .input,
-.search-input .placeholder-class,
+.search-header .left .search-input .input, .search-input .placeholder-class,
 .search-header .right .add-icon .i {
-  /* color: #fff; */
-  color: #a8a7a7;
+  color: #fff;
+  /* color: #a8a7a7; */
 }
 
 .search-header .right {
@@ -50,7 +49,7 @@
   width: 60rpx;
   height: 60rpx;
   border-radius: 50%;
-  /* margin-right: 40rpx; */
+  margin-right: 40rpx;
   margin-left: 20rpx;
 }
 

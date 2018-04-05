@@ -1,31 +1,5 @@
-<!-- search bar close to swiper -->
-<!-- <view class="search-header" style='background-color: #fff;'>
-  <view class="left-swiper">
-    <view class="search-icon-swiper">
-      <i class="iconfont icon-search i-swiper"></i>
-    </view>
-    <view class="search-input-swiper">
-      <input class="input-swiper" placeholder-class="placeholder-class-swiper" type="text" placeholder="搜索" />
-    </view>
-  </view>
-  <view class="right-swiper">
-    <view class="add-icon-swiper">
-      <i class="iconfont icon-add-topic i-swiper"></i>
-    </view>
-  </view>
-</view>  -->
-<!-- swiper  -->
-<swiper id='swiper' indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" class="swiper" autoplay circular indicator-dots="true" interval="5000" duration="1000">
-  <block wx:for="{{hotTopicUrls}}" wx:for-index="index" wx:key="{{index}}">
-    <swiper-item>
-      <image src="{{item.url}}" mode="aspectFill" />
-    </swiper-item>
-  </block>
-</swiper>
-
-<view class='sticky'>
 <!-- search bar  -->
-<view class="search-header">
+<view class="search-header" style='z-index: 10;'>
   <view class="left">
     <view class="search-icon">
       <i class="iconfont icon-search i"></i>
@@ -40,8 +14,33 @@
     </view>
   </view>
 </view>
+<!-- search bar close to swiper -->
+<view class="search-header" style='background-color: #fff;{{show}}'>
+  <view class="left-swiper">
+    <view class="search-icon-swiper">
+      <i class="iconfont icon-search i-swiper"></i>
+    </view>
+    <view class="search-input-swiper">
+      <input class="input-swiper" placeholder-class="placeholder-class-swiper" type="text" placeholder="搜索" />
+    </view>
+  </view>
+  <view class="right-swiper">
+    <view class="add-icon-swiper">
+      <i class="iconfont icon-add-topic i-swiper"></i>
+    </view>
+  </view>
+</view>
+<!-- swiper  -->
+<swiper id='swiper' indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" class="swiper" autoplay circular indicator-dots="true" interval="5000" duration="1000">
+  <block wx:for="{{hotTopicUrls}}" wx:for-index="index" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item.url}}" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
 <!-- parent topic scroll  -->
-<scroll-view scroll-x class='parent-topics'>
+<scroll-view scroll-x class='parent-topics' style='top: {{searchHeaderHeight}}px;'>
   <view wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='parentTopicTaped' class="parent-topic-container">
     <view class='parent-topic'>
       <view class="parent-topic-text {{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item}}</view>
@@ -49,7 +48,6 @@
     </view>
   </view>
 </scroll-view>
-</view>
 
 <!-- topics  -->
 <block wx:for="{{topics[onParentTopicIndex]}}" wx:key='{{index}}' wx:for-item="topic">
