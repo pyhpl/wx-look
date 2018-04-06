@@ -1,10 +1,10 @@
 {
-  "pages":[    
+  "pages":[  
+    "pages/publish/subpage/activity-publish/activity-publish",  
     "pages/activity/subpage/activity-detail/activity-detail",
     "pages/activity/activity",
     "pages/topic/topic",
-    "pages/activity/subpage/topic-activity/topic-activity",
-    "pages/publish/subpage/activity-publish/activity-publish",
+    "pages/activity/subpage/topic-activity/topic-activity",    
     "pages/topic/subpage/topic-choose/topic-choose",
     "pages/publish/subpage/topic-publish/topic-publish",
     "pages/publish/publish",           

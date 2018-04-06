@@ -5,6 +5,7 @@ grace.page({
   data: {
     focusOnIcon: "icon-focus-on",
     likeIcon: "icon-like-new",
+    commentIcon: "icon-comment",
     activity: {
       avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
       initiator: "随风",
@@ -25,28 +26,18 @@ grace.page({
       publishDate: "2018-03-18"
     },
     // editor的bottom属性值
-    editorBottom: 0,
+    isCommenting: false,
     commentLetterCountTip: "",
-    isFocus: false
+    comment: "评论",
+    commentInfo: "",
   },
   customData: {
-    footerFunctionBarHeight: 0,
-    editorBottom: 0
   },
   // ******************************* 生命周期方法 ******************************* //
   onLoad: function () {
     wx.setNavigationBarTitle({
       title: this.data.activity.title,
     })
-    var that = this;
-    // 计算轮播图与搜索框的高度差
-    wx.createSelectorQuery().select('.footer-function-bar').boundingClientRect(function (footerFunctionBar) {
-      that.customData.footerFunctionBarHeight = footerFunctionBar.height;
-      wx.createSelectorQuery().select('.editor-container').boundingClientRect(function (editor) {
-        that.$data.editorBottom = footerFunctionBar.height - editor.height;
-        that.customData.editorBottom = that.data.editorBottom;
-      }).exec();
-    }).exec();
   },
   // ******************************* 自定义方法 ******************************* //
   // 预览图片
@@ -68,9 +59,21 @@ grace.page({
   },
   // comment
   comment: function() {
-    while (this.data.editorBottom != this.customData.footerFunctionBarHeight) {
-      this.$data.editorBottom += 1;
+    if (this.data.isCommenting == false) {
+      this.$data.isCommenting = true;
+      this.$data.comment = "发表";
+      this.$data.commentIcon = "icon-publish";
+    } else {
+      this.$data.isCommenting = false;
+      this.$data.comment = "评论";
+      this.$data.commentIcon = "icon-comment";
     }
+  },
+  // close comment
+  closeComment: function() {
+    this.$data.isCommenting = false;
+    this.$data.comment = "评论";
+    this.$data.commentIcon = "icon-comment";
   },
   // like
   like: function() {
@@ -84,15 +87,16 @@ grace.page({
   inputComment: function(e) {
     if (e.detail.value.length == 0) {
       this.$data.commentLetterCountTip = "";
+      this.$data.commentInfo = ""
     } else {
       this.$data.commentLetterCountTip = "(" + e.detail.value.length + "/100)"
+      this.$data.commentInfo = e.detail.value;
     }
   },
   // publish comment
-  publishComment: function(e) {    
-    while (this.data.editorBottom != this.customData.editorBottom) {
-      this.$data.editorBottom -= 1;
-    }
-    this.$data.isFocus = true;
+  publishComment: function(e) {
+    this.$data.isCommenting = false;
+    this.$data.comment = "评论";
+    this.$data.commentInfo = "";
   }
 })

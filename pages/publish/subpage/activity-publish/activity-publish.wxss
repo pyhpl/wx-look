@@ -103,16 +103,16 @@ page {
   height: 100%;
 }
 
-.school, .time, .people, .contact {
+.school, .time, .people, .contact, .place {
   display: flex;
   flex-flow: row;
   align-items: center;
   height: 90rpx;
 }
 
-.school label, .school input, .time label, .time picker, .people label,
-.people input, .contact .left picker, .contact input, .pictures-header label,
-.pictures-header text {
+.school label, .school input, .place label, .place input, .time label,
+.time picker, .people label, .people input, .contact .left picker,
+.contact input, .pictures-header label, .pictures-header text {
   font-size: 32rpx;
 }
 
@@ -126,12 +126,13 @@ page {
   margin-left: 34rpx;
 }
 
-.school input, .time input, .time picker .time-detail, .people input {
+.school input, .time input, .time picker .time-detail, .people input,
+.place input {
   margin-left: 120rpx;
   width: 452rpx;
 }
 
-.school icon, .people icon {
+.school icon, .people icon, .place icon {
   margin-left: 18rpx;
 }
 
@@ -198,7 +199,7 @@ page {
 .picture-input-box {
   width: 208rpx;
   height: 208rpx;
-  border-radius:12rpx;
+  border-radius: 12rpx;
   box-sizing: border-box;
   margin-top: -30rpx;
 }

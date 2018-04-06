@@ -3,12 +3,24 @@
   <view class="header">
     <view class="people-info">
       <image src="{{activity.avatarUrl}}"></image>
-      <text class="name">{{activity.initiator}}</text>
+      <view class='show-column'>
+        <view class="name">{{activity.initiator}}</view>
+        <view class='publish-date'>02/06</view>
+      </view>
     </view>
     <text class="school">{{activity.school}}</text>
   </view>
-  <view class="content">
-    <text class="text-content">{{activity.title}}</text>
+  <view class="activity-title">
+    <text>{{activity.title}}</text>
+  </view>
+  <view class='activity-content'>
+    每一天，周而复始着生活的年轮。时常在想，这样的单调安逸是否就是岁月的情长。
+    只是，当年华逐渐老去以后，才明白，这浩大的人间，还是情愿做遥远的自己，隔着烟烟水色，看看月色，看看灯火，在不眠的夜里与星星对话。有时候，孤单并不都是忧愁的，能安安静静的做自己，亦是时光赋予的最美。 其实，所谓的遗憾，很多时候，都是我们自己不珍惜，得到时不在意，想起时斯人早已远去。常常，我们是一边走着一边望着，总觉得最美的缘分在前方。只是当有一天，自己终于明白真正需要的是什么时，蓦然回首，已空无一人，任你幡然悔悟，却已无处找寻。光阴缱绻，珍惜那些真正在意你的人吧，因为生活越往前行，就越难遇见这样的人了。
+  </view>
+  <view class='activity-extra-info'>
+    <view class='place'>活动地点：云南大学步行街XXXX店</view>
+    <view class='time'>活动时间：2018-04-09 09:30</view>
+    <view class='contact'>QQ交流群：1234567890</view>
   </view>
   <view class="desc-picture">
     <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
@@ -18,76 +30,79 @@
   </view>
   <view class="bottom">
     <view class="left">
-      <view class="join-people">
-        <i class="iconfont icon-join-people"></i>
-        <text>{{activity.joinPeople}}</text>
+      <view class="limit-people">
+        限定人数：50
       </view>
-      <view class="like">
-        <i class="iconfont icon-like"></i>
-        <text>{{activity.likeCount}}</text>
+      <view class='join-people'>
+        参与人数：20
       </view>
     </view>
-    <view class="date">
-      <text>{{activity.publishDate}}</text>
+    <view class='right'>
+      <view class="activity-comment">
+        <i class="iconfont icon-comment-small"></i>
+        <text>13</text>
+      </view>
+      <view class="like">
+        <i class="iconfont icon-like-new"></i>
+        <text>{{activity.likeCount}}</text>
+      </view>
     </view>
   </view>
 </view>
 <!-- gap  -->
 <view class="content-gap"></view>
-<view class="activity">
-  <view class="header">
-    <view class="people-info">
-      <image src="{{activity.avatarUrl}}"></image>
-      <text class="name">{{activity.initiator}}</text>
-    </view>
-    <text class="school">{{activity.school}}</text>
+
+<view class='comments-detail'>
+  <view class='comments-detail-header'>
+    评论
   </view>
-  <view class="content">
-    <text class="text-content">{{activity.title}}</text>
-  </view>
-  <view class="desc-picture">
-    <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
-  </view>
-  <view class="tag">
-    <text>{{activity.tag}}</text>
-  </view>
-  <view class="bottom">
-    <view class="left">
-      <view class="join-people">
-        <i class="iconfont icon-join-people"></i>
-        <text>{{activity.joinPeople}}</text>
+  <!-- <view class='no-comments'>暂无评论</view> -->
+  <view class='comments-detail-body'>
+
+    <view class='comment-detail'>
+      <view class="header">
+        <view class="people-info">
+          <image src="{{activity.avatarUrl}}"></image>
+          <text class="name">随风</text>
+        </view>
+        <text class="comment-date">2018/04/06</text>
       </view>
-      <view class="like">
-        <i class="iconfont icon-like"></i>
-        <text>{{activity.likeCount}}</text>
+      <view class='comment-content'>
+        很想牵着时光的手，弹一曲莫失莫忘，浅酌流年清欢。只是，我们终究是一边走着，一边淡着；一边走着，一边散着。也许这本就是一个流行离开的世界，千山万水之后，你依旧居住在我的诗里，而我却在流年里逃亡着。这兵荒马乱的季节，嚣张却又有着义无反顾的执着，披着孤独的外衣，走过山河烟岚，走遍字里行间。最后，学会深情地活着，在这薄凉的世界里。
+      </view>
+      <view class='extra-comments'>
+        <view class='extra-comment-content'>
+          <i class='from'>听雨</i> 回复 随风：行走红尘，会有多少擦肩，多少错过，多少遗憾。那些暗香盈袖的心事依然在素锦间呢喃，只是一转眼，那抹情愫已然遗失在阑珊之央。
+        </view>
       </view>
     </view>
-    <view class="date">
-      <text>{{activity.publishDate}}</text>
-    </view>
+
   </view>
 </view>
-<!-- gap  -->
-<view class="content-gap"></view>
+
 <!-- editor  -->
-<view class='editor-container' style='bottom: {{editorBottom}}px;'>
+<view class='editor-container' wx:if="{{isCommenting}}">
   <view class='editor'>
     <view class='title'>
-      回复@随风 <view class="comment-tip">{{commentLetterCountTip}}</view>
+      <view class='left'>回复@随风
+        <view class="comment-tip">{{commentLetterCountTip}}</view>
+      </view>
+      <i style="color: #aba2a2;" class='iconfont icon-close' catchtap="closeComment" />
     </view>
-    <textarea bindconfirm="publishComment" bindinput="inputComment" placeholder-class="editor-textarea-placeholder" placeholder="少于100字" maxlength="100" auto-height fixed show-confirm-bar="true" auto-focus="{{isFocus}}" class='content'></textarea>
+    <textarea value="{{commentInfo}}" bindconfirm="publishComment" bindinput="inputComment" placeholder-class="editor-textarea-placeholder" placeholder="少于100字" maxlength="100" fixed show-confirm-bar="true" class='content'></textarea>
   </view>
 </view>
+<view class='footer-gap'></view>
 <!-- footer function bar -->
 <view class='footer-function-bar'>
   <view class='join-in'>参与活动</view>
   <view class='focus-on' catchtap="focusOn">
     <i class='iconfont {{focusOnIcon}}' />
-    <text>关注</text>    
+    <text>关注</text>
   </view>
   <view class='comment' catchtap='comment'>
-    <i class='iconfont icon-comment' />
-    <text>评论</text>
+    <i class='iconfont {{commentIcon}}' />
+    <text>{{comment}}</text>
   </view>
   <view class='like' catchtap="like">
     <i class='iconfont {{likeIcon}}' />

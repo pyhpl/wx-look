@@ -31,6 +31,14 @@
       <label for='school'>学校</label>
       <input id='school' type="text" placeholder="输入学校" maxlength='16' />
       <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
+    </view>    
+    <view class='line'></view>
+    <!-- 地点  -->
+    <view class='place'>
+      <i class='star'>*</i>
+      <label for='school'>地点</label>
+      <input id='school' type="text" placeholder="输入具体活动地点" maxlength='16' />
+      <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
     </view>
     <view class='line'></view>
     <!-- 时间  -->
@@ -42,9 +50,8 @@
           {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
         </view>
       </picker>
-
     </view>
-    <view class='line'></view>
+    <view class='line'></view>    
     <!-- 人数  -->
     <view class='people'>
       <i class='star'>*</i>

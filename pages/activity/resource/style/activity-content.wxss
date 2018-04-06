@@ -33,7 +33,7 @@
   color: gray;
 }
 
-.activity .content {
+.activity .activity-title {
   font-size: 35rpx;
 }
 

@@ -7,9 +7,9 @@
   border-top-left-radius: 110rpx;
   border-top-right-radius: 110rpx;
   padding: 30rpx 0;
-  height: 400rpx;
+  height: 600rpx;
   position: fixed;
-  bottom: -342rpx;
+  bottom: 0rpx;
   z-index: 80rp;
   width: 100%;
   background-color: #fff;
@@ -23,6 +23,8 @@
 .editor .title {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   font-size: 30rpx;
 }
 
@@ -36,3 +38,6 @@
   color: #9698a0;
 }
 
+.left {
+  display: flex;
+}
