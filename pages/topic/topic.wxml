@@ -15,7 +15,7 @@
   </view>
 </view>
 <!-- search bar close to swiper -->
-<view class="search-header" style='background-color: #fff;{{show}}'>
+<view class="search-header" style='background-color: #fff;{{searchHeaderCloseToSwiperZIndex}}'>
   <view class="left-swiper">
     <view class="search-icon-swiper">
       <i class="iconfont icon-search i-swiper"></i>

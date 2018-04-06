@@ -1,0 +1,38 @@
+.editor-container {
+  display: flex;
+  justify-content: center;
+  border-top: 2rpx solid #dcddde;
+  border-left: 2rpx solid #dcddde;
+  border-right: 2rpx solid #dcddde;
+  border-top-left-radius: 110rpx;
+  border-top-right-radius: 110rpx;
+  padding: 30rpx 0;
+  height: 400rpx;
+  position: fixed;
+  bottom: -342rpx;
+  z-index: 80rp;
+  width: 100%;
+  background-color: #fff;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor .title {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+}
+
+.editor .content {
+  width: 560rpx;
+  font-size: 32rpx;
+}
+
+.comment-tip {
+  margin-left: 10rpx;
+  color: #9698a0;
+}
+

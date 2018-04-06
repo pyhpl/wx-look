@@ -21,12 +21,6 @@
 
 /* parent topics  */
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-
 .parent-topics {
   display: flex;
   white-space: nowrap;

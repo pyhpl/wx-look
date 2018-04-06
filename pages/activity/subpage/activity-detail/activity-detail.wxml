@@ -1,0 +1,96 @@
+<!-- activity  -->
+<view class="activity">
+  <view class="header">
+    <view class="people-info">
+      <image src="{{activity.avatarUrl}}"></image>
+      <text class="name">{{activity.initiator}}</text>
+    </view>
+    <text class="school">{{activity.school}}</text>
+  </view>
+  <view class="content">
+    <text class="text-content">{{activity.title}}</text>
+  </view>
+  <view class="desc-picture">
+    <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+  </view>
+  <view class="tag">
+    <text>{{activity.tag}}</text>
+  </view>
+  <view class="bottom">
+    <view class="left">
+      <view class="join-people">
+        <i class="iconfont icon-join-people"></i>
+        <text>{{activity.joinPeople}}</text>
+      </view>
+      <view class="like">
+        <i class="iconfont icon-like"></i>
+        <text>{{activity.likeCount}}</text>
+      </view>
+    </view>
+    <view class="date">
+      <text>{{activity.publishDate}}</text>
+    </view>
+  </view>
+</view>
+<!-- gap  -->
+<view class="content-gap"></view>
+<view class="activity">
+  <view class="header">
+    <view class="people-info">
+      <image src="{{activity.avatarUrl}}"></image>
+      <text class="name">{{activity.initiator}}</text>
+    </view>
+    <text class="school">{{activity.school}}</text>
+  </view>
+  <view class="content">
+    <text class="text-content">{{activity.title}}</text>
+  </view>
+  <view class="desc-picture">
+    <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+  </view>
+  <view class="tag">
+    <text>{{activity.tag}}</text>
+  </view>
+  <view class="bottom">
+    <view class="left">
+      <view class="join-people">
+        <i class="iconfont icon-join-people"></i>
+        <text>{{activity.joinPeople}}</text>
+      </view>
+      <view class="like">
+        <i class="iconfont icon-like"></i>
+        <text>{{activity.likeCount}}</text>
+      </view>
+    </view>
+    <view class="date">
+      <text>{{activity.publishDate}}</text>
+    </view>
+  </view>
+</view>
+<!-- gap  -->
+<view class="content-gap"></view>
+<!-- editor  -->
+<view class='editor-container' style='bottom: {{editorBottom}}px;'>
+  <view class='editor'>
+    <view class='title'>
+      回复@随风 <view class="comment-tip">{{commentLetterCountTip}}</view>
+    </view>
+    <textarea bindconfirm="publishComment" bindinput="inputComment" placeholder-class="editor-textarea-placeholder" placeholder="少于100字" maxlength="100" auto-height fixed show-confirm-bar="true" auto-focus="{{isFocus}}" class='content'></textarea>
+  </view>
+</view>
+<!-- footer function bar -->
+<view class='footer-function-bar'>
+  <view class='join-in'>参与活动</view>
+  <view class='focus-on' catchtap="focusOn">
+    <i class='iconfont {{focusOnIcon}}' />
+    <text>关注</text>    
+  </view>
+  <view class='comment' catchtap='comment'>
+    <i class='iconfont icon-comment' />
+    <text>评论</text>
+  </view>
+  <view class='like' catchtap="like">
+    <i class='iconfont {{likeIcon}}' />
+    <text>点赞</text>
+  </view>
+</view>

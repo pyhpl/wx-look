@@ -3,8 +3,7 @@ import grace from "../../lib/js/grace/grace.js"
 grace.page({
   data: {
     searchHeaderHeight: 0,
-    searchHeaderCloseToSwiperZIndex: 0,
-    show: "",
+    searchHeaderCloseToSwiperZIndex: "",
     hotTopicUrls: [
       { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' },
       { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' },
@@ -92,12 +91,12 @@ grace.page({
   },
   onPageScroll: function (res) {
     console.log(res.scrollTop)
-    if (this.data.show != "z-index: 10;" &&
+    if (this.data.searchHeaderCloseToSwiperZIndex != "z-index: 10;" &&
       res.scrollTop >= this.customData.swiperAndSearchHeaderHeightDiff) {
-      this.$data.show = "z-index: 10;";
-    } else if (this.data.show != "" &&
+      this.$data.searchHeaderCloseToSwiperZIndex = "z-index: 10;";
+    } else if (this.data.searchHeaderCloseToSwiperZIndex != "" &&
       res.scrollTop < this.customData.swiperAndSearchHeaderHeightDiff) {
-      this.$data.show = "";
+      this.$data.searchHeaderCloseToSwiperZIndex = "";
     } 
   },
 })  

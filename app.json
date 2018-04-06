@@ -1,12 +1,13 @@
 {
-  "pages":[
+  "pages":[    
+    "pages/activity/subpage/activity-detail/activity-detail",
+    "pages/activity/activity",
     "pages/topic/topic",
     "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/activity-publish/activity-publish",
     "pages/topic/subpage/topic-choose/topic-choose",
     "pages/publish/subpage/topic-publish/topic-publish",
-    "pages/publish/publish",
-    "pages/activity/activity",        
+    "pages/publish/publish",           
     "pages/tag/tag",
     "pages/search/search",    
     "pages/message/message",

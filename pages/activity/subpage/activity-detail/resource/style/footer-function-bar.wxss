@@ -1,0 +1,63 @@
+.footer-function-bar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  width: 100%;
+  padding: 20rpx 0;
+  border-top: 2rpx solid #dcddde;
+}
+
+.join-in {
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3db4ff;
+  color: white;
+  width: 508rpx;
+  height: 70rpx;
+  margin-left: 20rpx;
+  border-radius: 50rpx;
+  line-height: 1;
+}
+
+.focus-on,
+.comment,
+.footer-function-bar .like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20rpx;
+  margin-left: 20rpx;
+}
+
+.focus-on i,
+.comment i,
+.footer-function-bar .like i {
+  line-height: 1;
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.footer-function-bar .like i {
+  margin-bottom: 12rpx;
+}
+
+.focus-on text,
+.comment text,
+.footer-function-bar .like text {
+  line-height: 1;
+}
+
+.focus-on-fill {
+  color: #c32625;
+}
+
+.like-fill {
+  color: #c3c4c3;
+}
