@@ -5,7 +5,7 @@
   </view>
   <view class='navbar-tags'>
     <scroll-view scroll-x="true">
-      <text data-tag-on="{{index}}" wx:key="id" wx:for="{{tags}}" wx:for-item="tag" catchtap="navbarTagTaped" class="navbar-tag {{tagOn === index ? 'navbar-tag-selcted' : ''}}">{{tag}}</text>
+      <text data-tag-on="{{index}}" wx:key="uuid" wx:for="{{tags}}" wx:for-item="tag" catchtap="navbarTagTaped" class="navbar-tag {{tagOn === index ? 'navbar-tag-selcted' : ''}}">{{tag['name']}}</text>
     </scroll-view>
   </view>
   <view catchtap="toAddTag" class='navbar-tag-add'>
@@ -16,7 +16,7 @@
 
 <scroll-view scroll-y="true">
   <!-- activitys  -->
-  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="*this">
+  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="{{index}}">
     <!-- activity  -->
     <view class="activity">
       <view class="header">
@@ -30,7 +30,7 @@
         <text>{{activity.title}}</text>
       </view>
       <view class="desc-picture">
-        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="*this" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+        <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
       </view>
       <view class="tag">
         <text>{{activity.tag}}</text>

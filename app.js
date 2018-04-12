@@ -1,42 +1,47 @@
 //app.js
+
+import grace from "./lib/js/grace/grace.js";
+import api from "./api.js";
+
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
+  },
+  init: function() {
+    var that = this;
+    return new Promise(function (resolve, reject) {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            that.globalData.userInfo = "";
+            // 使用code请求微服务获取token
+            grace.http.get(api['token'], { code: res.code }).then(function (success) {
+              var token = success.data;
+              // 设置会话token
+              wx.setStorageSync('token', token);
+              // 添加请求拦截器以便之后的每一次请求都在请求头加上token
+              grace.http.interceptors.request.use((request) => {
+                request.headers["token"] = token;
+              })
+              wx.getUserInfo({
+                success: function (res) {
+                  that.globalData.userInfo = res.userInfo;
+                  if (wx.getStorageSync("token") == undefined ||
+                    wx.getStorageSync("token") == "" || wx.getStorageSync("token") == null) {
+                    grace.http.put(api['user'], {
+                      name: res.userInfo.nickName,
+                      avatar: res.userInfo.avatarUrl
+                    }).then();
+                  }
+                  resolve();
+                }
+              })
+            })
+          }
         }
-      }
-    })
+      });
+    });
   },
   globalData: {
     userInfo: null,
-    service: {
-      cloud: 'http://10.100.22.230:8890',
-    }
   }
 })

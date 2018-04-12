@@ -1,16 +1,11 @@
 import grace from "../../lib/js/grace/grace.js"
+import api from "../../api.js"
+
+var app = getApp();
 
 grace.page({
   data: {    
-    tags: [
-      "推荐",
-      "XX大学",
-      "课余讨论",
-      "桌游",
-      "火影忍者",
-      "花花草草",
-      "电影"
-    ],
+    tags: [],
     tagOn: 0,
     activitys: [
       {
@@ -79,6 +74,15 @@ grace.page({
     ]
   },
   // ********************** 页面生命周期方法 ******************************** //
+  onLoad: function() {
+    var that = this;   
+    app.init().then(function(res) {
+      that.$http.get(api['tags'])
+        .then(function (success) {
+          that.$data.tags = success.data;
+        });
+    });   
+  },
   onReady: function() {
     this.$bus.$on("tagChange", (tags) => {
       this.$data.tags = tags;

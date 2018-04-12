@@ -1,13 +1,13 @@
 {
   "pages":[  
-    "pages/publish/subpage/activity-publish/activity-publish",  
-    "pages/activity/subpage/activity-detail/activity-detail",
     "pages/activity/activity",
+    "pages/publish/subpage/activity-publish/activity-publish",    
+    "pages/publish/subpage/topic-publish/topic-publish",      
+    "pages/activity/subpage/activity-detail/activity-detail",    
     "pages/topic/topic",
     "pages/activity/subpage/topic-activity/topic-activity",    
-    "pages/topic/subpage/topic-choose/topic-choose",
-    "pages/publish/subpage/topic-publish/topic-publish",
-    "pages/publish/publish",           
+    "pages/topic/subpage/topic-choose/topic-choose",    
+    "pages/publish/publish",
     "pages/tag/tag",
     "pages/search/search",    
     "pages/message/message",
@@ -16,7 +16,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "课下约",
+    "navigationBarTitleText": "逛逛",
     "navigationBarTextStyle":"black",
     "onReachBottomDistance": 40
   },

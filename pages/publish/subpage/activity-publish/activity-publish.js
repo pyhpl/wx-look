@@ -35,6 +35,7 @@ grace.page({
   },
   // ****************************** 生命周期方法 ********************************* //
   onLoad(data) {
+    var that = this;       
     if (data[0].topic != undefined) {
       this.$data.topic = data[0].topic;
       this.$data.topicHoverClass = 'none';
