@@ -3,7 +3,7 @@
   <view class='activity-title-container'>
     <i class='star'>*</i>
     <label for='activity-title'>活动名称</label>
-    <input id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
+    <input bindinput='onActivityTitleInput' id='activity-title' type="text" placeholder="给活动取个有吸引力的名称吧" maxlength="20"></input>
     <view class='navigator-container'>
       <!-- <navigator url='../../../topic/subpage/topic-choose/topic-choose' 
         class='activity-topic' hover-class='activity-topic-hover'>
@@ -29,7 +29,7 @@
     <view class='school'>
       <i class='star'>*</i>
       <label for='school'>学校</label>
-      <input id='school' type="text" placeholder="输入学校" maxlength='16' />
+      <input bindinput='onSchoolInput' id='school' type="text" placeholder="输入学校" maxlength='16' />
       <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
     </view>    
     <view class='line'></view>
@@ -37,7 +37,7 @@
     <view class='place'>
       <i class='star'>*</i>
       <label for='school'>地点</label>
-      <input id='school' type="text" placeholder="输入具体活动地点" maxlength='16' />
+      <input bindinput='onPlaceInput' id='school' type="text" placeholder="输入具体活动地点" maxlength='16' />
       <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
     </view>
     <view class='line'></view>
@@ -51,17 +51,17 @@
         </view>
       </picker>
     </view>
-    <view class='line'></view>    
+    <view class='line'></view> 
     <!-- 人数  -->
     <view class='people'>
       <i class='star'>*</i>
       <label for='people'>人数</label>
-      <input id='people' type='number' placeholder="输入最大参与人数" />
+      <input bindinput='onPeopleCountInput' id='people' type='number' placeholder="输入最大参与人数" />
       <icon hidden='true' type="warn" size="23" color="#E64340"></icon>
     </view>
     <view class='line'></view>
     <!-- 交流群  -->
-    <view class='contact'>
+    <view class='contact {{contactWayIndex == 1 ? "wx-contact-container" : ""}}'>
       <view class='left' bindchange='bindContactWayChange'>
         <picker bindchange="bindContactWayChange" value="{{contactWayIndex}}" range="{{contactWays}}">
           <view class="contact-way">
@@ -73,7 +73,13 @@
         </picker>
       </view>
       <view class='v-line'></view>
-      <input type="text" placeholder="输入交流群" maxlength='16' />
+      <input bindinput='onContactPresentInput' hidden='{{contactWayIndex == 1}}' type="text" placeholder="输入交流群" maxlength='16' /> 
+      <view hidden='{{contactWayIndex == 0}}' class='wx-contact-picture-box' bindtap='chooseQRImage'>
+        <view class='wx-contact-picture'>
+           <view hidden='{{QRContactUrl != ""}}' class='QR-code-text'>上传二维码</view>
+           <image hidden='{{QRContactUrl == ""}}' src='{{QRContactUrl}}' class='QR-code-image'></image>
+        </view>
+      </view>
     </view>
   </view>
   <!-- 图片  -->
@@ -96,7 +102,7 @@
   </view>
   <!-- 创建  -->
   <view class='create-container'>
-    <button class='create-btn' loading='{{submited}}'>
+    <button class='create-btn' loading='{{submited}}' bindtap='createActivity'>
       创建
     </button>
   </view>

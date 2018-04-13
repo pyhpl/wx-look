@@ -16,19 +16,20 @@ grace.page({
     endYear: 2050,
     // 联系方式相关数据
     contactWayIndex: 0,
-    contactWays: ["微信", "QQ"],
+    contactWays: ["QQ", "微信"],
     // 图片相关数据    
-    pictureUrls: [
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg", 
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"],
+    pictureUrls: [],
+    // 微信联系群二维码图片
+    QRContactUrl: ""
   },
   // 自定义数据
   customData: {
+    title: "",
+    detail: "",
+    school: "",
+    place: "",
+    peopleCount: -1,
+    contactPresent: "",
     canChooseTopic: true,
     detailLength: 0,
     pictureCount: 0,
@@ -53,14 +54,35 @@ grace.page({
     this.$data.pictureCountTip = "(0/9)";
   },
   // ****************************** 自定义方法 ********************************* //
+  // 输入活动名称的事件方法
+  onActivityTitleInput: function(e) {
+    this.customData.title = e.detail.value;
+  },
   // 输入活动详情的事件方法
   onActivityDetailInput: function(e) {
+    this.customData.detail = e.detail.value;
     this.customData.detailLength = e.detail.value.length;
     if (this.customData.detailLength == 0) {
       this.$data.letterCountTip = ""
     } else {
       this.$data.letterCountTip = "(" + this.customData.detailLength + "/400)";
     }   
+  },
+  // 输入学校的事件方法
+  onSchoolInput: function(e) {
+    this.customData.school = e.detail.value;
+  },
+  // 输入地点的事件方法
+  onPlaceInput: function(e) {
+    this.customData.place = e.detail.value;
+  },
+  // 输入人数的事件方法
+  onPeopleCountInput: function(e) {
+    this.customData.peopleCount = e.detail.value;
+  },
+  // 输入qq交流群的事件方法
+  onContactPresentInput: function(e) {
+    this.customData.contactPresent = e.detail.value;
   },
   // 日期改变事件方法
   changeDateTime: function(e) {
@@ -115,6 +137,17 @@ grace.page({
       }
     })
   },
+  // 选择微信群二维码图片
+  chooseQRImage: function() {
+    var self = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original'],
+      success: function (res) {
+        self.$data.QRContactUrl = res.tempFilePaths[0];
+      }
+    })
+  },
   // navigate to topic choose
   toChooseTopic: function() {
     if (this.customData.canChooseTopic) {
@@ -122,6 +155,48 @@ grace.page({
         url: '../../../topic/subpage/topic-choose/topic-choose',
       });
     }
+  },
+  // 创建活动
+  createActivity: function() {
+    var title = this._validateForm();
+    if (title != "") {
+      wx.showToast({
+        title: title,
+        icon: "none",
+        mask: true,
+      })
+    } else {
+      
+    }
+  },
+  _validateForm: function() {
+    var self = this;    
+    var title = "";
+    if (self.customData.title == "") {
+      title = "请输入活动名称";
+      return title;
+    }
+    if (self.data.topic == "选择主题") {
+      title = "请选择主题";
+      return title;
+    }
+    if (self.customData.detail == "") {
+      title = "请输入活动详情";
+      return title;
+    }
+    if (self.customData.school == "") {
+      title = "请输入学校";
+      return title;
+    }
+    if (self.customData.place == "") {
+      title = "请输入活动地点";
+      return title;
+    }
+    if (self.customData.peopleCount == -1) {
+      title = "请输入最大参与人数";
+      return title;
+    }
+    return title;
   },
   // ****************************** grace方法 ********************************* //
   $onBackData: function(data) {

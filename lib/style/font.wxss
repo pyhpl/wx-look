@@ -19,6 +19,8 @@
 
 .icon-add:before { content: "\e658"; }
 
+.icon-add-wx-contact::before { content: "\e602" }
+
 .icon-add-circle:before { content: "\e6e1"; }
 
 .icon-add-circle-fill:before { content: "\e6e0"; }

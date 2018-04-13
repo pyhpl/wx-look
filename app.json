@@ -1,8 +1,8 @@
 {
   "pages":[  
-    "pages/activity/activity",
-    "pages/publish/subpage/activity-publish/activity-publish",    
-    "pages/publish/subpage/topic-publish/topic-publish",      
+    "pages/publish/subpage/topic-publish/topic-publish",
+    "pages/activity/activity",    
+    "pages/publish/subpage/activity-publish/activity-publish",                      
     "pages/activity/subpage/activity-detail/activity-detail",    
     "pages/topic/topic",
     "pages/activity/subpage/topic-activity/topic-activity",    

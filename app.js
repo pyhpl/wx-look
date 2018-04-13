@@ -18,6 +18,7 @@ App({
               var token = success.data;
               // 设置会话token
               wx.setStorageSync('token', token);
+              console.log("get token: " + token);
               // 添加请求拦截器以便之后的每一次请求都在请求头加上token
               grace.http.interceptors.request.use((request) => {
                 request.headers["token"] = token;

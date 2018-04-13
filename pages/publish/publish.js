@@ -3,7 +3,7 @@ Page({
     activity: '',
     topic: ''
   },
-  // ********************************************* 自定义方法 ********************************************* //
+  // *********** 自定义方法 ************ //
   // 获取活动输入值
   onActivityInput: function (e) {
     this.customData.activity = e.detail.value;
@@ -31,6 +31,18 @@ Page({
     debugger;
     wx.navigateTo({
       url: '../search/search?args=' + JSON.stringify(args),
+    })
+  },
+  // 发布活动
+  toPublishActivity: function() {
+    wx.navigateTo({
+      url: './subpage/activity-publish/activity-publish',
+    })
+  },
+  // 发布主题
+  toPublishTopic: function() {
+    wx.navigateTo({
+      url: './subpage/topic-publish/topic-publish',
     })
   }
 })

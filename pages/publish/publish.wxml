@@ -25,7 +25,7 @@
     </view>
   </view>
   <view class='gap'></view>
-  <view class="topic-publish-panel">
+  <view class="topic-publish-panel" bindtap='toPublishTopic'>
     <view class='topic-publish-panel-header'>
       <view class='topic-icon'>
         <i class='iconfont icon-topic'></i>
