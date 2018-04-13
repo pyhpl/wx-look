@@ -1,9 +1,12 @@
 import grace from "../../../../lib/js/grace/grace.js";
 import look from "../../../../lib/js/look/look.js";
+import api from "../../../../api.js";
 
 grace.page({
   data: {
-    topic: "选择主题",
+    topic: {
+      name: "选择主题"
+    },
     topicHoverClass: 'activity-topic-hover',
     letterCountTip: "",
     submited: false,
@@ -30,6 +33,7 @@ grace.page({
     place: "",
     peopleCount: -1,
     contactPresent: "",
+    qqContact: "",
     canChooseTopic: true,
     detailLength: 0,
     pictureCount: 0,
@@ -147,7 +151,7 @@ grace.page({
         self.$data.QRContactUrl = res.tempFilePaths[0];
       }
     })
-  },
+  },  
   // navigate to topic choose
   toChooseTopic: function() {
     if (this.customData.canChooseTopic) {
@@ -158,6 +162,7 @@ grace.page({
   },
   // 创建活动
   createActivity: function() {
+    var self = this;
     var title = this._validateForm();
     if (title != "") {
       wx.showToast({
@@ -166,8 +171,87 @@ grace.page({
         mask: true,
       })
     } else {
-      
+      wx.showLoading({
+        title: '发布中',
+        mask: true
+      })
+      var activityImages = [];
+      self.data.pictureUrls.forEach((item, index) => {
+        look.postImageObject(item, (res) => {
+          activityImages.push({image: res.data});
+          if (activityImages.length == self.data.pictureUrls.length) {
+            self._createActivity(activityImages);
+          }          
+        }, (error) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传失败，请重试',
+            mask: true,
+            icon: "none"
+          })
+        });
+      });      
     }
+  },
+  _createActivity: function (activityImages) {
+    var self = this;
+    // 构造activity实体
+    var activity = {
+      title: self.customData.title,
+      topicUuid: self.data.topic['uuid'],
+      detail: self.customData.detail,
+      school: self.customData.school,
+      place: self.customData.place,
+      deadline: self._formatDate(),
+      limitUserCount: self.customData.peopleCount,
+      contactType: self.data.contactWayIndex,
+      activityImages: activityImages
+    };
+    if (self.data.contactWayIndex == 1 && self.data.QRContactUrl != "") { // 微信联系群
+      look.postImageObject(self.data.QRContactUrl, (res) => { // 上传图片到云服务器
+        activity['contactRepresent'] = res.data;
+        self.$http.post(api['activity'], activity)
+          .then((success) => {
+            wx.hideLoading();
+            wx.showToast({
+              title: '等待审核',
+              mask: true,
+              icon: "success"
+            })
+          })
+          .catch((error) => {
+            wx.hideLoading();
+            wx.showToast({
+              title: '发布失败，请重试',
+              mask: true,
+              icon: "none"
+            })
+          })
+      })
+    } else {
+      activity['contactRepresent'] = self.customData.contactPresent;
+      self.$http.post(api['activity'], activity)
+        .then((success) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '等待审核',
+            mask: true,
+            icon: "success"
+          })
+        })
+        .catch((error) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传失败，请重试',
+            mask: true,
+            icon: "none"
+          })
+        })
+    }
+  },
+  _formatDate: function() {
+    var self = this;
+    return "20" + self.data.dateTime[0] + "-" + (self.data.dateTime[1] + 1) + "-" + (self.data.dateTime[2] + 1) + " " + self.data.dateTime[3] + ":" + self.data.dateTime[3];
   },
   _validateForm: function() {
     var self = this;    
@@ -176,7 +260,7 @@ grace.page({
       title = "请输入活动名称";
       return title;
     }
-    if (self.data.topic == "选择主题") {
+    if (self.data.topic['name'] == "选择主题") {
       title = "请选择主题";
       return title;
     }
@@ -199,7 +283,7 @@ grace.page({
     return title;
   },
   // ****************************** grace方法 ********************************* //
-  $onBackData: function(data) {
+  $onBackData: function(data) {   
     this.$data.topic = data.topic;
   }
 })

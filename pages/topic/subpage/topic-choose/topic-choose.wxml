@@ -19,16 +19,16 @@
   <!-- parent topic scoll-view  -->
   <scroll-view scroll-y class='parent-topics'>
     <view wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='onTaped' class="parent-topic {{index == onParentTopicIndex ? 'parent-topic-on' : ''}}">
-      <text style="{{index == onParentTopicIndex ? 'color: #3db4ff;font-size: 34rpx;' : ''}}" class="{{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item}}</text>
+      <text style="{{index == onParentTopicIndex ? 'color: #3db4ff;font-size: 34rpx;' : ''}}" class="{{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item['name']}}</text>
     </view>
   </scroll-view>
   <!-- child topic scoll-view  -->
   <scroll-view scroll-y class='topics'>
     <view wx:key='{{index}}' wx:for='{{topics[onParentTopicIndex]}}' wx:for-item='topic' class='topic'>
-      <image src='{{topic.pictureUrl}}' catchtap='onTopicChoosed' data-topic='{{topic.title}}'></image>
-      <view class='text-explain' catchtap='onTopicChoosed' data-topic='{{topic.title}}'>
+      <image src='{{topic.image}}' catchtap='onTopicChoosed' data-topic='{{topic}}'></image>
+      <view class='text-explain' catchtap='onTopicChoosed' data-topic='{{topic}}'>
         <view class='title'>
-          {{topic.title}}
+          {{topic.name}}
         </view>
         <view class='description'>
           {{topic.description}}

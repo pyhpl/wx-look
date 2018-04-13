@@ -19,10 +19,7 @@ grace.page({
       count: 1,
       sizeType: ['original'],
       success: function (res) {
-        that.$data.topicImage = res.tempFilePaths[0];
-        look.postImageObject(that.$data.topicImage, (res) => {
-          console.log(res.data)
-        });
+        that.$data.topicImage = res.tempFilePaths[0];        
       }
     })
   },
@@ -51,10 +48,41 @@ grace.page({
         icon: "none"
       })
     } else {
-      self.$http.post(api['topic'], {
-        name: self.customData.topicTitle,
-        description: self.customData.topicDescription
-      }).then();
+      wx.showLoading({
+        title: '创建中',
+        mask: true
+      })
+      // 上传图片
+      look.postImageObject(self.data.topicImage, (res) => {
+        self.$http.post(api['topic'], {
+          name: self.customData.topicTitle,
+          description: self.customData.topicDescription,
+          image: res.data
+        })
+        .then(function (success) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '等待审核',
+            mask: true,
+            icon: "success"
+          })
+        })
+        .catch(function (error) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传失败，请重试',
+            mask: true,
+            icon: "none"
+          })
+        });
+      }, (error) => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '上传失败，请重试',
+          mask: true,
+          icon: "none"
+        })
+      });
     }
   },
   // 验证

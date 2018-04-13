@@ -10,7 +10,7 @@
         {{topic}}
       </navigator> -->
       <view catchtap='toChooseTopic' class='activity-topic' hover-class='{{topicHoverClass}}'>
-        {{topic}}
+        {{topic['name']}}
       </view>
     </view>
   </view>
