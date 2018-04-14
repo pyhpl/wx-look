@@ -1,0 +1,41 @@
+<view class='h-line'></view>
+<!-- 系统消息 -->
+<view class='message' bindlongtap='delete' hover-class='message-hover'>
+  <view class='left'>
+    <view class='type'>审核中：</view>
+    <view class='title'>活动XXXX</view>
+  </view>
+  <view class='right'>
+    <i class='iconfont icon-dot dot' />     
+  </view>
+</view>
+<view class='message' bindlongtap='delete' hover-class='message-hover'>
+  <view class='left'>
+    <view class='type'>通过：</view>
+    <view class='title'>活动XXXX</view>
+  </view>
+  <view class='right'>
+    <i class='iconfont icon-dot dot' />     
+  </view>
+</view>
+<view class='message' bindlongtap='delete' hover-class='message-hover'>
+  <view class='left'>
+    <view class='type'>驳回：</view>
+    <view class='title del'>活动XXXX</view>
+  </view>
+  <view class='right'>
+    <i class='iconfont icon-dot dot' />     
+  </view>
+</view>
+<!-- 人员加入消息 -->
+<view class='message' bindlongtap='delete' hover-class='message-hover'>
+  <view class='left'>
+    <image src='https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' class='avatar'></image>
+    <view class='name'>随风</view>
+    <view class='join'>加入</view>
+    <view class='activity'>XXXX活动</view>
+  </view>
+  <view class='right'>
+    <i class='iconfont icon-dot dot' />     
+  </view>
+</view>

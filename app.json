@@ -1,5 +1,9 @@
 {
   "pages":[    
+    "pages/message/message/subpage/audit-message/audit-message",
+    "pages/message/message",
+    
+    "pages/message/message/subpage/join-message/join-message",
     "pages/activity/activity",
     "pages/activity/subpage/topic-activity/topic-activity",            
     "pages/publish/subpage/topic-publish/topic-publish",    
@@ -9,8 +13,7 @@
     "pages/topic/subpage/topic-choose/topic-choose",
     "pages/publish/publish",
     "pages/tag/tag",
-    "pages/search/search",    
-    "pages/message/message",
+    "pages/search/search",        
     "pages/my-space/my-space"
   ],
   "window":{

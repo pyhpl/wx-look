@@ -1,0 +1,22 @@
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.name, .join, .activity {
+  margin-left: 20rpx;
+}
+
+.name {
+  font-size: 32rpx;
+}
+
+.join {
+  font-size: 36rpx;
+  color: #3db4ff;
+}
+
+.activity {
+  font-size: 36rpx;
+}

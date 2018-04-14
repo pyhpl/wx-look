@@ -1,0 +1,7 @@
+.type, .title {
+  font-size: 36rpx;
+}
+
+.type {
+  color: #3db4ff;
+}
