@@ -21,61 +21,13 @@ grace.page({
         joinPeople: 1234,
         likeCount: 1234,
         publishDate: "2018-03-18"
-      },
-      {
-        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        initiator: "随风",
-        school: "云南大学",
-        title: "世人谓我恋长安，其实只恋长安某",
-        descPictureUrls: [
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        ],
-        tag: "火影忍者",
-        joinPeople: 1234,
-        likeCount: 1234,
-        publishDate: "2018-03-18"
-      },
-      {
-        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        initiator: "随风",
-        school: "云南大学",
-        title: "世人谓我恋长安，其实只恋长安某",
-        descPictureUrls: [
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        ],
-        tag: "火影忍者",
-        joinPeople: 1234,
-        likeCount: 1234,
-        publishDate: "2018-03-18"
-      },
-      {
-        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        initiator: "随风",
-        school: "云南大学",
-        title: "世人谓我恋长安，其实只恋长安某",
-        descPictureUrls: [
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
-        ],
-        tag: "火影忍者",
-        joinPeople: 1234,
-        likeCount: 1234,
-        publishDate: "2018-03-18"
       }
     ]
   },
   // ********************** 页面生命周期方法 ******************************** //
   onLoad: function() {
-    var that = this;   
+    wx.showNavigationBarLoading();
+    var that = this;
     app.init().then(function(res) {
       that.$http.get(api['tags'])
         .then(function (success) {

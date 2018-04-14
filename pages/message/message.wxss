@@ -19,10 +19,6 @@
   color: #c2c2c2;
 }
 
-.message-hover {
-  background-color: #f6f8f9;
-}
-
 .left {
   display: flex;
   align-items: center;

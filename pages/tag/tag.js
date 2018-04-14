@@ -36,14 +36,13 @@ grace.page(Object.assign({}, Zan.TopTips, {
   },
   addTag: function () {
     var self = this;
-    if (this.data.tags.filter((tag) => { tag['name'] == this.customData.tag }).length != 0) {
+    if (this.data.tags.filter((tag) => { tag['name'] == this.customData.tag }).length == 0) {
       wx.showLoading({
         title: '添加中',
         mask: true,
         success: function() {
           self.$http.post(api['tag'], { name: self.customData.tag })
             .then(function(success) {
-              debugger;
               wx.hideLoading();              
               self.$data.tags.push({
                 uuid: success.headers['uuid'],

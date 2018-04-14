@@ -1,1 +1,61 @@
-/* pages/message/message/subpage/join-message/join-message.wxss */
+.join-message-header {
+  font-size: 36rpx;
+  padding: 20rpx 10rpx 0rpx 20rpx;
+  color: #3db4ff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.gap {
+  margin-top: 76rpx;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20rpx 20rpx 20rpx 0rpx;
+  margin-left: 20rpx;
+  border-bottom: 2rpx solid #efefef;  
+}
+
+.message-hover {
+  background-color: #f6f8f9;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.name, .join, .activity {
+  margin-left: 20rpx;
+}
+
+.name {
+  font-size: 32rpx;
+}
+
+.activity {
+  font-size: 36rpx;
+}
+
+.date {
+  font-size: 34rpx;
+  color: #82848c;
+}

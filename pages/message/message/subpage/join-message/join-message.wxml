@@ -1,2 +1,22 @@
-<!--pages/message/message/subpage/join-message/join-message.wxml-->
-<text>pages/message/message/subpage/join-message/join-message.wxml</text>
+<view class='join-message-header'>
+  活动XXXX参与人员：
+</view>
+<view class='gap'></view>
+<view class='message' hover-class='message-hover'>
+  <view class='left'>
+    <image src='https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' class='avatar'></image>
+    <view class='name'>随风</view>
+  </view>
+  <view class='right'>
+    <view class='date'>2018/04/14</view>
+  </view>
+</view>
+<view class='message' hover-class='message-hover'>
+  <view class='left'>
+    <image src='https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' class='avatar'></image>
+    <view class='name'>随风</view>
+  </view>
+  <view class='right'>
+    <view class='date'>2018/04/14</view>
+  </view>
+</view>

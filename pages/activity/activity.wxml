@@ -47,7 +47,7 @@
           </view>
         </view>
         <view class="date">
-          <text>{{activity.publishDate}}</text>
+          <text>活动时间：{{activity.publishDate}}</text>
         </view> 
       </view>
     </view>
