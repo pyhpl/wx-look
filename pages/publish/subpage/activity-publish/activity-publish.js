@@ -205,7 +205,8 @@ grace.page({
       deadline: self._formatDate(),
       limitUserCount: self.customData.peopleCount,
       contactType: self.data.contactWayIndex,
-      activityImages: activityImages
+      activityImages: activityImages,
+      likeCount: 0,
     };
     if (self.data.contactWayIndex == 1 && self.data.QRContactUrl != "") { // 微信联系群
       look.postImageObject(self.data.QRContactUrl, (res) => { // 上传图片到云服务器

@@ -2,10 +2,10 @@
 <view class="activity">
   <view class="header">
     <view class="people-info">
-      <image src="{{activity.avatarUrl}}"></image>
+      <image src="{{activity.publishUserAvatar}}"></image>
       <view class='show-column'>
-        <view class="name">{{activity.initiator}}</view>
-        <view class='publish-date'>02/06</view>
+        <view class="name">{{activity.publishUserName}}</view>
+        <view class='publish-date'>{{activity.publishDate}}</view>
       </view>
     </view>
     <text class="school">{{activity.school}}</text>
@@ -14,27 +14,26 @@
     <text>{{activity.title}}</text>
   </view>
   <view class='activity-content'>
-    每一天，周而复始着生活的年轮。时常在想，这样的单调安逸是否就是岁月的情长。
-    只是，当年华逐渐老去以后，才明白，这浩大的人间，还是情愿做遥远的自己，隔着烟烟水色，看看月色，看看灯火，在不眠的夜里与星星对话。有时候，孤单并不都是忧愁的，能安安静静的做自己，亦是时光赋予的最美。 其实，所谓的遗憾，很多时候，都是我们自己不珍惜，得到时不在意，想起时斯人早已远去。常常，我们是一边走着一边望着，总觉得最美的缘分在前方。只是当有一天，自己终于明白真正需要的是什么时，蓦然回首，已空无一人，任你幡然悔悟，却已无处找寻。光阴缱绻，珍惜那些真正在意你的人吧，因为生活越往前行，就越难遇见这样的人了。
+    {{activity.detail}}
   </view>
   <view class='activity-extra-info'>
-    <view class='place'>活动地点：云南大学步行街XXXX店</view>
-    <view class='time'>活动时间：2018-04-09 09:30</view>
+    <view class='place'>活动地点：{{activity.place}}</view>
+    <view class='time'>活动时间：{{activity.deadline}}</view>
     <view class='contact'>QQ交流群：1234567890</view>
   </view>
   <view class="desc-picture">
-    <image wx:for="{{activity.descPictureUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.descPictureUrls}}" data-src="{{descPictureUrl}}" class="{{activity.descPictureUrls.length == 1 ? 'img_1X1' : activity.descPictureUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.descPictureUrls.length == 5) || (index == 7 && activity.descPictureUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+    <image mode='aspectFill' wx:for="{{activity.activityImageUrls}}" wx:for-item="activityImageUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{activityImageUrl}}" data-list="{{activity.activityImageUrls}}" data-src="{{activityImageUrl}}" class="{{activity.activityImageUrls.length == 1 ? 'img_1X1' : activity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.activityImageUrls.length == 5) || (index == 7 && activity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
   </view>
   <view class="tag">
-    <text>{{activity.tag}}</text>
+    <text>{{activity.topicName}}</text>
   </view>
   <view class="bottom">
     <view class="left">
       <view class="limit-people">
-        限定人数：50
+        限定人数：{{activity.limitUserCount}}
       </view>
       <view class='join-people'>
-        参与人数：20
+        参与人数：{{activity.joinedPeopleCount}}
       </view>
     </view>
     <view class='right'>
@@ -94,7 +93,7 @@
 <view class='footer-gap'></view>
 <!-- footer function bar -->
 <view class='footer-function-bar'>
-  <view class='join-in'>参与活动</view>
+  <view class='join-in'>{{publishText}}</view>
   <view class='focus-on' catchtap="focusOn">
     <i class='iconfont {{focusOnIcon}}' />
     <text>关注</text>

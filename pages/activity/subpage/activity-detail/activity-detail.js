@@ -6,35 +6,19 @@ grace.page({
     focusOnIcon: "icon-focus-on",
     likeIcon: "icon-like-new",
     commentIcon: "icon-comment",
-    activity: {
-      avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      initiator: "随风",
-      school: "云南大学",
-      title: "世人谓我恋长安，其实只恋长安某",
-      descPictureUrls: [
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-      ],
-      tag: "火影忍者",
-      joinPeople: 1234,
-      likeCount: 1234,
-      publishDate: "2018-03-18"
-    },
+    activity: {},
     // editor的bottom属性值
     isCommenting: false,
     commentLetterCountTip: "",
     comment: "评论",
     commentInfo: "",
+    publishText: "参与活动",
   },
   customData: {
   },
   // ******************************* 生命周期方法 ******************************* //
-  onLoad: function () {
+  onLoad: function (query) {
+    this.$data.activity = JSON.parse(query[0].activity);
     wx.setNavigationBarTitle({
       title: this.data.activity.title,
     })
@@ -63,9 +47,11 @@ grace.page({
       this.$data.isCommenting = true;
       this.$data.comment = "发表";
       this.$data.commentIcon = "icon-publish";
+      this.$data.publishText = "发表评论";
     } else {
       this.$data.isCommenting = false;
       this.$data.comment = "评论";
+      this.$data.publishText = "参与活动";
       this.$data.commentIcon = "icon-comment";
     }
   },
@@ -98,5 +84,6 @@ grace.page({
     this.$data.isCommenting = false;
     this.$data.comment = "评论";
     this.$data.commentInfo = "";
+    this.$data.publishText = "参与活动";
   }
 })

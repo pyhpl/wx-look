@@ -7,32 +7,41 @@ grace.page({
   data: {    
     tags: [],
     tagOn: 0,
-    activitys: [
-      {
-        avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        initiator: "随风",
-        school: "云南大学",
-        title: "世人谓我恋长安，其实只恋长安某",
-        descPictureUrls: [
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-          "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg"
-        ],
-        tag: "火影忍者",
-        joinPeople: 1234,
-        likeCount: 1234,
-        publishDate: "2018-03-18"
-      }
-    ]
+    activitys: []
   },
   // ********************** 页面生命周期方法 ******************************** //
   onLoad: function() {
     wx.showNavigationBarLoading();
-    var that = this;
+    var self = this;
     app.init().then(function(res) {
-      that.$http.get(api['tags'])
-        .then(function (success) {
-          that.$data.tags = success.data;
+      // 获取标签
+      var getTags = () => { 
+        return self.$http.get(api['tags']);
+      }
+      // 获取活动
+      var getActivitys = () => { 
+        return self.$http.get(api['fullActivities'] + "?tag=云南大学");
+      }
+      self.$http.all([getTags(), getActivitys()])
+        .then(self.$http.spread(function (tag, activitys) {
+          self.$data.tags = tag.data;
+          self.$data.activitys.push(activitys.data);
+          wx.hideNavigationBarLoading();
+        }))
+        .catch(function (error) {
+          wx.showToast({
+            title: '网络错误！',
+            mask: true,
+            icon: "none",
+          })
         });
+    }).catch(function(error) {
+      wx.hideNavigationBarLoading();
+      wx.showToast({
+        title: '网络错误！',
+        mask: true,
+        icon: "none",
+      })
     });   
   },
   onReady: function() {
@@ -88,6 +97,12 @@ grace.page({
     wx.previewImage({
       current: src, // 当前显示图片的http链接
       urls: imgList // 需要预览的图片http链接列表
+    })
+  },
+  // 查看活动详情
+  toActivityDetail: function(e) {
+    wx.navigateTo({
+      url: './subpage/activity-detail/activity-detail?activity=' + JSON.stringify(e.currentTarget.dataset.activity),
     })
   }
 })

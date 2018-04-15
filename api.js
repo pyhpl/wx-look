@@ -1,11 +1,12 @@
 // 远程服务器地址
-const remoteIp = "http://localhost"
+const remoteIp = "http://localhost:8080"
 
 // 微服务
 const service = {
-  cloud: remoteIp + ':8899', // 云对象存储微服务
-  user: remoteIp + ':8888',   // 用户微服务
-  activity: remoteIp + ':8777', // 主题活动微服务 
+  api: remoteIp,
+  cloud: remoteIp + '/cloud', // 云对象存储微服务
+  user: remoteIp + '/user',   // 用户微服务
+  activity: remoteIp + '/activity', // 主题活动微服务
 }
 
 // api
@@ -20,6 +21,7 @@ const topics = service['activity'] + "/api/topic/s"
 const parentTopic = service['activity'] + "/api/parentTopic";
 const parentTopics = service['activity'] + "/api/parentTopic/s";
 const activity = service['activity'] + "/api/activity";
+const fullActivities = service['api'] + "/api/full-activity/s";
 
 module.exports = {
   tag: tag,
@@ -31,5 +33,6 @@ module.exports = {
   topics: topics,
   parentTopic: parentTopic,
   parentTopics: parentTopics,
-  activity: activity
+  activity: activity,
+  fullActivity: fullActivity,
 }
