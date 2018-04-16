@@ -39,50 +39,56 @@
     <view class='right'>
       <view class="activity-comment">
         <i class="iconfont icon-comment-small"></i>
-        <text>13</text>
+        <text>{{discussCount}}</text>
       </view>
       <view class="like">
         <i class="iconfont icon-like-new"></i>
-        <text>{{activity.likeCount}}</text>
+        <text>{{likeCount}}</text>
       </view>
     </view>
   </view>
 </view>
 <!-- gap  -->
 <view class="content-gap"></view>
-
 <view class='comments-detail'>
   <view class='comments-detail-header'>
     评论
   </view>
-  <!-- <view class='no-comments'>暂无评论</view> -->
-  <view class='comments-detail-body'>
-
-    <view class='comment-detail'>
-      <view class="header">
-        <view class="people-info">
-          <image src="{{activity.avatarUrl}}"></image>
-          <text class="name">随风</text>
+  <view hidden='{{discussions.length != 0}}' class='no-comments'>暂无评论</view>
+  <block wx:for="{{discussions}}" wx:for-item="discussion" wx:key="{{uuid}}">
+    <view class='comments-detail-body' data-to-user="{{discussion.fromUser}}" data-to-user-name="{{discussion.fromUserName}}" 
+    data-belong-to-discussion="{{discussion.uuid}}" data-index="{{index}}" bindtap="discussToUser">
+      <view class='comment-detail'>
+        <view class="header">
+          <view class="people-info">
+            <image src="{{discussion.fromUserAvatar}}"></image>
+            <text class="name">{{discussion.fromUserName}}</text>
+          </view>
+          <text class="comment-date">{{discussion.discussDate}}</text>
         </view>
-        <text class="comment-date">2018/04/06</text>
-      </view>
-      <view class='comment-content'>
-        很想牵着时光的手，弹一曲莫失莫忘，浅酌流年清欢。只是，我们终究是一边走着，一边淡着；一边走着，一边散着。也许这本就是一个流行离开的世界，千山万水之后，你依旧居住在我的诗里，而我却在流年里逃亡着。这兵荒马乱的季节，嚣张却又有着义无反顾的执着，披着孤独的外衣，走过山河烟岚，走遍字里行间。最后，学会深情地活着，在这薄凉的世界里。
-      </view>
-      <view class='extra-comments'>
-        <view class='extra-comment-content'>
-          <i class='from'>听雨</i> 回复 随风：行走红尘，会有多少擦肩，多少错过，多少遗憾。那些暗香盈袖的心事依然在素锦间呢喃，只是一转眼，那抹情愫已然遗失在阑珊之央。
+        <view class='comment-content'>
+          {{discussion.contents}}
         </view>
+        <view class='extra-commentss'>
+          <block wx:for="{{discussion.fullSubDiscussions}}" wx:for-item="subDiscussion" wx:key="{{uuid}}">
+            <view style='{{discussion.fullSubDiscussions.length > 1 && index > 0 ? "padding-top: 0" : ""}}' class='extra-comments' data-to-user="{{subDiscussion.fromUser}}" data-to-user-name="{{subDiscussion.fromUserName}}" data-belong-to-discussion="{{discussion.uuid}}"
+              catchtap='discussToUser'>
+              <view class='extra-comment-content'>
+                <i class='from'>{{subDiscussion.fromUserName}}</i> 回复 {{subDiscussion.toUserName}}：{{subDiscussion.contents}}
+              </view>        
+            </view>
+          </block>
+        </view>        
       </view>
     </view>
-  </view>
+  </block>
 </view>
 
 <!-- editor  -->
 <view class='editor-container' wx:if="{{isCommenting}}">
   <view class='editor'>
     <view class='title'>
-      <view class='left'>回复@随风
+      <view class='left'>{{replyTip}}
         <view class="comment-tip">{{commentLetterCountTip}}</view>
       </view>
       <i style="color: #aba2a2;" class='iconfont icon-close' catchtap="closeComment" />
@@ -93,7 +99,7 @@
 <view class='footer-gap'></view>
 <!-- footer function bar -->
 <view class='footer-function-bar'>
-  <view class='join-in'>{{publishText}}</view>
+  <view class='join-in' catchtap='joinOrComment'>{{publishText}}</view>
   <view class='focus-on' catchtap="focusOn">
     <i class='iconfont {{focusOnIcon}}' />
     <text>关注</text>

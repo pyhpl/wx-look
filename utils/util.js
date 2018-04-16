@@ -18,7 +18,21 @@ const truncate = (str, n) => {
   return str.substr(0, n);
 }
 
+const getNowDate = () => {
+  var date = new Date();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  if (month < 10) {
+    month = "0" + month;
+  }
+  if (day < 10) {
+    day = "0" + day;
+  }
+  return date.getFullYear() + "/" + month + "/" + day
+}
+
 module.exports = {
   formatTime: formatTime,
-  truncate: truncate
+  truncate: truncate,
+  getNowDate: getNowDate
 }

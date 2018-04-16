@@ -22,6 +22,12 @@ const parentTopic = service['activity'] + "/api/parentTopic";
 const parentTopics = service['activity'] + "/api/parentTopic/s";
 const activity = service['activity'] + "/api/activity";
 const fullActivities = service['api'] + "/api/full-activity/s";
+const discussion = service['user'] + "/api/discussion";
+const fullDiscussion = service['api'] + "/api/full-discussion";
+const fullDiscussions = service['api'] + "/api/full-discussion/s";
+const like = service['user'] + '/api/activity-like';
+const activityFocus = service['user'] + '/api/activity-focus';
+const join = service['user'] + '/api/join';
 
 module.exports = {
   tag: tag,
@@ -34,5 +40,11 @@ module.exports = {
   parentTopic: parentTopic,
   parentTopics: parentTopics,
   activity: activity,
-  fullActivity: fullActivity,
+  fullActivities: fullActivities,
+  discussion: discussion,
+  fullDiscussion: fullDiscussion,
+  fullDiscussions: fullDiscussions,
+  like: like,
+  activityFocus: activityFocus,
+  join: join,
 }

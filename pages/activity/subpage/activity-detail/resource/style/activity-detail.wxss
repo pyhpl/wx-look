@@ -227,14 +227,17 @@
   line-height: 1.5;
 }
 
+.extra-commentss {
+  background-color: #f6f5f7;
+  border-radius: 10rpx;
+  margin-left: 110rpx;
+  margin-right: 20rpx;
+}
+
 .extra-comments {
   display: flex;
   flex-direction: column;
   padding: 10rpx;
-  margin-left: 110rpx;
-  margin-right: 20rpx;
-  background-color: #f6f5f7;
-  border-radius: 10rpx;
 }
 
 .extra-comment-content {
