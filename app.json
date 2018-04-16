@@ -1,5 +1,6 @@
 {
-  "pages":[     
+  "pages":[
+    "pages/topic/topic",  
     "pages/activity/activity", 
     "pages/message/message",
     "pages/message/message/subpage/join-message/join-message",      
@@ -7,8 +8,7 @@
     "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/topic-publish/topic-publish",
     "pages/publish/subpage/activity-publish/activity-publish",
-    "pages/activity/subpage/activity-detail/activity-detail",
-    "pages/topic/topic",       
+    "pages/activity/subpage/activity-detail/activity-detail",          
     "pages/topic/subpage/topic-choose/topic-choose",
     "pages/publish/publish",
     "pages/tag/tag",

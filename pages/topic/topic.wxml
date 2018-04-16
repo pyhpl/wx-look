@@ -41,9 +41,9 @@
 
 <!-- parent topic scroll  -->
 <scroll-view scroll-x class='parent-topics' style='top: {{searchHeaderHeight}}px;'>
-  <view wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='parentTopicTaped' class="parent-topic-container">
+  <view wx:key='{{uuid}}' wx:for="{{parentTopics}}" wx:for-item="parentTopic" data-index='{{index}}' catchtap='parentTopicTaped' class="parent-topic-container">
     <view class='parent-topic'>
-      <view class="parent-topic-text {{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item}}</view>
+      <view class="parent-topic-text {{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{parentTopic.name}}</view>
       <view class="parent-topic-bottom-line {{index == onParentTopicIndex ? 'parent-topic-bottom-line-on' : ''}}"></view>
     </view>
   </view>
@@ -54,8 +54,8 @@
   <view class='topics'>
     <view class='topic'>
       <view class='left'>
-        <image class='topic-image' src='{{topic.pictureUrl}}'></image>
-        <text class='topic-title'>{{topic.title}}</text>
+        <image class='topic-image' src='{{topic.image}}'></image>
+        <text class='topic-title'>{{topic.name}}</text>
       </view>
       <!-- <text class='badge'>99+</text>   -->
       <view class='focus-on'>关注</view>
