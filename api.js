@@ -18,8 +18,8 @@ const token = service['user'] + "/api/token";
 const user = service['user'] + "/api/user";
 const topic = service['activity'] + "/api/topic"
 const topics = service['activity'] + "/api/topic/s"
-const parentTopic = service['activity'] + "/api/parentTopic";
-const parentTopics = service['activity'] + "/api/parentTopic/s";
+const parentTopic = service['activity'] + "/api/parent-topic";
+const parentTopics = service['activity'] + "/api/parent-topic/s";
 const activity = service['activity'] + "/api/activity";
 const fullActivities = service['api'] + "/api/full-activity/s";
 const discussion = service['user'] + "/api/discussion";
@@ -28,8 +28,15 @@ const fullDiscussions = service['api'] + "/api/full-discussion/s";
 const like = service['user'] + '/api/activity-like';
 const activityFocus = service['user'] + '/api/activity-focus';
 const join = service['user'] + '/api/join';
+const topicFocus = service['user'] + '/api/topic-focus';
+
+const fullTopics = service['api'] + "/api/full-topic/s"
+
+const hotTopics = service['activity'] + "/api/topic/s/hot"
 
 module.exports = {
+  hotTopics: hotTopics,
+  fullTopics: fullTopics,
   tag: tag,
   tags: tags,
   imagesCloud: imagesCloud,
@@ -47,4 +54,5 @@ module.exports = {
   like: like,
   activityFocus: activityFocus,
   join: join,
+  topicFocus: topicFocus,
 }

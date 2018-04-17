@@ -31,8 +31,32 @@ const getNowDate = () => {
   return date.getFullYear() + "/" + month + "/" + day
 }
 
+const queryString = (obj) => {
+  var queryStr = "?"
+  Object.keys(obj).forEach((value, index) => {
+    queryStr = queryStr + value + '=' + obj[value] + '&'
+  })
+  return queryStr
+}
+
+const pageInfoJsonStr = (pageNum, pageSize, orderBy) => {
+  var pageInfo = {}
+  if (pageNum != undefined && pageNum != null) {
+    pageInfo['pageNum'] = pageNum
+  }
+  if (pageSize != undefined && pageSize != null) {
+    pageInfo['pageSize'] = pageSize
+  }
+  if (orderBy != undefined && orderBy != null) {
+    pageInfo['orderBy'] = orderBy
+  }
+  return encodeURIComponent(JSON.stringify(pageInfo))
+}
+
 module.exports = {
   formatTime: formatTime,
   truncate: truncate,
-  getNowDate: getNowDate
+  getNowDate: getNowDate,
+  pageInfoJsonStr: pageInfoJsonStr,
+  queryString: queryString
 }

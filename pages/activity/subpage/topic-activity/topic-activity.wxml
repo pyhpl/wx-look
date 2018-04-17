@@ -1,14 +1,14 @@
 <!-- topic  -->
 <view class='topic'>
   <view class='explian'>
-    <view class='title'>{{topic.title}}</view>
+    <view class='title'>{{topic.name}}</view>
     <view class='description'>
       {{topic.description}}
       <text catchtap='showMore' wx:if='{{more}}' class='more'>...更多</text>
       <text catchtap='hideMore' wx:if='{{less}}' class='less'>收起</text>
     </view>
   </view>
-  <image data-src='{{topic.pictureUrl}}' src='{{topic.pictureUrl}}' class='topic-image' catchtap="imagePreview"></image>
+  <image data-src='{{topic.image}}' src='{{topic.image}}' class='topic-image' catchtap="imagePreview"></image>
 </view>
 <!-- gap  -->
 <view class='gap'></view>

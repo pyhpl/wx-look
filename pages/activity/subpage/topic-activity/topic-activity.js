@@ -4,12 +4,7 @@ import util from "../../../../utils/util.js";
 grace.page({
   data: {
     /***** 主题相关数据 ****/
-    topic: {
-      pictureUrl: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg',
-      title: "秋池渐涨，秋叶渐黄",
-      description: "拉斯科的激发了快速的减肥啦空拉斯科的激发了快速的减肥啦空间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵拉斯科的激发了快速的减肥啦空间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵扣拉开纠纷积分抵扣拉开纠纷扣拉开纠纷积分抵扣拉开纠纷间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵扣拉开纠纷积分抵扣拉开纠纷",      
-      rawDescription: "拉斯科的激发了快速的减肥啦空拉斯科的激发了快速的减肥啦空间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵拉斯科的激发了快速的减肥啦空间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵扣拉开纠纷积分抵扣拉开纠纷扣拉开纠纷积分抵扣拉开纠纷间发了看似简单风口浪尖埃里克积分抵扣拉开纠纷积分抵扣拉开纠纷积分抵扣拉开纠纷"
-    },
+    topic: {},
     more: false, // 是否显示更多
     less: false, // 是否显示更少
     /***** 活动相关数据 ****/
@@ -83,9 +78,13 @@ grace.page({
     ]
   },
   // ************************* 生命周期方法 ************************* //
-  onLoad() {
-    wx.setNavigationBarTitle({title: this.data.topic.title});
-    this.handleTopicDescription();
+  onLoad(e) {
+    var self = this;
+    var topic = JSON.parse(e[0].topic);
+    topic.rawDescription = topic.description;
+    self.$data.topic = topic;
+    wx.setNavigationBarTitle({title: this.data.topic.name});
+    this.handleTopicDescription();    
   },
   // ************************* 自定义方法 ************************* //
   // 主题描述信息是否太长

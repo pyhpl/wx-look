@@ -1,22 +1,19 @@
-import grace from "../../lib/js/grace/grace.js"
+import grace from "../../lib/js/grace/grace.js";
 import api from "../../api.js";
+import util from "../../utils/util.js"
 
 grace.page({
   data: {
     searchHeaderHeight: 0,
     searchHeaderCloseToSwiperZIndex: "",
-    hotTopicUrls: [
-      { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' },
-      { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' },
-      { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' },
-      { url: 'https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' }
-    ],
+    hotTopics: [],
     parentTopics: [],
     onParentTopicIndex: 0,
-    topics: []
+    topics: [],
+    // topicFocus: [],
   },
   customData: {
-     swiperAndSearchHeaderHeightDiff: 0,
+    swiperAndSearchHeaderHeightDiff: 0,
   },
   // ******************************* 生命周期方法 ******************************* //
   onLoad: function () {
@@ -31,16 +28,33 @@ grace.page({
         self.customData.swiperAndSearchHeaderHeightDiff = swiper.height - searchHeader.height;        
       }).exec();
     }).exec();
-    // ******** 页面数据初始化 ******** //
+    // ******** 页面数据初始化 ******** //    
     wx.showNavigationBarLoading();
+    // 获取最热主题
+    self.$http.get(api['hotTopics'] + util.queryString({
+      pageInfoJsonStr: util.pageInfoJsonStr(1, 4),
+    }))
+      .then((success) => {
+        self.$data.hotTopics = success.data;
+      })
     // 获取父主题
     self.$http.get(api['parentTopics'])
       .then((success) => {
-        self.$data.parentTopics = success.data;        
+        self.$data.parentTopics = success.data;
         // 获取父主题下的子主题
-        self.$http.get(api['topics'] + "?parentTopicUuid=" + self.data.parentTopics[self.data.onParentTopicIndex].uuid)
+        self.$http.get(api['fullTopics'] + util.queryString({
+          parentTopicUuid: self.data.parentTopics[self.data.onParentTopicIndex].uuid,
+          pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
+        }))
           .then((success) => {
-            self.$data.topics[self.data.onParentTopicIndex] = success.data;
+            if (self.data.topics[self.data.onParentTopicIndex] == undefined) {
+              self.data.topics[self.data.onParentTopicIndex] = [];
+            }
+            self.data.topics[self.data.onParentTopicIndex] = 
+              self.data.topics[self.data.onParentTopicIndex].concat(success.data);
+            self.setData({
+              topics: self.data.topics
+            })
             wx.hideNavigationBarLoading();
           })
           .catch((error) => {
@@ -50,16 +64,47 @@ grace.page({
       .catch(function (error) {
         wx.hideNavigationBarLoading();
       })
-    
-    self.$http.get(api['parentTopics'])
-      .then()
   },
   // ******************************* 自定义方法 ******************************* //
+  // 打开主题详细信息
+  toTopic: function(e) {
+    wx.navigateTo({
+      url: '../activity/subpage/topic-activity/topic-activity?topic=' + JSON.stringify(
+        e.currentTarget.dataset.topic
+      ),
+    })
+  },
+  // 关注
+  focus: function(e) {
+    var self = this;        
+    if (self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].focused == false) {
+      self.$http.post(api['topicFocus'], {
+        topicUuid: e.currentTarget.dataset.topicUuid
+      })
+      .then((success) => {
+        self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].focused = true;
+        self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].topicFocusUuid = success.headers.uuid;
+        self.setData({
+          topics: self.data.topics
+        })
+      })    
+    } else if (self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].focused == true) {
+      self.$http.delete(api['topicFocus'] + util.queryString({
+        uuid: self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].topicFocusUuid
+      }))
+        .then((success) => {
+          self.data.topics[self.data.onParentTopicIndex][e.currentTarget.dataset.index].focused = false;
+          self.setData({
+            topics: self.data.topics
+          })
+        })
+    }
+  },
   parentTopicTaped: function (e) {
     this.$data.onParentTopicIndex = e.currentTarget.dataset.index;
   },
   onPageScroll: function (res) {
-    console.log(res.scrollTop)
+    // console.log(res.scrollTop)
     if (this.data.searchHeaderCloseToSwiperZIndex != "z-index: 10;" &&
       res.scrollTop >= this.customData.swiperAndSearchHeaderHeightDiff) {
       this.$data.searchHeaderCloseToSwiperZIndex = "z-index: 10;";

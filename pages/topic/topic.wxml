@@ -32,9 +32,9 @@
 </view>
 <!-- swiper  -->
 <swiper id='swiper' indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" class="swiper" autoplay circular indicator-dots="true" interval="5000" duration="1000">
-  <block wx:for="{{hotTopicUrls}}" wx:for-index="index" wx:key="{{index}}">
+  <block wx:for="{{hotTopics}}" wx:for-index="index" wx:key="{{uuid}}">
     <swiper-item>
-      <image src="{{item.url}}" mode="aspectFill" />
+      <image catchtap='toTopic' data-topic='{{item}}' src="{{item.image}}" mode="aspectFill" />
     </swiper-item>
   </block>
 </swiper>
@@ -50,7 +50,7 @@
 </scroll-view>
 
 <!-- topics  -->
-<block wx:for="{{topics[onParentTopicIndex]}}" wx:key='{{index}}' wx:for-item="topic">
+<block wx:for="{{topics[onParentTopicIndex]}}" wx:key='{{uuid}}' wx:for-item="topic">
   <view class='topics'>
     <view class='topic'>
       <view class='left'>
@@ -58,7 +58,7 @@
         <text class='topic-title'>{{topic.name}}</text>
       </view>
       <!-- <text class='badge'>99+</text>   -->
-      <view class='focus-on'>关注</view>
+      <view data-index="{{index}}" data-topic-uuid='{{topic.uuid}}' catchtap='focus' class='focus-on {{topic.focused ? "focused" : ""}}'>{{topic.focused ? '已关注' : '关注'}}</view>
     </view>
   </view>
 </block>

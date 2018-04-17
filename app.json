@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/topic/topic",  
-    "pages/activity/activity", 
+    "pages/activity/activity",    
+    "pages/topic/topic",     
     "pages/message/message",
     "pages/message/message/subpage/join-message/join-message",      
     "pages/message/message/subpage/audit-message/audit-message",
