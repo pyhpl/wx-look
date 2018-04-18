@@ -16,6 +16,10 @@ grace.page({
     swiperAndSearchHeaderHeightDiff: 0,
   },
   // ******************************* 生命周期方法 ******************************* //
+  onShow: function() {
+    this.data.topics = [];
+    this.onLoad();
+  },
   onLoad: function () {
     var self = this;
     wx.setNavigationBarTitle({

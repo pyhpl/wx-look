@@ -22,6 +22,7 @@ const parentTopic = service['activity'] + "/api/parent-topic";
 const parentTopics = service['activity'] + "/api/parent-topic/s";
 const activity = service['activity'] + "/api/activity";
 const fullActivities = service['api'] + "/api/full-activity/s";
+const userFullActivities = service['api'] + "/api/user/full-activity/s";
 const discussion = service['user'] + "/api/discussion";
 const fullDiscussion = service['api'] + "/api/full-discussion";
 const fullDiscussions = service['api'] + "/api/full-discussion/s";
@@ -31,10 +32,13 @@ const join = service['user'] + '/api/join';
 const topicFocus = service['user'] + '/api/topic-focus';
 
 const fullTopics = service['api'] + "/api/full-topic/s"
+const userFullTopics = service['api'] + "/api/user/full-topic/s";
 
 const hotTopics = service['activity'] + "/api/topic/s/hot"
 
 module.exports = {
+  userFullTopics: userFullTopics,
+  userFullActivities: userFullActivities,
   hotTopics: hotTopics,
   fullTopics: fullTopics,
   tag: tag,

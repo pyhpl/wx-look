@@ -1,0 +1,41 @@
+<scroll-view scroll-y="true">
+  <!-- activitys  -->
+  <block wx:for="{{activitys}}" wx:for-item="activity" wx:key="{{index}}">
+    <!-- activity  -->
+    <view class="activity" bindtap='toActivityDetail' data-activity="{{activity}}">
+      <view class="header">
+        <view class="people-info">
+          <image src="{{activity.publishUserAvatar}}"></image>
+          <text class="name">{{activity.publishUserName}}</text>
+        </view>
+        <text class="school">{{activity.school}}</text>
+      </view>
+      <view class="activity-title">
+        <text>{{activity.title}}</text>
+      </view>
+      <view class="desc-picture">
+        <image mode='aspectFill' wx:for="{{activity.activityImageUrls}}" wx:for-item="activityImageUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{activityImageUrl}}" data-list="{{activity.activityImageUrls}}" data-src="{{activityImageUrl}}" class="{{activity.activityImageUrls.length == 1 ? 'img_1X1' : activity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.activityImageUrls.length == 5) || (index == 7 && activity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+      </view>
+      <view class="tag">
+        <text>{{activity.topicName}}</text>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <view class="join-people">
+            <i class="iconfont icon-join-people"></i>
+            <text>{{activity.joinedPeopleCount}}</text>
+          </view>
+          <view class="like">
+            <i class="iconfont icon-like" ></i>
+            <text>{{activity.likeCount}}</text>
+          </view>
+        </view>
+        <view class="date">
+          <text>活动时间：{{activity.deadline}}</text>
+        </view> 
+      </view>
+    </view>
+    <!-- gap  -->
+    <view class="content-gap"></view>
+  </block>
+</scroll-view>

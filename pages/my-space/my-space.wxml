@@ -1,0 +1,74 @@
+<!-- user-info-panel -->
+<view class='user-info-panel'>
+  <view class='action-panel'>
+    <view hidden='{{!isLogin}}' class='user-avatar-container'>
+      <image mode='aspectFill' src='{{userInfo.avatarUrl}}' class='avatar'></image>
+    </view>
+    <view hidden='{{isLogin}}' class='default-avatar-panel' catchtap='login'>
+      <view class='default-avatar-container'>
+        <i class='iconfont icon-default-avatar default-avatar' />
+      </view>
+    </view>
+    <view catchtap='login' class='nickname'>{{userInfo.nickName}}</view>
+  </view>
+</view>
+<image mode='aspectFill' src='./resource/image/user-info-top.jpg' class='user-info-top'></image>
+<view class='gap'></view>
+
+<!-- action -->
+<view class='action' hover-class='action-hover' catchtap='toActivities' data-type='join'>
+  <i style='color: #3db4ff;' class='iconfont icon-flag topic-icon' />
+  <view class='right'>
+    <view class='my-focus-topic'>参与的活动</view>
+    <view class='most-right'>
+      <view class='focus-count'>13</view>
+      <i class='iconfont icon-forward-to forward-to-icon' />
+    </view>
+  </view>  
+</view>
+
+<view class='gap'></view>
+
+<view class='action' hover-class='action-hover' catchtap='toTopics' data-type='focus'>
+  <i style='color: #f6d80e;' class='iconfont icon-topic topic-icon' />
+  <view class='right splite-bottom'>
+    <view class='my-focus-topic'>关注的主题</view>
+    <view class='most-right'>
+      <view class='focus-count'>13</view>
+      <i class='iconfont icon-forward-to forward-to-icon' />
+    </view>
+  </view>  
+</view>
+<view class='action' hover-class='action-hover' catchtap='toActivities' data-type='focus'>
+  <i style='color: red;' class='iconfont icon-focus-on topic-icon' />
+  <view class='right'>
+    <view class='my-focus-topic'>关注的活动</view>
+    <view class='most-right'>
+      <view class='focus-count'>13</view>
+      <i class='iconfont icon-forward-to forward-to-icon' />
+    </view>
+  </view>  
+</view>
+
+<view class='gap'></view>
+
+<view class='action' hover-class='action-hover' catchtap='toTopics' data-type='publish'>
+  <i style='color: #9e4dee;' class='iconfont icon-publish_4_8 topic-icon' />
+  <view class='right splite-bottom'>
+    <view class='my-focus-topic'>发布的主题</view>
+    <view class='most-right'>
+      <view class='focus-count'>13</view>
+      <i class='iconfont icon-forward-to forward-to-icon' />
+    </view>
+  </view>  
+</view>
+<view class='action' hover-class='action-hover' catchtap='toActivities' data-type='publish'>
+  <i style='color: #9e4dee;' class='iconfont icon-publish_4_9 topic-icon' />
+  <view class='right splite-bottom'>
+    <view class='my-focus-topic'>发布的活动</view>
+    <view class='most-right'>
+      <view class='focus-count'>13</view>
+      <i class='iconfont icon-forward-to forward-to-icon' />
+    </view>
+  </view>  
+</view>

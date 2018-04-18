@@ -1,0 +1,13 @@
+<!-- topics  -->
+<block wx:for="{{topics}}" wx:key='{{uuid}}' wx:for-item="topic">
+  <view class='topics'>
+    <view class='topic'>
+      <view class='left'>
+        <image class='topic-image' src='{{topic.image}}'></image>
+        <text class='topic-title'>{{topic.name}}</text>
+      </view>
+      <!-- <text class='badge'>99+</text>   -->
+      <view data-index="{{index}}" data-topic-uuid='{{topic.uuid}}' catchtap='focus' class='focus-on {{topic.focused ? "focused" : ""}}'>{{topic.focused ? '已关注' : '关注'}}</view>
+    </view>
+  </view>
+</block>
