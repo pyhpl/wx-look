@@ -47,11 +47,11 @@ grace.page({
         wx.hideLoading();
       })
       .catch((error) => {
+        wx.hideLoading();
         wx.showToast({
           title: '网络错误',
           icon: "none"
-        })      
-        wx.hideLoading();
+        })              
       })
   },
   // login check
@@ -62,8 +62,10 @@ grace.page({
         content: content,
         confirmText: "确定",
         cancelText: "取消",
-        success: function () {            
-          self._login(resolve);
+        success: function (res) {
+          if (res.confirm) {
+            self._login(resolve);
+          }          
         }
       })
     } else {
@@ -75,7 +77,7 @@ grace.page({
     var self = this;
     self.loginCheck("请先登录", function(res) {
       wx.navigateTo({
-        url: './subpage/my-activity/my-activity?type' + e.currentTarget.dataset.type,
+        url: './subpage/my-activity/my-activity?feature=' + e.currentTarget.dataset.type,
       })
     })
   },
@@ -84,7 +86,7 @@ grace.page({
     var self = this;
     self.loginCheck("请先登录", function (res) {
       wx.navigateTo({
-        url: './subpage/my-topic/my-topic?type' + e.currentTarget.dataset.type,
+        url: './subpage/my-topic/my-topic?feature=' + e.currentTarget.dataset.type,
       })
     })
   }

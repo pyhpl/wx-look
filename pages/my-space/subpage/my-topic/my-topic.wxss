@@ -1,5 +1,9 @@
 /* topics  */
 
+.topic-hover {
+  background-color: #fbf8f8;
+}
+
 .topics {
   display: flex;
   flex-direction: column;

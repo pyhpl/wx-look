@@ -51,7 +51,7 @@
 
 <!-- topics  -->
 <block wx:for="{{topics[onParentTopicIndex]}}" wx:key='{{uuid}}' wx:for-item="topic">
-  <view class='topics'>
+  <view class='topics' catchtap='toTopic' data-topic='{{topic}}' >
     <view class='topic'>
       <view class='left'>
         <image class='topic-image' src='{{topic.image}}'></image>

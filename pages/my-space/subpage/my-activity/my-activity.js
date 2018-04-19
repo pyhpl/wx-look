@@ -8,16 +8,36 @@ grace.page({
   data: {
     activitys: []
   },
+  customData: {
+    feature: "",
+  },
   // ********************** 页面生命周期方法 ******************************** //
-  onLoad: function () {
+  onShow: function() {
+    var self = this;
+    var e = {
+      feature: self.customData.feature
+    };
+    this.onLoad(e);
+  },
+  onLoad: function (e) {
+    var self = this;
+    self.customData.feature = e[0].feature;
+    var title = "";
+    if (e[0].feature == "focus") {
+      title = '我关注的活动';
+    } else if (e[0].feature == "publish") {
+      title = "我发布的活动";
+    } else if (e[0].feature == "join") {
+      title = '我参与的活动';
+    }
     wx.setNavigationBarTitle({
-      title: '我参与的活动',
+      title: title,
     })
     wx.showNavigationBarLoading();
     var self = this;
     // 获取活动
     self.$http.get(api['userFullActivities'] + util.queryString({
-      feature: "focus",
+      feature: e[0].feature,
       pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
     }))
       .then((activitys) => {

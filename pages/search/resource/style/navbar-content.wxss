@@ -3,20 +3,20 @@ page {
 }
 
 .navbar-content__bd {
-    padding-bottom: 80rpx;
+  padding-bottom: 80rpx;
 }
 
-page,
-.navbar-content,
-.navbar-content__bd{
-    height: 100%;
+page, .navbar-content, .navbar-content__bd {
+  height: 100%;
 }
-.navbar-content__bd{
-    padding-bottom: 0;
+
+.navbar-content__bd {
+  padding-bottom: 0;
 }
-.weui-tab__content{
-    /* padding-top: 120rpx; */
-    text-align: center;
+
+.weui-tab__content {
+  /* padding-top: 120rpx; */
+  text-align: center;
 }
 
 .weui-navbar {

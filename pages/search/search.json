@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "activity-panel": "./component/activity-panel/activity-panel",
-    "topic-panel": "./component/topic-panel/topic-panel",
-    "school-panel": "./component/school-panel/school-panel"
+    "topic-panel": "./component/topic-panel/topic-panel"
   }
 }

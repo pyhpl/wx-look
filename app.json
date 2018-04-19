@@ -1,10 +1,11 @@
 {
-  "pages":[
+  "pages":[    
+    "pages/activity/activity",    
+    "pages/search/search",       
     "pages/my-space/my-space",
     "pages/topic/topic",
     "pages/my-space/subpage/my-topic/my-topic",    
     "pages/my-space/subpage/my-activity/my-activity",    
-    "pages/activity/activity",
     "pages/message/message",
     "pages/message/message/subpage/join-message/join-message",      
     "pages/message/message/subpage/audit-message/audit-message",
@@ -14,8 +15,7 @@
     "pages/activity/subpage/activity-detail/activity-detail",          
     "pages/topic/subpage/topic-choose/topic-choose",
     "pages/publish/publish",
-    "pages/tag/tag",
-    "pages/search/search"
+    "pages/tag/tag"
   ],
   "window":{
     "backgroundTextStyle":"light",

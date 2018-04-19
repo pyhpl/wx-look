@@ -84,7 +84,7 @@ grace.page({
     topic.rawDescription = topic.description;
     self.$data.topic = topic;
     wx.setNavigationBarTitle({title: this.data.topic.name});
-    this.handleTopicDescription();    
+    this.handleTopicDescription();
   },
   // ************************* 自定义方法 ************************* //
   // 主题描述信息是否太长
@@ -132,8 +132,9 @@ grace.page({
   },
   // navigate to activity-publish with this topic
   toCreateActivityWithTopic: function() {
+    var self = this;
     wx.navigateTo({
-      url: '../../../publish/subpage/activity-publish/activity-publish?topic=' + this.data.topic.title,
+      url: '../../../publish/subpage/activity-publish/activity-publish?topic=' + JSON.stringify(self.data.topic),
     })
   }
 })

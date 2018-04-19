@@ -42,7 +42,7 @@ grace.page({
   onLoad(data) {
     var that = this;       
     if (data[0].topic != undefined) {
-      this.$data.topic = data[0].topic;
+      this.$data.topic = JSON.parse(data[0].topic);
       this.$data.topicHoverClass = 'none';
       this.customData.canChooseTopic = false;
     }

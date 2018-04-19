@@ -5,22 +5,37 @@ import util from "../../../../utils/util.js";
 var app = getApp();
 
 grace.page({
-  data: {
+  data: {    
     topics: []
+  },
+  customData: {
+    feature: "",
   },
   // ******************************* 生命周期方法 ******************************* //
   onShow: function() {
-    this.onLoad();
-  },
-  onLoad: function() {
-    wx.setNavigationBarTitle({
-      title: '我关注的主题',
-    })
-    wx.showNavigationBarLoading();
     var self = this;
+    var e = {
+      feature: self.customData.feature
+    };
+    this.onLoad(e);
+  },
+  onLoad: function(e) {    
+    var self = this;
+    self.customData.feature = e[0].feature;
+    var title = "";
+    if (e[0].feature == "focus") {
+      title = '我关注的主题';
+      
+    } else if (e[0].feature == "publish") {
+      title = "我发布的主题";
+    }
+    wx.setNavigationBarTitle({
+      title: title,
+    })
+    wx.showNavigationBarLoading();    
     // 获取主题
     self.$http.get(api['userFullTopics'] + util.queryString({
-      feature: "focus",
+      feature: e[0].feature,
       pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
     }))
       .then((topics) => {
@@ -64,4 +79,12 @@ grace.page({
         })
     }
   },
+  // navigate to topic
+  toTopic: function(e) {
+    wx.navigateTo({
+      url: '../../../activity/subpage/topic-activity/topic-activity?topic=' + JSON.stringify(
+        e.currentTarget.dataset.topic
+      ),
+    })    
+  }
 })

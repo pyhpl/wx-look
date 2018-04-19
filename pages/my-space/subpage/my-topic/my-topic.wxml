@@ -1,6 +1,6 @@
 <!-- topics  -->
 <block wx:for="{{topics}}" wx:key='{{uuid}}' wx:for-item="topic">
-  <view class='topics'>
+  <view class='topics' hover-class='topic-hover' catchtap='toTopic' data-topic='{{topic}}'>
     <view class='topic'>
       <view class='left'>
         <image class='topic-image' src='{{topic.image}}'></image>

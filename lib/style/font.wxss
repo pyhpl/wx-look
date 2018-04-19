@@ -19,6 +19,8 @@
 
 .icon-add-topic::before { content: "\e67b"; }
 
+.icon-just-add::before { content: "\e67b"; }
+
 .icon-add:before { content: "\e658"; }
 
 .icon-add-wx-contact::before { content: "\e602" }

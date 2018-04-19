@@ -20,7 +20,7 @@ grace.page({
       }
       // 获取活动
       var getActivitys = () => { 
-        return self.$http.get(api['fullActivities'] + "?tag=云南大学");
+        return self.$http.get(api['fullActivities'] + "?key=云南大学");
       }
       self.$http.all([getTags(), getActivitys()])
         .then(self.$http.spread(function (tag, activitys) {
