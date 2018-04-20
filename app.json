@@ -1,9 +1,9 @@
 {
-  "pages":[    
+  "pages":[
+    "pages/my-space/my-space",    
     "pages/activity/activity",
     "pages/search/search",
-    "pages/topic/topic",            
-    "pages/my-space/my-space",    
+    "pages/topic/topic",                   
     "pages/my-space/subpage/my-topic/my-topic",    
     "pages/my-space/subpage/my-activity/my-activity",    
     "pages/message/message",

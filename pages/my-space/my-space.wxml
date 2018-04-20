@@ -16,6 +16,34 @@
 <view class='gap'></view>
 
 <!-- action -->
+
+<!-- 审核用户 action -->
+<!-- wx:if="{{userInfo.isAuditUser}}" -->
+<block wx:if="{{userInfo.isAuditUser}}">   
+  <view class='action' hover-class='action-hover' catchtap='toTopics' data-type='publish'>
+    <i style='color: #9e4dee;' class='iconfont icon-publish_4_8 topic-icon' />
+    <view class='right splite-bottom'>
+      <view class='my-focus-topic'>待审核的主题</view>
+      <view class='most-right'>
+        <view class='focus-count'>13</view>
+        <i class='iconfont icon-forward-to forward-to-icon' />
+      </view>
+    </view>
+  </view>
+  <view class='action' hover-class='action-hover' catchtap='toActivities' data-type='publish'>
+    <i style='color: #9e4dee;' class='iconfont icon-publish_4_9 topic-icon' />
+    <view class='right'>
+      <view class='my-focus-topic'>待审核的活动</view>
+      <view class='most-right'>
+        <view class='focus-count'>13</view>
+        <i class='iconfont icon-forward-to forward-to-icon' />
+      </view>
+    </view>
+  </view>
+  <view class='gap'></view>
+</block>
+
+<!-- 普通用户 action  -->
 <view class='action' hover-class='action-hover' catchtap='toActivities' data-type='join'>
   <i style='color: #3db4ff;' class='iconfont icon-flag topic-icon' />
   <view class='right'>
@@ -24,7 +52,7 @@
       <view class='focus-count'>13</view>
       <i class='iconfont icon-forward-to forward-to-icon' />
     </view>
-  </view>  
+  </view>
 </view>
 
 <view class='gap'></view>
@@ -37,7 +65,7 @@
       <view class='focus-count'>13</view>
       <i class='iconfont icon-forward-to forward-to-icon' />
     </view>
-  </view>  
+  </view>
 </view>
 <view class='action' hover-class='action-hover' catchtap='toActivities' data-type='focus'>
   <i style='color: red;' class='iconfont icon-focus-on topic-icon' />
@@ -47,7 +75,7 @@
       <view class='focus-count'>13</view>
       <i class='iconfont icon-forward-to forward-to-icon' />
     </view>
-  </view>  
+  </view>
 </view>
 
 <view class='gap'></view>
@@ -60,15 +88,16 @@
       <view class='focus-count'>13</view>
       <i class='iconfont icon-forward-to forward-to-icon' />
     </view>
-  </view>  
+  </view>
 </view>
 <view class='action' hover-class='action-hover' catchtap='toActivities' data-type='publish'>
   <i style='color: #9e4dee;' class='iconfont icon-publish_4_9 topic-icon' />
-  <view class='right splite-bottom'>
+  <view class='right'>
     <view class='my-focus-topic'>发布的活动</view>
     <view class='most-right'>
       <view class='focus-count'>13</view>
       <i class='iconfont icon-forward-to forward-to-icon' />
     </view>
-  </view>  
+  </view>
 </view>
+<view class='gap'></view>

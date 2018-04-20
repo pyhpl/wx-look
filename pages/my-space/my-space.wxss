@@ -1,4 +1,8 @@
 
+page {
+  background-color:#efefef;
+}
+
 /* user-info-panel  */
 
 .user-info-panel {
@@ -85,6 +89,7 @@
   padding-left: 20rpx;
   display: flex;
   align-items: center;
+  background-color: #fff;
 }
 
 .topic-icon {
