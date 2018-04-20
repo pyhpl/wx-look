@@ -19,9 +19,9 @@
 
 <!-- 审核用户 action -->
 <!-- wx:if="{{userInfo.isAuditUser}}" -->
-<block wx:if="{{userInfo.isAuditUser}}">   
-  <view class='action' hover-class='action-hover' catchtap='toTopics' data-type='publish'>
-    <i style='color: #9e4dee;' class='iconfont icon-publish_4_8 topic-icon' />
+<block>   
+  <view class='action' hover-class='action-hover' catchtap='toAuditTopics' data-type='publish'>
+    <i style='color: #61c3c3;' class='iconfont icon-topic-audit topic-icon' />
     <view class='right splite-bottom'>
       <view class='my-focus-topic'>待审核的主题</view>
       <view class='most-right'>
@@ -30,8 +30,8 @@
       </view>
     </view>
   </view>
-  <view class='action' hover-class='action-hover' catchtap='toActivities' data-type='publish'>
-    <i style='color: #9e4dee;' class='iconfont icon-publish_4_9 topic-icon' />
+  <view class='action' hover-class='action-hover' catchtap='toAuditActivities' data-type='publish'>
+    <i style='color: #e62f2d;' class='iconfont icon-activity-audit topic-icon' />
     <view class='right'>
       <view class='my-focus-topic'>待审核的活动</view>
       <view class='most-right'>

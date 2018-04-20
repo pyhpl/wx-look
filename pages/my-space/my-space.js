@@ -89,5 +89,13 @@ grace.page({
         url: './subpage/my-topic/my-topic?feature=' + e.currentTarget.dataset.type,
       })
     })
+  },
+  // navigate to 审核主题
+  toAuditTopics: function() {
+
+  },
+  // navigate to 审核活动
+  toAuditActivities: function() {
+    
   }
 })
