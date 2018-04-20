@@ -1,5 +1,6 @@
-import grace from "../../lib/js/grace/grace.js"
-import api from "../../api.js"
+import grace from "../../lib/js/grace/grace.js";
+import api from "../../api.js";
+import util from "../../utils/util.js";
 
 var app = getApp();
 
@@ -20,7 +21,10 @@ grace.page({
       }
       // 获取活动
       var getActivitys = () => { 
-        return self.$http.get(api['fullActivities'] + "?key=云南大学");
+        return self.$http.get(api['fullActivities'] + util.queryString({
+          key: "云南大学",
+          pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
+        }));
       }
       self.$http.all([getTags(), getActivitys()])
         .then(self.$http.spread(function (tag, activitys) {

@@ -1,4 +1,6 @@
 import grace from "../../lib/js/grace/grace.js"
+import api from "../../api.js";
+import util from "../../utils/util.js";
 
 grace.page({
   data: {
@@ -6,44 +8,13 @@ grace.page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    activity: {
-      avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      initiator: "随风",
-      school: "云南大学",
-      title: "世人谓我恋长安",
-      descPictureUrls: [
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"
-      ],
-      tag: "火影忍者",
-      joinPeople: 1234,
-      likeCount: 1234,
-      publishDate: "2018-03-18",
-      deadline: "2018-03-18",
-      content: "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。"
-    },
-    fullActivity: {
-      publishUserAvatar: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      publishUserName: "随风",
-      school: "云南大学",
-      title: "世人谓我恋长安",
-      activityImageUrls: [
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg"
-      ],
-      topicName: "火影忍者",
-      joinedPeopleCount: 1234,
-      likeCount: 1234,
-      publishDate: "2018-03-18",
-      deadline: "2018-03-18",
-      content: "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。"
-    }
+    fullTopics: [],
+    fullActivities: []
   },
-  // ******************** 页面生命周期方法 *********************** //
+  customData: {
+    key: "",
+  },
+  // ******************* 页面生命周期方法 ********************* //
   onLoad: function (query) {
     if (query[0].args != undefined) {
       var initArgs = JSON.parse(query[0].args);
@@ -58,11 +29,14 @@ grace.page({
       }
     });
   },
-  // ************************************************** 自定义方法 ************************************************** //
+  // ************************** 自定义方法 ****************** //
   // tab点击响应方法
   tabClick: function (e) {
     this.$data.sliderOffset = e.currentTarget.offsetLeft;
     this.$data.activeIndex = e.currentTarget.id;
+    if (this.customData.key != "") {
+      this.toSearch();
+    }
   },
   toPublish: function() {
     if (this.data.activeIndex == 0) {
@@ -75,8 +49,43 @@ grace.page({
       })
     }
   },
+  // 搜索框输入
+  onKeyInput: function(e) {
+    this.customData.key = e.detail.value;
+  },
+  // 搜索
+  toSearch: function() {
+    var self = this;
+    if (self.data.activeIndex == 0) { // to search topic
+      self._topicSearch();
+    } else if (self.data.activeIndex == 1) { // to search activity
+      self._activitySearch();
+    }
+  },
+  _topicSearch: function() {
+    var self = this;
+    self.$http.get(api['fullTopics'] + util.queryString({
+      key: self.customData.key,
+      pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
+    }))
+      .then((success) => {      
+        // self.$data.fullTopics = self.data.fullTopics.concat(success.data);
+        self.$data.fullTopics = success.data;
+      })
+  },
+  _activitySearch: function() {
+    var self = this;
+    self.$http.get(api['fullActivities'] + util.queryString({
+      key: self.customData.key,
+      pageInfoJsonStr: util.pageInfoJsonStr(1, 10),
+    }))
+      .then((success) => {
+        // self.$data.fullActivities = self.data.fullActivities.concat(success.data);
+        self.$data.fullActivities = success.data;
+      })
+  },
   // 触底加载
   hello: function () {
     console.log("hello");
   }
-});
+}); 

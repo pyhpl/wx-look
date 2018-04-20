@@ -1,10 +1,10 @@
 <view class="search-header">
   <view class="left">
-    <view class="search-icon">
+    <view class="search-icon" catchtap='toSearch'>
       <i class="iconfont icon-search"></i>
     </view>
     <view class="search-input">
-      <input type="text" placeholder="搜索" />
+      <input bindconfirm='toSearch' bindinput="onKeyInput" type="text" placeholder="搜索" />
     </view>
   </view>
   <view class="right" catchtap='toPublish'>
@@ -27,13 +27,16 @@
       </view>
       <view class="weui-tab__panel">
         <scroll-view scroll-y bindscrolltolower="hello" class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <topic-panel activity="{{activity}}"></topic-panel>
+          <block wx:for="{{fullTopics}}" wx:for-item="fullTopic" wx:key="{{uuid}}">
+            <topic-panel topic="{{fullTopic}}"></topic-panel>
+          </block>          
           <view class='content-gap'></view>
         </scroll-view>
         <scroll-view scroll-y bindscrolltolower="hello" class="weui-tab__content" hidden="{{activeIndex != 1}}">     
-          <view class='content-gap'></view>     
-          <activity-panel activity="{{fullActivity}}"></activity-panel>
-          <activity-panel activity="{{fullActivity}}"></activity-panel>
+          <view class='content-gap'></view>
+          <block wx:for="{{fullActivities}}" wx:for-item="fullActivity" wx:key="{{uuid}}">
+            <activity-panel activity="{{fullActivity}}"></activity-panel>
+          </block>                  
         </scroll-view>
       </view>
     </view>

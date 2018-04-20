@@ -8,7 +8,7 @@
       <text catchtap='hideMore' wx:if='{{less}}' class='less'>收起</text>
     </view>
   </view>
-  <image data-src='{{topic.image}}' src='{{topic.image}}' class='topic-image' catchtap="imagePreview"></image>
+  <image mode='aspectFill' data-src='{{topic.image}}' src='{{topic.image}}' class='topic-image' catchtap="imagePreview"></image>
 </view>
 <!-- gap  -->
 <view class='gap'></view>

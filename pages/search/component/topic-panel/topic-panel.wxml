@@ -3,26 +3,26 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd left header">
-        <view class="weui-media-box__title left" style="color: black;">{{activity.title}}</view>
-        <view class='focus'>关注</view>
+        <view class="weui-media-box__title left" style="color: black;">{{topic.name}}</view>
+        <view data-topic-uuid='{{topic.uuid}}' catchtap='focus' class='focus {{topic.focused ? "focused" : ""}}'>{{topic.focused ? "已关注" : "关注"}}</view>
       </view>
-      <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+      <view class="weui-panel__bd" catchtap='toTopic' hover-class="weui-cell_active">
+        <view url="" class="weui-media-box weui-media-box_appmsg">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{activity.descPictureUrls[0]}}" />
+            <image mode='aspectFill' class="weui-media-box__thumb" src="{{topic.image}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__desc left">{{activity.content}}</view>
+            <view class="weui-media-box__desc left">{{topic.description}}</view>
           </view>
-        </navigator>
+        </view>
       </view>
-      <view class="weui-panel__ft">
+      <view class="weui-panel__ft" catchtap='toTopic' hover-class="weui-cell_active">
         <view class="weui-cell weui-cell_access weui-cell_link" style='padding: 10rpx 30rpx 0;'>
           <view class="weui-cell__bd left">
             <view class="weui-media-box__info bottom">
               <view class="weui-media-box__info__meta">
                 <view class="tag">
-                  <text>创建时间：2018-04-19</text>
+                  <text>创建时间：{{topic.createDate}}</text>
                 </view>
               </view>
             </view>

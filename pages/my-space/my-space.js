@@ -18,7 +18,7 @@ grace.page({
   },
   onLoad: function () {
     var self = this;    
-    if (app.globalData.userInfo != null) {
+    if (app.globalData.userInfo != null && app.globalData.userInfo != "") {
       self.$data.isLogin = true;
       self.$data.userInfo = app.globalData.userInfo;
     }

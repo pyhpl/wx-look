@@ -101,3 +101,9 @@
   border-radius: 30rpx;
   color: #3db4ff;
 }
+
+.focused {
+  background-color: #eff0f1;
+  color: #fff;
+  border: 0rpx;
+}
