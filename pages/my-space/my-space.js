@@ -40,11 +40,17 @@ grace.page({
     look.login()
       .then((success) => {
         self.$data.isLogin = true;
-        self.$data.userInfo = app.globalData.userInfo;
-        if (resolve != undefined) {
-          resolve(app.globalData.userInfo);
-        }
-        wx.hideLoading();
+        self.$http.get(api['administrator'])
+          .then((success) => {
+            if (success.data != null) {
+              app.globalData.userInfo.isAdministrator = true;
+            }
+            self.$data.userInfo = app.globalData.userInfo;
+            if (resolve != undefined) {
+              resolve(app.globalData.userInfo);
+            }
+            wx.hideLoading();
+          })    
       })
       .catch((error) => {
         wx.hideLoading();
@@ -92,10 +98,14 @@ grace.page({
   },
   // navigate to 审核主题
   toAuditTopics: function() {
-
+    wx.navigateTo({
+      url: './subpage/audit-topic/audit-topic',
+    })
   },
   // navigate to 审核活动
   toAuditActivities: function() {
-    
+    wx.navigateTo({
+      url: './subpage/audit-activity/audit-activity',
+    })
   }
 })

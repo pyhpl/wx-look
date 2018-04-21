@@ -54,6 +54,7 @@ grace.page({
       })
       // 上传图片
       look.postImageObject(self.data.topicImage, (res) => {
+        debugger;
         self.$http.post(api['topic'], {
           name: self.customData.topicTitle,
           description: self.customData.topicDescription,

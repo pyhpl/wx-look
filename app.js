@@ -26,6 +26,12 @@ App({
               wx.getUserInfo({
                 success: function (res) {
                   that.globalData.userInfo = res.userInfo;
+                  grace.http.get(api['administrator'])
+                    .then((success) => {
+                      if (success.data != null) {
+                        that.globalData.userInfo.isAdministrator = true;
+                      }
+                    })
                   if (wx.getStorageSync("token") == undefined ||
                     wx.getStorageSync("token") == "" || wx.getStorageSync("token") == null) {
                     grace.http.put(api['user'], {

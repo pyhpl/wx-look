@@ -28,8 +28,6 @@
 .topic-title-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 520rpx;
   margin-left: 20rpx;
 }
 
@@ -42,9 +40,26 @@
   width: 100%;
 }
 
-.topic-title, .topic-description {
+.topic-title {
+  font-size: 34rpx;
+}
+
+.topic-description {
   font-size: 30rpx;
 }
+
+/* .parent-topic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  border: 1px solid #3db4ff;
+  font-size: 32rpx;
+color: #3db4ff;
+} */
 
 /* footer-action-bar */
 
@@ -87,10 +102,14 @@
   margin-right: 40rpx;
 }
 
-.failed {
+.failed, .passed {
   width: 100%;
   border-radius: 34rpx;
   padding-right: 10rpx;
+}
+
+.passed {
+  margin-right: 40rpx;
 }
 
 .fail-hover {
@@ -125,4 +144,59 @@
 .letter-count-tip {
   margin-left: 20rpx;
   color: #a7a6a6;
+}
+
+/* left popup  */
+
+.popup-example--left .zan-popup__container {
+  top: 0;
+  bottom: 0;
+  padding: 10rpx 0rpx;
+  font-size: 34rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parent-topic-title {
+  font-size: 34rpx;
+  margin: 0 20rpx 10rpx 20rpx;
+  color: #3db4ff;
+}
+
+.parent-topics {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 900rpx;
+}
+
+.parent-topic {
+  font-size: 32rpx;  
+  width: 100%;
+  text-align: center;
+  padding: 10rpx 0;  
+  color: #999;
+}
+
+.parent-topic-on {
+  background-color: #3db4ff;
+  font-size: 36rpx;
+  color: #fff;
+  border: 0;
+}
+
+.parent-topic-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;  
+  position: fixed;
+  bottom: 126rpx;
+  background: #fff;  
+  z-index: 100;
+}
+
+.just-add-icon {
+  font-size: 50rpx;
 }

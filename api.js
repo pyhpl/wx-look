@@ -36,7 +36,10 @@ const userFullTopics = service['api'] + "/api/user/full-topic/s";
 
 const hotTopics = service['activity'] + "/api/topic/s/hot"
 
+const administrator = service['user'] + '/api/administrator';
+
 module.exports = {
+  administrator: administrator,
   userFullTopics: userFullTopics,
   userFullActivities: userFullActivities,
   hotTopics: hotTopics,

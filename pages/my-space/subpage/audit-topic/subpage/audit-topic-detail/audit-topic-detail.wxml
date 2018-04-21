@@ -15,11 +15,11 @@
 
 <!-- footer-action-bar -->
 <view class='footer-action-bar'>
-  <view hidden='{{isFail}}' catchtap='pass' class='pass' hover-class='pass-hover'>通过</view>
-  <view catchtap='fail' class='fail {{isFail ? "failed" : ""}}' hover-class='fail-hover'>{{failText}}</view>
+  <view hidden='{{isFail}}' catchtap='pass' class='pass {{isPass ? "passed" : ""}}' hover-class='pass-hover'>通过{{choosedParentTopic}}</view>
+  <view hidden='{{isPass}}' catchtap='fail' class='fail {{isFail ? "failed" : ""}}' hover-class='fail-hover'>{{failText}}</view>
 </view>
 
-<!-- pop up  -->
+<!-- popup  -->
 <view class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}" hidden='{{!showPopup}}'>
   <view class="zan-popup__mask" bindtap="togglePopup"></view>
   <view class="zan-popup__container popup-example--center">
@@ -28,7 +28,24 @@
         <view class='editor-title'>输入不通过原因<span class='letter-count-tip'>{{letterCountTip}}</span></view>
         <i class="iconfont icon-close close-icon"  bindtap="togglePopup"/>
       </view>
-      <textarea class='textarea' bindinput="onSuggestionInput" auto-focus placeholder="300字以内" maxlength="300"></textarea>
+      <textarea class='textarea' bindinput="onSuggestionInput" placeholder="300字以内" maxlength="300"></textarea>
     </view>    
+  </view>
+</view>
+
+<!-- left popup  -->
+<view class="popup-example--left zan-popup zan-popup--left {{ showLeftPopup ? 'zan-popup--show' : ''}}">
+  <view class="zan-popup__mask" bindtap="toggleLeftPopup"></view>
+  <view class="zan-popup__container popup_container">
+    <view class='parent-topic-title'>选择主题板块</view>
+    <scroll-view scroll-y class='parent-topics'>
+      <view class='parent-topic'>吃吃喝喝</view>
+      <view class='parent-topic'>吃吃喝喝</view>
+      <view class='parent-topic parent-topic-on'>吃吃喝喝</view>
+      <view class='parent-topic'>吃吃喝喝</view>
+    </scroll-view>
+    <view class='parent-topic-add'>
+      <i class="iconfont icon-add-parent-topic just-add-icon" />
+    </view>
   </view>
 </view>

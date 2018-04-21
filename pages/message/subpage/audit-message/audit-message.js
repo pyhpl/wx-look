@@ -1,5 +1,5 @@
-import grace from "../../../../../lib/js/grace/grace.js";
-import util from "../../../../../utils/util.js";
+import grace from "../../../../lib/js/grace/grace.js";
+import util from "../../../../utils/util.js";
 
 grace.page({
   data: {

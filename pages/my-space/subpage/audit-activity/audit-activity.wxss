@@ -1,1 +1,21 @@
-/* pages/my-space/subpage/audit-activity/audit-activity.wxss */
+.activity-guide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 20rpx 10rpx 36rpx;  
+  border-bottom: 1px solid #ebebeb;
+}
+
+.activity-guide-hover {
+  background-color: #fbf8f8;
+}
+
+.name {
+  font-size: 32rpx;
+  color: rgb(102, 102, 102);
+}
+
+.guide-icon {
+  font-size: 40rpx;
+  color: rgb(196, 197, 196);
+}

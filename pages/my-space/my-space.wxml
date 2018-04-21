@@ -18,8 +18,7 @@
 <!-- action -->
 
 <!-- 审核用户 action -->
-<!-- wx:if="{{userInfo.isAuditUser}}" -->
-<block>   
+<block wx:if="{{userInfo.isAdministrator}}">   
   <view class='action' hover-class='action-hover' catchtap='toAuditTopics' data-type='publish'>
     <i style='color: #61c3c3;' class='iconfont icon-topic-audit topic-icon' />
     <view class='right splite-bottom'>

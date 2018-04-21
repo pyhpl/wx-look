@@ -1,2 +1,4 @@
-<!--pages/my-space/subpage/audit-activity/audit-activity.wxml-->
-<text>pages/my-space/subpage/audit-activity/audit-activity.wxml</text>
+<view class='activity-guide' hover-class='activity-guide-hover'>
+  <text class='name'>啊啊啊啊</text>
+  <i class="iconfont icon-forward-to guide-icon" />
+</view>

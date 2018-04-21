@@ -12,9 +12,12 @@ grace.page({
       description: "最美人间四月天，轻暖微寒。杏桃初放芳菲竟，柳絮飘，百里飞烟。水清衔燕影，尾点漪涟。总爱乡街播种年，雨过犁翻。汗牛黄犬粗茶饭，任春红，偶落陌间。", 
     },
     showPopup: false,
+    showLeftPopup: false,
     letterCountTip: "",
     isFail: false,
+    isPass: false,
     failText: "不通过",
+    choosedParentTopic: ""
   },
   // ****************** 页面事件 **************** //
   // 预览图片
@@ -26,7 +29,7 @@ grace.page({
     })
   },
   pass: function() {
-    
+    this.toggleLeftPopup();
   },
   fail: function() {
     this.togglePopup();
@@ -39,6 +42,10 @@ grace.page({
     } else {
       this.$data.failText = "不通过";
     }
+  },
+  toggleLeftPopup() {
+    this.$data.showLeftPopup = !this.data.showLeftPopup;
+    this.$data.isPass = !this.data.isPass;
   },
   onSuggestionInput: function(e) {
     if (e.detail.value.length > 0) {

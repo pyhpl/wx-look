@@ -1,3 +1,7 @@
+import look from "../../lib/js/look/look.js";
+
+var app = getApp();
+
 Page({
   customData: {
     activity: '',
@@ -28,21 +32,38 @@ Page({
       type: 1,
       content: this.customData.activity
     }
-    debugger;
     wx.navigateTo({
       url: '../search/search?args=' + JSON.stringify(args),
     })
   },
   // 发布活动
   toPublishActivity: function() {
-    wx.navigateTo({
-      url: './subpage/activity-publish/activity-publish',
-    })
+    if (app.globalData.userInfo == null) {
+      look.loginModal("登录后即可发布")
+        .then((success) => {
+          wx.navigateTo({
+            url: './subpage/activity-publish/activity-publish',
+          })
+        })
+    } else {
+      wx.navigateTo({
+        url: './subpage/activity-publish/activity-publish',
+      })
+    }    
   },
   // 发布主题
   toPublishTopic: function() {
-    wx.navigateTo({
-      url: './subpage/topic-publish/topic-publish',
-    })
+    if (app.globalData.userInfo == null) {
+      look.loginModal("登录后即可发布")
+        .then((success) => {
+          wx.navigateTo({
+            url: './subpage/topic-publish/topic-publish',
+          })
+        })
+    } else {
+      wx.navigateTo({
+        url: './subpage/topic-publish/topic-publish',
+      })
+    }    
   }
 })
