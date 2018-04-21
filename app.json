@@ -1,8 +1,9 @@
 {
   "pages":[
-    "pages/message/subpage/audit-message/audit-message",
-    "pages/message/subpage/join-message/join-message",
+    "pages/message/subpage/audit-topic-message/audit-topic-message",
+    "pages/message/subpage/audit-activity-message/audit-activity-message",
     "pages/my-space/my-space",    
+    "pages/message/subpage/join-message/join-message",     
     "pages/my-space/subpage/audit-activity/subpage/audit-activity-detail/audit-activity-detail",
     "pages/my-space/subpage/audit-topic/subpage/audit-topic-detail/audit-topic-detail",    
     "pages/my-space/subpage/audit-topic/audit-topic",

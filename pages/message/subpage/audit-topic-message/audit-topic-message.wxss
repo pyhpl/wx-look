@@ -1,0 +1,83 @@
+/* audit-message detail  */
+
+.audit-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20rpx;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.audit-message-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2rpx solid #3db4ff;
+}
+
+.auditting, .audit-pass, .audit-fail {
+  color: #3db4ff;
+  padding: 4rpx 0;
+  font-size: 40rpx;
+}
+
+.audit-more {
+  font-size: 30rpx;
+  color: #3db4ff;
+  padding-right: 40rpx;
+}
+
+.audit-message-detail {
+  padding: 10rpx 40rpx 20rpx 0;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #3db4ff;
+}
+
+.audit-advise {
+  font-size: 34rpx;
+  color: #c2c2c2;
+  display: inline;
+}
+
+.topic {
+  margin-top: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20rpx 24rpx 40rpx 24rpx;
+  background-color: #fff;
+}
+
+.explian {
+  display: flex;
+  flex-direction: column;
+  width: 474rpx;
+  margin-top: 10rpx;
+}
+
+.title {
+  font-size: 32rpx;
+}
+
+.description {
+  font-size: 26rpx;
+  color: #8b8d94;
+  line-height: 1.4;
+  margin-top: 10rpx;
+}
+
+.more, .less {
+  color: #3db4ff;
+}
+
+.topic-image {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,32 @@
+<view class='audit-message'>
+  <view class='audit-message-header'>
+    <!-- <view class='auditting'>
+      审核中。。。
+    </view> -->
+    <view class='audit-pass'>
+      审核不通过
+    </view>
+    <i bindtap='switchMoreOrLess' class='iconfont {{!auditMore ? "icon-more": "icon-less" }}  audit-more' />
+    <!-- <view class='audit-fail'>
+      审核不通过
+    </view> -->
+  </view>
+  <view hidden='{{!auditMore}}' class='audit-message-detail'>
+    <view class='audit-advise'>审核意见：</view>
+    每一天，周而复始着生活的年轮。时常在想，这样的单调安逸是否就是岁月的情长。
+    只是，当年华逐渐老去以后，才明白，这浩大的人间，还是情愿做遥远的自己，隔着烟烟水色，看看月色，看看灯火，在不眠的夜里与星星对话。有时候，孤单并不都是忧愁的，能安安静静的做自己，亦是时光赋予的最美。 其实，所谓的遗憾，很多时候，都是我们自己不珍惜，得到时不在意，想起时斯人早已远去。常常，我们是一边走着一边望着，总觉得最美的缘分在前方。只是当有一天，自己终于明白真正需要的是什么时，蓦然回首，已空无一人，任你幡然悔悟，却已无处找寻。光阴缱绻，珍惜那些真正在意你的人吧，因为生活越往前行，就越难遇见这样的人了。
+  </view>
+</view>
+
+<!-- topic  -->
+<view class='topic'>
+  <view class='explian'>
+    <view class='title'>{{topic.name}}</view>
+    <view class='description'>
+      {{topic.description}}
+      <text catchtap='showMore' wx:if='{{more}}' class='more'>...更多</text>
+      <text catchtap='hideMore' wx:if='{{less}}' class='less'>收起</text>
+    </view>
+  </view>
+  <image mode='aspectFill' data-src='{{topic.image}}' src='{{topic.image}}' class='topic-image' catchtap="imagePreview"></image>
+</view>
