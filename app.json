@@ -1,10 +1,12 @@
 {
-  "pages":[
-    "pages/activity/activity",
-    "pages/my-space/subpage/audit-topic/audit-topic",
+  "pages":[    
+    
+    "pages/my-space/subpage/audit-topic/subpage/audit-topic-detail/audit-topic-detail",
+    "pages/my-space/subpage/audit-topic/subpage/audit-activity-detail/audit-activity-detail",
+    "pages/my-space/subpage/audit-topic/audit-topic",    
     "pages/my-space/subpage/audit-activity/audit-activity",
     "pages/my-space/my-space",    
-    
+    "pages/activity/activity",
     "pages/search/search",
     "pages/topic/topic",                   
     "pages/my-space/subpage/my-topic/my-topic",    

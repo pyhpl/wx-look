@@ -1,0 +1,57 @@
+<!-- activity  -->
+<view class="activity">
+  <view class="header">
+    <view class="people-info">
+      <image src="{{activity.publishUserAvatar}}"></image>
+      <view class='show-column'>
+        <view class="name">{{activity.publishUserName}}</view>
+        <view class='publish-date'>{{activity.publishDate}}</view>
+      </view>
+    </view>
+    <text class="school">{{activity.school}}</text>
+  </view>
+  <view class="activity-title">
+    <text>{{activity.title}}</text>
+  </view>
+  <view class='activity-content'>
+    {{activity.detail}}
+  </view>
+  <view class='activity-extra-info'>
+    <view class='place'>活动地点：{{activity.place}}</view>
+    <view class='time'>活动时间：{{activity.deadline}}</view>
+    <view class='contact'>QQ交流群：1234567890</view>
+  </view>
+  <view class="desc-picture">
+    <image mode='aspectFill' wx:for="{{activity.activityImageUrls}}" wx:for-item="activityImageUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{activityImageUrl}}" data-list="{{activity.activityImageUrls}}" data-src="{{activityImageUrl}}" class="{{activity.activityImageUrls.length == 1 ? 'img_1X1' : activity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.activityImageUrls.length == 5) || (index == 7 && activity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+  </view>
+  <view class="tag">
+    <text>{{activity.topicName}}</text>
+  </view>
+  <view class="bottom">
+    <view class="left">
+      <view class="limit-people">
+        限定人数：{{activity.limitUserCount}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--  -->
+<view class='footer-action-bar'>
+  <view hidden='{{isFail}}' catchtap='pass' class='pass' hover-class='pass-hover'>通过</view>
+  <view catchtap='fail' class='fail {{isFail ? "failed" : ""}}' hover-class='fail-hover'>{{failText}}</view>
+</view>
+
+<!-- pop up  -->
+<view class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}" hidden='{{!showPopup}}'>
+  <view class="zan-popup__mask" bindtap="togglePopup"></view>
+  <view class="zan-popup__container popup-example--center">
+    <view class='suggestion-editor'>
+      <view class='editor-header'>
+        <view class='editor-title'>输入不通过原因<span class='letter-count-tip'>{{letterCountTip}}</span></view>
+        <i class="iconfont icon-close close-icon"  bindtap="togglePopup"/>
+      </view>
+      <textarea class='textarea' bindinput="onSuggestionInput" auto-focus placeholder="300字以内" maxlength="300"></textarea>
+    </view>    
+  </view>
+</view>

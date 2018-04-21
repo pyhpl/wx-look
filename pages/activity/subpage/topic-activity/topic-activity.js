@@ -105,13 +105,13 @@ grace.page({
     this.$data.less = false;
     this.handleTopicDescription();
   },
-  // 预览图片
-  imagePreview: function (e) {
-    wx.previewImage({
-      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
-      urls: [e.currentTarget.dataset.src] // 需要预览的图片http链接列表
-    })
-  },
+  // // 预览图片
+  // imagePreview: function (e) {
+  //   wx.previewImage({
+  //     current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+  //     urls: [e.currentTarget.dataset.src] // 需要预览的图片http链接列表
+  //   })
+  // },
   // 预览图片
   imagePreview: function (e) {
     var imgList = e.currentTarget.dataset.list == undefined ? [e.currentTarget.dataset.src] : e.currentTarget.dataset.list; //获取data-list
