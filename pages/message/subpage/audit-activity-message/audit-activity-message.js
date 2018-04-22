@@ -1,36 +1,38 @@
 import grace from "../../../../lib/js/grace/grace.js";
 import util from "../../../../utils/util.js";
+import api from "../../../../api.js";
 
 grace.page({
   data: {
     more: false,
-    activity: {
-      avatarUrl: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg",
-      initiator: "随风",
-      school: "云南大学",
-      title: "世人谓我恋长安，其实只恋长安某",
-      descPictureUrls: [
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/hahaha.jpg",
-      ],
-      tag: "火影忍者",
-      joinPeople: 1234,
-      likeCount: 1234,
-      publishDate: "2018-03-18"
-    },
+    activity: {},
   },
   customData: {
   },
   // ******************************* 生命周期方法 ******************************* //
-  onLoad: function () {
-    wx.setNavigationBarTitle({
-      title: this.data.activity.title,
-    })
+  onLoad: function (e) {
+    var self = this;
+    // if (e[0].uuid != undefined && e[0].uuid != "") {
+      wx.showNavigationBarLoading();
+      self.$http.get(api['activityWithAudit'] + util.queryString({
+        uuid: "b7387ebf-99ba-49b9-bede-9ee92e9cfd54"
+      }))
+        .then((success) => {
+          wx.hideNavigationBarLoading();
+          self.$data.activity = success.data;    
+          wx.setNavigationBarTitle({
+            title: this.data.activity.fullActivity.title,
+          })
+        })
+        .catch((error) => {
+          wx.showToast({
+            title: '网络错误',
+            icon: "none",
+            mask: true,
+          })
+          wx.hideNavigationBarLoading();
+        })
+    // }    
   },
   // ******************************* 自定义方法 ******************************* //
   // 预览图片

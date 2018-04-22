@@ -1,7 +1,9 @@
 {
   "pages":[
-    "pages/message/subpage/audit-topic-message/audit-topic-message",
     "pages/message/subpage/audit-activity-message/audit-activity-message",
+    "pages/publish/publish",    
+    "pages/topic/subpage/topic-choose/topic-choose",    
+    "pages/message/subpage/audit-topic-message/audit-topic-message",    
     "pages/my-space/my-space",    
     "pages/message/subpage/join-message/join-message",     
     "pages/my-space/subpage/audit-activity/subpage/audit-activity-detail/audit-activity-detail",
@@ -17,9 +19,7 @@
     "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/topic-publish/topic-publish",
     "pages/publish/subpage/activity-publish/activity-publish",
-    "pages/activity/subpage/activity-detail/activity-detail",          
-    "pages/topic/subpage/topic-choose/topic-choose",
-    "pages/publish/publish",
+    "pages/activity/subpage/activity-detail/activity-detail",              
     "pages/tag/tag"
   ],
   "window":{

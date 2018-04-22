@@ -1,6 +1,7 @@
 import grace from "../../../../lib/js/grace/grace.js";
 import look from "../../../../lib/js/look/look.js";
 import api from "../../../../api.js";
+import util from "../../../../utils/util.js";
 
 grace.page({
   data: {
@@ -219,6 +220,11 @@ grace.page({
               mask: true,
               icon: "success"
             })
+            wx.redirectTo({
+              url: '../../../message/subpage/audit-activity-message/audit-activity-message' + util.queryString({
+                uuid: success.headers.uuid
+              }),
+            })
           })
           .catch((error) => {
             wx.hideLoading();
@@ -238,6 +244,11 @@ grace.page({
             title: '等待审核',
             mask: true,
             icon: "success"
+          })
+          wx.redirectTo({
+            url: '../../../message/subpage/audit-activity-message/audit-activity-message' + util.queryString({
+              uuid: success.headers.uuid
+            }),
           })
         })
         .catch((error) => {
@@ -284,7 +295,9 @@ grace.page({
     return title;
   },
   // ****************************** grace方法 ********************************* //
-  $onBackData: function(data) {   
-    this.$data.topic = data.topic;
+  $onBackData: function(data) {
+    if (data.topic != undefined && data.topic != null) {
+      this.$data.topic = data.topic;
+    }    
   }
 })

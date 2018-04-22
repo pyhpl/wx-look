@@ -1,6 +1,7 @@
 import grace from "../../../../lib/js/grace/grace.js";
 import look from "../../../../lib/js/look/look.js";
 import api from "../../../../api.js";
+import util from "../../../../utils/util.js";
 
 grace.page({
   data: {
@@ -54,18 +55,22 @@ grace.page({
       })
       // 上传图片
       look.postImageObject(self.data.topicImage, (res) => {
-        debugger;
         self.$http.post(api['topic'], {
           name: self.customData.topicTitle,
           description: self.customData.topicDescription,
           image: res.data
         })
-        .then(function (success) {
+        .then(function (success) {         
           wx.hideLoading();
           wx.showToast({
             title: '等待审核',
             mask: true,
             icon: "success"
+          })
+          wx.redirectTo({
+            url: '../../../message/subpage/audit-topic-message/audit-topic-message' + util.queryString({
+              uuid: success.headers.uuid
+            })
           })
         })
         .catch(function (error) {

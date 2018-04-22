@@ -1,15 +1,15 @@
 <!-- search bar  -->
 <view class="search-header">
   <view class="left">
-    <view class="search-icon">
+    <view class="search-icon" catchtap='toSearch'>
       <i class="iconfont icon-search"></i>
     </view>
     <view class="search-input">
-      <input type="text" placeholder="搜索" />
+      <input bindconfirm='toSearch' bindinput='onSearchInput' type="text" placeholder="搜索" />
     </view>
   </view>
   <view class="right">
-    <view class="cancel-icon">
+    <view class="cancel-icon" catchtap='cancelChoose'>
       <i class="iconfont icon-cancel"></i>
     </view>
   </view>
@@ -18,14 +18,14 @@
 <view class='topic-choose-container'>
   <!-- parent topic scoll-view  -->
   <scroll-view scroll-y class='parent-topics'>
-    <view wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='onTaped' class="parent-topic {{index == onParentTopicIndex ? 'parent-topic-on' : ''}}">
+    <view wx:if="{{item['name'] != '搜索' || searchShow}}" wx:key='{{index}}' wx:for="{{parentTopics}}" data-index='{{index}}' catchtap='onTaped' class="parent-topic {{index == onParentTopicIndex ? 'parent-topic-on' : ''}}">
       <text style="{{index == onParentTopicIndex ? 'color: #3db4ff;font-size: 34rpx;' : ''}}" class="{{index == onParentTopicIndex ? 'parent-topic-text-on' : ''}}">{{item['name']}}</text>
     </view>
   </scroll-view>
   <!-- child topic scoll-view  -->
   <scroll-view scroll-y class='topics'>
     <view wx:key='{{index}}' wx:for='{{topics[onParentTopicIndex]}}' wx:for-item='topic' class='topic'>
-      <image src='{{topic.image}}' catchtap='onTopicChoosed' data-topic='{{topic}}'></image>
+      <image mode='aspectFill' src='{{topic.image}}' catchtap='onTopicChoosed' data-topic='{{topic}}'></image>
       <view class='text-explain' catchtap='onTopicChoosed' data-topic='{{topic}}'>
         <view class='title'>
           {{topic.name}}
@@ -34,7 +34,7 @@
           {{topic.description}}
         </view>
       </view>
-      <view class='to-detail' hover-class='to-detail-hover'>
+      <view catchtap='toTopic' data-topic='{{topic}}' class='to-detail' hover-class='to-detail-hover'>
         <i class='iconfont icon-big-forward-to' />
       </view>      
     </view>

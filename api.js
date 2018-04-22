@@ -7,6 +7,7 @@ const service = {
   cloud: remoteIp + '/cloud', // 云对象存储微服务
   user: remoteIp + '/user',   // 用户微服务
   activity: remoteIp + '/activity', // 主题活动微服务
+  audit: remoteIp + "/audit", // 审核微服务
 }
 
 // api
@@ -38,7 +39,12 @@ const hotTopics = service['activity'] + "/api/topic/s/hot"
 
 const administrator = service['user'] + '/api/administrator';
 
+const topicWithAudit = service['api'] + '/api/topic-with-audit';
+const activityWithAudit = service['api'] + '/api/activity-with-audit';
+
 module.exports = {
+  activityWithAudit: activityWithAudit,
+  topicWithAudit: topicWithAudit,
   administrator: administrator,
   userFullTopics: userFullTopics,
   userFullActivities: userFullActivities,

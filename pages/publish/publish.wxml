@@ -1,10 +1,10 @@
 <view class='publish-panel'>
-  <view class="activity-publish-panel" bindtap='toPublishActivity'>
+  <view class="activity-publish-panel" catchtap='toPublishActivity'>
     <view class='activity-publish-panel-header'>
       <view class='activity-icon'>
         <i class='iconfont icon-flag'></i>
       </view>
-      <view class='search-bar'>
+      <view class='search-bar' catchtap='doNothing'>
         <view class="search-icon" catchtap="toActivitySearch">
           <i class="iconfont icon-search"></i>
         </view>
@@ -30,7 +30,7 @@
       <view class='topic-icon'>
         <i class='iconfont icon-topic'></i>
       </view>
-      <view class='search-bar'>
+      <view class='search-bar' catchtap='doNothing'>
         <view class="search-icon" catchtap='toTopicSearch'>
           <i class="iconfont icon-search"></i>
         </view>

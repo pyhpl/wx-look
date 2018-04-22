@@ -65,5 +65,7 @@ Page({
         url: './subpage/topic-publish/topic-publish',
       })
     }    
-  }
+  },
+  // do nothing
+  doNothing: function() {}
 })
