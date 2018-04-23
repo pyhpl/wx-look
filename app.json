@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/my-space/my-space",    
+    "pages/my-space/my-space",
+    "pages/message/message",
     "pages/message/subpage/audit-activity-message/audit-activity-message",
     "pages/publish/publish",    
     "pages/topic/subpage/topic-choose/topic-choose",    
@@ -14,8 +15,7 @@
     "pages/search/search",
     "pages/topic/topic",                   
     "pages/my-space/subpage/my-topic/my-topic",    
-    "pages/my-space/subpage/my-activity/my-activity",    
-    "pages/message/message",    
+    "pages/my-space/subpage/my-activity/my-activity",          
     "pages/activity/subpage/topic-activity/topic-activity",
     "pages/publish/subpage/topic-publish/topic-publish",
     "pages/publish/subpage/activity-publish/activity-publish",

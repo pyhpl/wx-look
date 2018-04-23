@@ -8,7 +8,11 @@ const service = {
   user: remoteIp + '/user',   // 用户微服务
   activity: remoteIp + '/activity', // 主题活动微服务
   audit: remoteIp + "/audit", // 审核微服务
+  message: remoteIp + "/message",
 }
+
+// websocket
+const websocket = "ws://localhost:8866/ws";
 
 // api
 const imagesCloud = service['cloud'] + "/api/cloud/images/";
@@ -42,6 +46,10 @@ const topicWithAuditUserAudited = service['api'] + '/api/user/topic-with-audit/s
 const topicAudit = service['audit'] + '/api/topic-audit/';
 
 module.exports = {
+  // websocket
+  websocket: websocket,
+
+  // http
   topicWithAuditAndUser: topicWithAuditAndUser,
   topicAudit: topicAudit,
   topicWithAuditUserAudited: topicWithAuditUserAudited,
