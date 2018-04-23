@@ -31,18 +31,20 @@ const like = service['user'] + '/api/activity-like';
 const activityFocus = service['user'] + '/api/activity-focus';
 const join = service['user'] + '/api/join';
 const topicFocus = service['user'] + '/api/topic-focus';
-
 const fullTopics = service['api'] + "/api/full-topic/s"
 const userFullTopics = service['api'] + "/api/user/full-topic/s";
-
 const hotTopics = service['activity'] + "/api/topic/s/hot"
-
 const administrator = service['user'] + '/api/administrator';
-
 const topicWithAudit = service['api'] + '/api/topic-with-audit';
+const topicWithAuditAndUser = service['api'] + '/api/user/topic-with-audit';
 const activityWithAudit = service['api'] + '/api/activity-with-audit';
+const topicWithAuditUserAudited = service['api'] + '/api/user/topic-with-audit/s';
+const topicAudit = service['audit'] + '/api/topic-audit/';
 
 module.exports = {
+  topicWithAuditAndUser: topicWithAuditAndUser,
+  topicAudit: topicAudit,
+  topicWithAuditUserAudited: topicWithAuditUserAudited,
   activityWithAudit: activityWithAudit,
   topicWithAudit: topicWithAudit,
   administrator: administrator,

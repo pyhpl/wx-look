@@ -15,7 +15,15 @@
   color: rgb(102, 102, 102);
 }
 
+.guide-icon,
+.right-icon {
+  font-size: 40rpx;  
+}
+
 .guide-icon {
-  font-size: 40rpx;
   color: rgb(196, 197, 196);
+}
+
+.right-icon {
+  color:#3db4ff;
 }

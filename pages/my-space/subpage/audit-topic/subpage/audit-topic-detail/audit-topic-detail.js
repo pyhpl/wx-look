@@ -6,11 +6,9 @@ var app = getApp();
 
 grace.page({
   data: {
-    topic: {
-      image: "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.WmbS4IfBBEsbed780f1243e2cf8de4400e76c27da167.jpg",
-      name: "看花回",
-      description: "最美人间四月天，轻暖微寒。杏桃初放芳菲竟，柳絮飘，百里飞烟。水清衔燕影，尾点漪涟。总爱乡街播种年，雨过犁翻。汗牛黄犬粗茶饭，任春红，偶落陌间。", 
-    },
+    parentTopics: [],
+    onParentTopicIndex: 0,
+    topic: {},
     showPopup: false,
     showLeftPopup: false,
     letterCountTip: "",
@@ -18,6 +16,25 @@ grace.page({
     isPass: false,
     failText: "不通过",
     choosedParentTopic: ""
+  },
+  // *************** 生命周期方法 **************** //
+  onLoad: function(e) {
+    var self = this;
+    if (e[0].topic != undefined) {
+      self.$data.topic = JSON.parse(e[0].topic);
+      wx.setNavigationBarTitle({
+        title: "审核主题：" + self.data.topic.name,
+      })
+      self.$http.get(api['parentTopics'])
+        .then((success) => {
+          self.$data.parentTopics = success.data;
+        })
+    } else {
+      wx.showToast({
+        title: '网络错误',
+        icon: "none"
+      })
+    }
   },
   // ****************** 页面事件 **************** //
   // 预览图片
@@ -29,7 +46,38 @@ grace.page({
     })
   },
   pass: function() {
-    this.toggleLeftPopup();
+    var self = this;
+    if (self.data.isPass == false) {
+      this.toggleLeftPopup();
+    } else {
+      wx.showLoading({
+        title: '上传中。。。',
+        mask: true
+      })
+      self.$http.put(api['topicWithAuditAndUser'], {
+        topicUuid: self.data.topic.topicUuid,
+        parentTopicUuid: self.data.parentTopics[self.data.onParentTopicIndex].uuid,
+        auditUuid: self.data.topic.auditUuid,
+        state: 1
+      })
+        .then((success) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '审核成功',
+            icon: 'none',
+            mask: true
+          });
+          self.$goBack({ topicUuid: self.data.topic.topicUuid });
+        })
+        .catch((error) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '网络错误',
+            icon: 'none',
+            mask: true
+          })
+        })
+    }
   },
   fail: function() {
     this.togglePopup();
@@ -53,5 +101,9 @@ grace.page({
     } else {
       this.$data.letterCountTip = "";
     }
+  },
+  // 选择父主题
+  chooseParentTopic: function(e) {
+    this.$data.onParentTopicIndex = e.currentTarget.dataset.index;
   }
 })

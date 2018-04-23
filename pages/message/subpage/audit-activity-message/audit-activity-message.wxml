@@ -39,7 +39,11 @@
   <view class='activity-extra-info'>
     <view class='place'>活动地点：{{activity.fullActivity.place}}</view>
     <view class='time'>活动时间：{{activity.fullActivity.deadline}}</view>
-    <view class='contact'>QQ交流群：{{activity.fullActivity.contactRepresent}}</view>
+    <view wx:if="{{activity.fullActivity.contactType == 0}}" class='contact-qq'>QQ交流群：{{activity.fullActivity.contactRepresent}}</view>
+    <view wx:if="{{activity.fullActivity.contactType == 1}}" class='contact-wechat'>
+      <view class='wechat-text'>微信交流群：</view>
+      <image catchtap='imagePreview' data-src='{{activity.fullActivity.contactRepresent}}' data-list="{{[activity.fullActivity.contactRepresent]}}" src='{{activity.fullActivity.contactRepresent}}' class='wechat-image'></image>
+    </view>
   </view>
   <view class="desc-picture">
     <image mode='aspectFill' wx:for="{{activity.fullActivity.activityImageUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.fullActivity.activityImageUrls}}" data-src="{{descPictureUrl}}" class="{{activity.fullActivity.activityImageUrls.length == 1 ? 'img_1X1' : activity.fullActivity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.fullActivity.activityImageUrls.length == 5) || (index == 7 && activity.fullActivity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>

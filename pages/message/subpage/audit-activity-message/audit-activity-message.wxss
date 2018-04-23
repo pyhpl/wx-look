@@ -215,9 +215,23 @@
   margin: 40rpx 0 30rpx;
 }
 
-.place, .time, .contact {
+.place, .time, .contact-qq, .contact-wechat {
   display: flex;
   align-items: center;
   font-size: 30rpx;
   color: #777;
+}
+
+.contact-wechat {
+  margin-top: 10rpx;
+}
+
+.wechat-text {
+  align-self: flex-start;
+  line-height: 1;
+}
+
+.wechat-image {
+  width: 200rpx;
+  height: 200rpx;
 }

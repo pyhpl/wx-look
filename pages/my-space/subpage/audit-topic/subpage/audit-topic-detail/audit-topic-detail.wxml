@@ -39,10 +39,9 @@
   <view class="zan-popup__container popup_container">
     <view class='parent-topic-title'>选择主题板块</view>
     <scroll-view scroll-y class='parent-topics'>
-      <view class='parent-topic'>吃吃喝喝</view>
-      <view class='parent-topic'>吃吃喝喝</view>
-      <view class='parent-topic parent-topic-on'>吃吃喝喝</view>
-      <view class='parent-topic'>吃吃喝喝</view>
+      <block wx:for="{{parentTopics}}" wx:for-item="parentTopic" wx:key="{{parentTopic.uuid}}">
+        <view catchtap='chooseParentTopic' data-index='{{index}}' class='parent-topic {{index == onParentTopicIndex ? "parent-topic-on" : ""}}'>{{parentTopic.name}}</view>
+      </block>      
     </scroll-view>
     <view class='parent-topic-add'>
       <i class="iconfont icon-add-parent-topic just-add-icon" />

@@ -1,4 +1,7 @@
-<view class='activity-guide' hover-class='activity-guide-hover'>
-  <text class='name'>啊啊啊啊</text>
-  <i class="iconfont icon-forward-to guide-icon" />
-</view>
+<block wx:for="{{topics}}" wx:for-item="topic" wx:key="{{topic.auditUudi}}">
+  <view data-topic='{{topic}}' data-index="{{index}}" catchtap='toAuditTopicDetail' class='activity-guide' hover-class='{{!audited[index] ? "activity-guide-hover" : ""}}'>
+    <text class='name'>{{topic.name}}</text>
+     <i wx:if="{{!audited[index]}}" class="iconfont icon-forward-to guide-icon" /> 
+     <i wx:if="{{audited[index]}}" class="iconfont icon-right-right right-icon" /> 
+  </view>
+</block>
