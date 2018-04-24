@@ -6,23 +6,26 @@ var app = getApp();
 
 grace.page({
   data: {
-
+    messages: []
   },
   // ************** 生命周期方法 ************ //
   onShow: function() {
-    this.onLoad();
+    look.setTabBarBadge();
   },
-  onLoad: function () {    
-    var wsClient = look.getWsClient();
-    wsClient.connect({}, function (frame) {
-      wsClient.subscribe('/user/message', function (body, headers) {
+  onLoad: function () {
+    var self = this;
+    look.loginCheck("登录后查看消息", (data) => {      
+      data.wsClient.subscribe("/user/message", function(frame) {
         debugger;
-        console.log('From MQ:', body);
-      });
-    })
-    wx.setTabBarBadge({
-      index: 3,
-      text: '4',
+        var messages = JSON.parse(frame.body);
+        if (messages instanceof Array) {
+          self.data.messages = [...messages, ...self.data.messages];
+        } else {
+          self.data.messages = [messages, ...self.data.messages];
+        }
+        self.$data.messages = self.data.messages;
+        debugger;
+      })
     })
   },
   // ************** 自定义方法 ************ //

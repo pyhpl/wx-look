@@ -1,14 +1,6 @@
 <view class='h-line'></view>
+<block wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.uuid}}">
 <!-- 系统消息 -->
-<view class='message' bindlongtap='delete' hover-class='message-hover'>
-  <view class='left'>
-    <view class='type'>审核中：</view>
-    <view class='title'>活动XXXX</view>
-  </view>
-  <view class='right'>
-    <i class='iconfont icon-dot dot' />     
-  </view>
-</view>
 <view class='message' bindlongtap='delete' hover-class='message-hover'>
   <view class='left'>
     <view class='type'>通过：</view>
@@ -20,11 +12,11 @@
 </view>
 <view class='message' bindlongtap='delete' hover-class='message-hover'>
   <view class='left'>
-    <view class='type'>驳回：</view>
+    <view class='type'>{{}}</view>
     <view class='title del'>活动XXXX</view>
   </view>
   <view class='right'>
-    <i class='iconfont icon-dot dot' />     
+    <i wx:if="{{}}" class='iconfont icon-dot dot' />     
   </view>
 </view>
 <!-- 人员加入消息 -->
@@ -39,3 +31,4 @@
     <i class='iconfont icon-dot dot' />     
   </view>
 </view>
+</block>

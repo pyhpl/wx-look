@@ -55,6 +55,7 @@ grace.page({
         mask: true
       })
       self.$http.put(api['topicWithAuditAndUser'], {
+        name: self.data.topic.name,
         topicUuid: self.data.topic.topicUuid,
         parentTopicUuid: self.data.parentTopics[self.data.onParentTopicIndex].uuid,
         auditUuid: self.data.topic.auditUuid,

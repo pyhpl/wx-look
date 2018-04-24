@@ -80,16 +80,16 @@ page {
 
 /* action  */
 
-.action-hover {
-  background-color: #fbf8f8;
-}
-
 .action {
   padding-top: 4rpx;
   padding-left: 20rpx;
   display: flex;
   align-items: center;
   background-color: #fff;
+}
+
+.action-hover {
+  background-color: #fbf8f8;
 }
 
 .topic-icon {
