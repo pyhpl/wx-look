@@ -16,6 +16,9 @@ grace.page({
   },
   // **************************** 生命周期方法 **************************** //
   onLoad() {
+    wx.setNavigationBarTitle({
+      title: '选择主题',
+    })
     var self = this;    
     self.$http.get(api['parentTopics'])
       .then(function(success) {

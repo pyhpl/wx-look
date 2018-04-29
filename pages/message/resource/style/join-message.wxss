@@ -14,7 +14,7 @@
 
 .join {
   font-size: 36rpx;
-  color: #3db4ff;
+  color: #ebad64;
 }
 
 .activity {

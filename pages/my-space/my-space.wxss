@@ -65,7 +65,7 @@ page {
 }
 
 .user-info-top {
-  position: fixed;
+  position: absolute;
   top: 0;
   background: #3db4ff;
   height: 200rpx;

@@ -17,6 +17,9 @@ grace.page({
     look.setTabBarBadge();
   },
   onLoad: function () {
+    wx.setNavigationBarTitle({
+      title: '个人中心',
+    })
     var self = this;    
     if (app.globalData.userInfo != null && app.globalData.userInfo != "") {
       self.$data.isLogin = true;

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/activity/activity",
     "pages/my-space/my-space",
     "pages/message/message",
     "pages/message/subpage/audit-activity-message/audit-activity-message",
@@ -10,8 +11,7 @@
     "pages/my-space/subpage/audit-activity/subpage/audit-activity-detail/audit-activity-detail",
     "pages/my-space/subpage/audit-topic/subpage/audit-topic-detail/audit-topic-detail",    
     "pages/my-space/subpage/audit-topic/audit-topic",
-    "pages/my-space/subpage/audit-activity/audit-activity",    
-    "pages/activity/activity",
+    "pages/my-space/subpage/audit-activity/audit-activity",        
     "pages/search/search",
     "pages/topic/topic",                   
     "pages/my-space/subpage/my-topic/my-topic",    
@@ -25,7 +25,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "逛逛",
+    "navigationBarTitleText": "课下约",
     "navigationBarTextStyle":"black",
     "onReachBottomDistance": 40
   },

@@ -14,9 +14,11 @@ grace.page({
   },
   onLoad: function () {
     var self = this;
+    wx.setNavigationBarTitle({
+      title: '消息中心',
+    })
     look.loginCheck("登录后查看消息", (data) => {      
       data.wsClient.subscribe("/user/message", function(frame) {
-        debugger;
         var messages = JSON.parse(frame.body);
         if (messages instanceof Array) {
           self.data.messages = [...messages, ...self.data.messages];
@@ -24,7 +26,6 @@ grace.page({
           self.data.messages = [messages, ...self.data.messages];
         }
         self.$data.messages = self.data.messages;
-        debugger;
       })
     })
   },

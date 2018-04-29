@@ -67,7 +67,6 @@ grace.page({
           })
         })
     } else if (self.data.topics[e.currentTarget.dataset.index].focused == true) {
-      debugger;
       self.$http.delete(api['topicFocus'] + util.queryString({
         uuid: self.data.topics[e.currentTarget.dataset.index].topicFocusUuid
       }))

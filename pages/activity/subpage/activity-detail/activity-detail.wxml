@@ -14,7 +14,7 @@
     <text>{{activity.title}}</text>
   </view>
   <view class='activity-content'>
-    {{activity.detail}}
+    <rich-text nodes="{{activity.detail}}"></rich-text>
   </view>
   <view class='activity-extra-info'>
     <view class='place'>活动地点：{{activity.place}}</view>

@@ -1,5 +1,5 @@
 // 远程服务器地址
-const remoteIp = "http://localhost:8080"
+const remoteIp = "http://192.168.1.108:8080"
 
 // 微服务
 const service = {
@@ -12,7 +12,7 @@ const service = {
 }
 
 // websocket
-const websocket = "ws://localhost:8866/ws";
+const websocket = "ws://192.168.1.108:8866/ws";
 
 // api
 const imagesCloud = service['cloud'] + "/api/cloud/images/";

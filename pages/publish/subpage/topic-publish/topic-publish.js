@@ -13,6 +13,12 @@ grace.page({
     topicDescription: "",
     descriptionLength: 0
   },
+  // ******************************页面生命周期方法**************************** //
+  onLoad: function() {
+    wx.setNavigationBarTitle({
+      title: '创建主题',
+    })
+  },
   // ******************************自定义方法********************************* //
   chooseImage: function (e) {
     var that = this;

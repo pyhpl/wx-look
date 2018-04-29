@@ -23,6 +23,9 @@ grace.page(Object.assign({}, Zan.TopTips, {
   },
   // ********************** 页面生命周期方法 ******************************** //
   onLoad: function (query) {
+    wx.setNavigationBarTitle({
+      title: '标签管理',
+    })
     this.$data.tags = JSON.parse(query[0].tags);
   },
   onReady: function () {

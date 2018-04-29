@@ -12,7 +12,7 @@
 </view>
 
 <view class='tags'>
-  <view wx:for="{{tags}}" wx:for-item="tag" class='tag-container' wx:key="uuid">    
+  <view wx:if="{{tag['name'] != '推荐'}}" wx:for="{{tags}}" wx:for-item="tag" class='tag-container' wx:key="uuid">    
     <view class='tag'>{{tag['name']}}</view>
     <i data-index="{{index}}" data-tag="{{tag}}" catchtap="tagDeleteConfirm" class="iconfont icon-delete tag-delete"></i>
   </view>

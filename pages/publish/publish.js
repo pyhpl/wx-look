@@ -7,6 +7,12 @@ Page({
     activity: '',
     topic: ''
   },
+  // *********** 页面生命周期方法 ************ //
+  onLoad: function() {
+    wx.setNavigationBarTitle({
+      title: '发布中心',
+    })
+  },
   // *********** 自定义方法 ************ //
   // 获取活动输入值
   onActivityInput: function (e) {

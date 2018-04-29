@@ -1,6 +1,7 @@
 import grace from "../../lib/js/grace/grace.js";
 import api from "../../api.js";
 import util from "../../utils/util.js";
+import look from "../../lib/js/look/look.js";
 
 var app = getApp();
 
@@ -14,7 +15,7 @@ grace.page({
   onLoad: function() {
     wx.showNavigationBarLoading();
     var self = this;
-    app.init().then(function(res) {
+    look.login(true).then(function(res) {      
       // 获取标签
       var getTags = () => { 
         return self.$http.get(api['tags']);
@@ -33,6 +34,9 @@ grace.page({
           wx.hideNavigationBarLoading();
         }))
         .catch(function (error) {
+          debugger;
+          console.log(1);
+          wx.hideNavigationBarLoading();
           wx.showToast({
             title: '网络错误！',
             mask: true,
@@ -41,6 +45,7 @@ grace.page({
         });
     }).catch(function(error) {
       wx.hideNavigationBarLoading();
+      console.log(2);
       wx.showToast({
         title: '网络错误！',
         mask: true,

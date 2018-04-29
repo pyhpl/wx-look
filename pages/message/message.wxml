@@ -1,34 +1,43 @@
 <view class='h-line'></view>
-<block wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.uuid}}">
+<!-- <block wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.uuid}}"> -->
 <!-- 系统消息 -->
 <view class='message' bindlongtap='delete' hover-class='message-hover'>
   <view class='left'>
     <view class='type'>通过：</view>
-    <view class='title'>活动XXXX</view>
+    <view class='title'>三国杀-活动</view>
   </view>
   <view class='right'>
-    <i class='iconfont icon-dot dot' />     
+    <i class='iconfont icon-dot dot' />
   </view>
 </view>
 <view class='message' bindlongtap='delete' hover-class='message-hover'>
   <view class='left'>
-    <view class='type'>{{}}</view>
-    <view class='title del'>活动XXXX</view>
+    <image src='	https://images-1252933270.cos.ap-guangzhou.myqcloud.com/229522657.jpg' class='avatar'></image>
+    <view class='name'>坚果仁子</view>
+    <view class='join'>加入</view>
+    <view class='activity'>环校骑行</view>
+  </view>  
+</view>
+<view class='message' bindlongtap='delete' hover-class='message-hover'>
+  <view class='left'>
+    <view class='type' style='color: #ce6475;'>未通过：</view>
+    <view class='title'>吃货的世界(主题)</view>
   </view>
   <view class='right'>
-    <i wx:if="{{}}" class='iconfont icon-dot dot' />     
+    <i class='iconfont icon-dot dot' />
   </view>
 </view>
+
 <!-- 人员加入消息 -->
 <view class='message' bindlongtap='delete' hover-class='message-hover'>
   <view class='left'>
-    <image src='https://images-1252933270.cos.ap-guangzhou.myqcloud.com/zuozhu.jpg' class='avatar'></image>
+    <image src='https://wx.qlogo.cn/mmopen/vi_32/IeF17WLTWuTzcGPU58xtucGMIwjTHEiajC18u8sKFHcvtibaG3GB24AHic8CyFA4epESWZL1tU9yZx6B1XoRoicnXw/0' class='avatar'></image>
     <view class='name'>随风</view>
     <view class='join'>加入</view>
-    <view class='activity'>XXXX活动</view>
+    <view class='activity'>三国杀</view>
   </view>
   <view class='right'>
-    <i class='iconfont icon-dot dot' />     
+    <i class='iconfont icon-dot dot' />
   </view>
 </view>
-</block>
+<!-- </block> -->

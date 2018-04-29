@@ -39,8 +39,11 @@ grace.page({
     detailLength: 0,
     pictureCount: 0,
   },
-  // ****************************** 生命周期方法 ********************************* //
+  // ******************** 生命周期方法 ******************** //
   onLoad(data) {
+    wx.setNavigationBarTitle({
+      title: '创建活动',
+    })
     var that = this;       
     if (data[0].topic != undefined) {
       this.$data.topic = JSON.parse(data[0].topic);

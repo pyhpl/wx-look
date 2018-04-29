@@ -173,6 +173,7 @@
   background-color: #fff;
   z-index: 100;
   padding: 20rpx;
+  position: -webkit-sticky;
   position: sticky;
   bottom: 0rpx;
   border-top: 1px solid #f0eff2;

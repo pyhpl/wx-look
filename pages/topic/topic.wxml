@@ -54,7 +54,7 @@
   <view class='topics' catchtap='toTopic' data-topic='{{topic}}' >
     <view class='topic'>
       <view class='left'>
-        <image class='topic-image' src='{{topic.image}}'></image>
+        <image class='topic-image' src='{{topic.image}}' mode="aspectFill"></image>
         <text class='topic-title'>{{topic.name}}</text>
       </view>
       <!-- <text class='badge'>99+</text>   -->
