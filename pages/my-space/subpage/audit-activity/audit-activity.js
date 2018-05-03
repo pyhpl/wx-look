@@ -1,66 +1,82 @@
-// pages/my-space/subpage/audit-activity/audit-activity.js
-Page({
+import grace from "../../../../lib/js/grace/grace.js"
+import api from "../../../../api.js"
+import util from "../../../../utils/util.js";
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+var app = getApp();
+
+grace.page({
+  data: {    
+    activities: [],
+    audited: [],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  customData: {
+    activityWithAudit: [],
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  // ********************** 页面生命周期方法 ******************************** //
+  onLoad: function () {
+    wx.showNavigationBarLoading();
+    var self = this;
+    self.$http.get(api['activityWithAuditUserAudited'] + util.queryString({
+      state: "waitingAudited",
+      pageInfoJsonStr: util.pageInfoJsonStr(1, 10)
+    }))
+      .then((success) => {
+        wx.hideNavigationBarLoading();
+        self.customData.activityWithAudit = success.data;
+        self.$data.activities = success.data.map((value) => {
+          return value.fullActivity;
+        });
+        for (var i = 0; i < self.data.activities.length; i++) {
+          self.data.audited[i] = false;
+        }
+      })
+      .catch((error) => {
+        wx.hideNavigationBarLoading();
+        wx.showToast({
+          title: '网络错误',
+          icon: "none"
+        })
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-  
+    var self = this;
+    self.data.audited.forEach((value, index) => {
+      if (value == false) {
+        self.$http.put(api['activityAudit'], {
+          uuid: self.customData.activityWithAudit[index].auditUuid,
+          state: 0,
+        }).then();
+      }
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  // ********************** 自定义方法 ************************************* //  
+  toAuditActivityDetail: function (e) {
+    var self = this;
+    if (this.data.audited[e.currentTarget.dataset.index] == false) {
+      wx.navigateTo({
+        url: './subpage/audit-activity-detail/audit-activity-detail' + util.queryString({
+          uuid: e.currentTarget.dataset.uuid,
+          auditUuid: self.customData.activityWithAudit[e.currentTarget.dataset.index].auditUuid
+        }),
+      })
+    } else {
+      wx.showToast({
+        title: '已审核',
+        icon: 'none',
+        mask: true
+      })
+    }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  // ****************************** grace方法 ********************************* //
+  $onBackData: function (data) {
+    var self = this;
+    if (data.activityUuid != undefined && data.activityUuid != null) {
+      self.data.activities.forEach((activity, index) => {
+        if (activity.uuid == data.activityUuid) {
+          self.data.audited[index] = true;
+          self.$data.audited = self.data.audited;
+        }
+      })
+    }
   }
 })

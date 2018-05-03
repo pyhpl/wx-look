@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "搜索中心",
   "usingComponents": {
     "activity-panel": "./component/activity-panel/activity-panel",
     "topic-panel": "./component/topic-panel/topic-panel"

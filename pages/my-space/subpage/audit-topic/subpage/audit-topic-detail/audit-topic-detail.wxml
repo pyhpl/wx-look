@@ -28,7 +28,7 @@
         <view class='editor-title'>输入不通过原因<span class='letter-count-tip'>{{letterCountTip}}</span></view>
         <i class="iconfont icon-close close-icon"  bindtap="togglePopup"/>
       </view>
-      <textarea class='textarea' bindinput="onSuggestionInput" placeholder="300字以内" maxlength="300"></textarea>
+      <textarea class='textarea' bindinput="onSuggestionInput" focus placeholder="300字以内" maxlength="300"></textarea>
     </view>    
   </view>
 </view>

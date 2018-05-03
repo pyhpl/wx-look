@@ -16,9 +16,6 @@ grace.page({
   },
   // ******************* 页面生命周期方法 ********************* //
   onLoad: function (query) {
-    wx.setNavigationBarTitle({
-      title: '搜索',
-    })
     if (query[0].args != undefined) {
       var initArgs = JSON.parse(query[0].args);
       this.$data.activeIndex = initArgs.type;      

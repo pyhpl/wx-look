@@ -5,27 +5,38 @@ import util from "../../../../../../utils/util.js";
 var app = getApp();
 
 grace.page({
-  data: {
-    activity: {
-      publishUserAvatar: "https://wx.qlogo.cn/mmopen/vi_32/IeF17WLTWuTzcGPU58xtucGMIwjTHEiajC18u8sKFHcvtibaG3GB24AHic8CyFA4epESWZL1tU9yZx6B1XoRoicnXw/0",
-      publishUserName: "随风",
-      publishDate: "2018-04-21",
-      school: "云南大学",
-      title: "又是一年樱花开",
-      detail: "每一天，周而复始着生活的年轮。时常在想，这样的单调安逸是否就是岁月的情长。只是，当年华逐渐老去以后，才明白，这浩大的人间，还是情愿做遥远的自己，隔着烟烟水色，看看月色，看看灯火，在不眠的夜里与星星对话。有时候，孤单并不都是忧愁的，能安安静静的做自己，亦是时光赋予的最美。 其实，所谓的遗憾，很多时候，都是我们自己不珍惜，得到时不在意，想起时斯人早已远去。常常，我们是一边走着一边望着，总觉得最美的缘分在前方。只是当有一天，自己终于明白真正需要的是什么时，蓦然回首，已空无一人，任你幡然悔悟，却已无处找寻。光阴缱绻，珍惜那些真正在意你的人吧，因为生活越往前行，就越难遇见这样的人了。",
-      place: "云南大学步行街XXXX店",
-      deadline: "2018-04-13",
-      activityImageUrls: ["https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.UBzUT0K7zRj9ed780f1243e2cf8de4400e76c27da167.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.UBzUT0K7zRj9ed780f1243e2cf8de4400e76c27da167.jpg",
-        "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.UBzUT0K7zRj9ed780f1243e2cf8de4400e76c27da167.jpg", "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.UBzUT0K7zRj9ed780f1243e2cf8de4400e76c27da167.jpg", "https://images-1252933270.cos.ap-guangzhou.myqcloud.com/wx1e3bc888e28279a6.o6zAJs6kltMA9xqsVnJtVBLJfkZA.UBzUT0K7zRj9ed780f1243e2cf8de4400e76c27da167.jpg",
-      ],
-      limitUserCount: 12,
-      topicName: "看花回",
-    },
+  data: {    
+    activity: null,
     showPopup: false,
     letterCountTip: "",
     isFail: false,
     failText: "不通过",
+  },
+  customData: {
+    auditUuid: "",
+  },
+  // ****************** 生命周期事件 ************ //
+  onLoad: function(e) {
+    var self = this;
+    self.customData.auditUuid = e[0].auditUuid;
+    wx.showNavigationBarLoading();
+    self.$http.get(api['fullActivity'] + util.queryString({
+      uuid: e[0].uuid
+    }))
+      .then((success) => {
+        self.$data.activity = success.data;
+        wx.setNavigationBarTitle({
+          title: "审核活动：" + self.data.activity.title,
+        })
+        wx.hideNavigationBarLoading();
+      })
+      .catch((error) => {
+        wx.hideNavigationBarLoading();
+        wx.showToast({
+          title: '网络错误',
+          icon: "none"
+        })
+      })
   },
   // ****************** 页面事件 **************** //
   // 预览图片
@@ -38,10 +49,55 @@ grace.page({
     })
   },
   pass: function () {
-
+    var self = this;
+    this._audit({
+      fullActivity: {
+        uuid: self.data.activity.uuid,
+      },
+      auditUuid: self.customData.auditUuid,
+      state: 1
+    });
   },
   fail: function () {
-    this.togglePopup();
+    var self = this;    
+    if (self.data.failText == "不通过") {
+      this.togglePopup();
+      self.$data.failText = "提交审核";
+    } else {
+      this._audit({
+        fullActivity: {
+          uuid: self.data.activity.uuid
+        },
+        suggestion: self.customData.suggestion,
+        auditUuid: self.customData.auditUuid,
+        state: -1
+      });
+    }        
+  },
+  _audit: function(audit) {
+    var self = this;
+    wx.showLoading({
+      title: '上传中。。。',
+      mask: true
+    })
+    self.$http.put(api['activityWithAuditUser'], audit)
+      .then((success) => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '审核成功',
+          icon: 'none',
+          mask: true
+        });
+        self.$goBack({ activityUuid: self.data.activity.uuid });
+      })
+      .catch((error) => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none',
+          mask: true
+        })
+      })
   },
   togglePopup() {
     this.$data.showPopup = !this.data.showPopup;
@@ -53,6 +109,7 @@ grace.page({
     }
   },
   onSuggestionInput: function (e) {
+    this.customData.suggestion = e.detail.value;
     if (e.detail.value.length > 0) {
       this.$data.letterCountTip = "(" + e.detail.value.length + "/300)";
     } else {

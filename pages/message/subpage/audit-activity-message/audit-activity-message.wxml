@@ -1,3 +1,4 @@
+<block wx:if="{{activity != null}}">
 <view class='audit-message'>
   <view class='audit-message-header'>
     <view wx:if='{{activity.state == 0}}' class='auditting'>
@@ -17,7 +18,6 @@
     </view>
   </view>
 </view>
-
 <!-- activity  -->
 <view class="activity">
   <view class="header">
@@ -34,8 +34,11 @@
     <text>{{activity.fullActivity.title}}</text>
   </view>
   <view class='activity-content'>
-    {{activity.fullActivity.detail}}
+    <rich-text nodes="{{activity.fullActivity.detail}}"></rich-text>
   </view>
+  <!-- <view class='activity-content'>
+    {{activity.fullActivity.detail}}
+  </view> -->
   <view class='activity-extra-info'>
     <view class='place'>活动地点：{{activity.fullActivity.place}}</view>
     <view class='time'>活动时间：{{activity.fullActivity.deadline}}</view>
@@ -46,7 +49,8 @@
     </view>
   </view>
   <view class="desc-picture">
-    <image mode='aspectFill' wx:for="{{activity.fullActivity.activityImageUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.fullActivity.activityImageUrls}}" data-src="{{descPictureUrl}}" class="{{activity.fullActivity.activityImageUrls.length == 1 ? 'img_1X1' : activity.fullActivity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.fullActivity.activityImageUrls.length == 5) || (index == 7 && activity.fullActivity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
+    <image mode='aspectFill' wx:for="{{activity.fullActivity.activityImageUrls}}" wx:for-item="descPictureUrl" wx:key="{{index}}" catchtap="imagePreview" src="{{descPictureUrl}}" data-list="{{activity.fullActivity.activityImageUrls}}" data-src="{{descPictureUrl}}"
+      class="{{activity.fullActivity.activityImageUrls.length == 1 ? 'img_1X1' : activity.fullActivity.activityImageUrls.length < 5 ? 'img_1X2' : 'img_1X3'}} {{((index == 4 && activity.fullActivity.activityImageUrls.length == 5) || (index == 7 && activity.fullActivity.activityImageUrls.length == 8)) ? 'img_1X3_5_8' : ''}}"></image>
   </view>
   <view class="tag">
     <text>{{activity.fullActivity.topicName}}</text>
@@ -55,7 +59,8 @@
     <view class="left">
       <view class="limit-people">
         限定人数：{{activity.fullActivity.limitUserCount}}
-      </view>      
+      </view>
     </view>
   </view>
 </view>
+</block>

@@ -15,6 +15,6 @@
   </view>
   <view class='topic-description-container'>
     <label for='topic-description'>主题描述{{(topicDescTip)}}</label>
-    <textarea id='topic-description' auto-height placeholder="300字以内" maxlength="300" bindinput='onTopicDescInput' />
+    <textarea id='topic-description' focus auto-height placeholder="300字以内" maxlength="300" bindinput='onTopicDescInput' />
   </view>
 </form>

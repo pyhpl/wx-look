@@ -1,5 +1,5 @@
 // 远程服务器地址
-const remoteIp = "http://192.168.1.108:8080"
+const remoteIp = "http://localhost:8080"
 
 // 微服务
 const service = {
@@ -12,7 +12,7 @@ const service = {
 }
 
 // websocket
-const websocket = "ws://192.168.1.108:8866/ws";
+const websocket = "ws://localhost:8866/ws";
 
 // api
 const imagesCloud = service['cloud'] + "/api/cloud/images/";
@@ -26,6 +26,7 @@ const topics = service['activity'] + "/api/topic/s"
 const parentTopic = service['activity'] + "/api/parent-topic";
 const parentTopics = service['activity'] + "/api/parent-topic/s";
 const activity = service['activity'] + "/api/activity";
+const fullActivity = service['api'] + "/api/full-activity";
 const fullActivities = service['api'] + "/api/full-activity/s";
 const userFullActivities = service['api'] + "/api/user/full-activity/s";
 const discussion = service['user'] + "/api/discussion";
@@ -43,13 +44,22 @@ const topicWithAudit = service['api'] + '/api/topic-with-audit';
 const topicWithAuditAndUser = service['api'] + '/api/user/topic-with-audit';
 const activityWithAudit = service['api'] + '/api/activity-with-audit';
 const topicWithAuditUserAudited = service['api'] + '/api/user/topic-with-audit/s';
+const activityWithAuditUserAudited = service['api'] + '/api/user/activity-with-audit/s';
+const activityWithAuditUser = service['api'] + '/api/user/activity-with-audit';
 const topicAudit = service['audit'] + '/api/topic-audit/';
+const activityAudit = service['audit'] + '/api/activity-audit/';
+const message = service['message'] + "/api/message";
 
 module.exports = {
   // websocket
   websocket: websocket,
 
   // http
+  message: message,
+  activityWithAuditUser: activityWithAuditUser,
+  fullActivity: fullActivity,
+  activityAudit: activityAudit,
+  activityWithAuditUserAudited: activityWithAuditUserAudited,
   topicWithAuditAndUser: topicWithAuditAndUser,
   topicAudit: topicAudit,
   topicWithAuditUserAudited: topicWithAuditUserAudited,

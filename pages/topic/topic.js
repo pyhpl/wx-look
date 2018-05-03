@@ -15,12 +15,9 @@ grace.page({
   customData: {
     swiperAndSearchHeaderHeightDiff: 0,
   },
-  // ******************************* 生命周期方法 ******************************* //
+  // ******************** 生命周期方法 ******************** //
   onLoad: function () {
     var self = this;
-    wx.setNavigationBarTitle({
-      title: '主题中心',
-    });
     // 计算轮播图与搜索框的高度差
     wx.createSelectorQuery().select('.search-header').boundingClientRect(function (searchHeader) {
       self.$data.searchHeaderHeight = searchHeader.height;

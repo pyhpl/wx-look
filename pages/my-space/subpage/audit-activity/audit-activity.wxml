@@ -1,4 +1,11 @@
-<view class='activity-guide' hover-class='activity-guide-hover'>
-  <text class='name'>啊啊啊啊</text>
-  <i class="iconfont icon-forward-to guide-icon" />
-</view>
+<block wx:for="{{activities}}" wx:for-item="activity" wx:key="{{activity.auditUuid}}">
+  <view data-uuid='{{activity.uuid}}' data-index="{{index}}" catchtap='toAuditActivityDetail' class='activity-guide' hover-class='{{!audited[index] ? "activity-guide-hover" : ""}}'>
+    <text class='name'>{{activity.title}}</text>
+     <i wx:if="{{!audited[index]}}" class="iconfont icon-forward-to guide-icon" /> 
+     <i wx:if="{{audited[index]}}" class="iconfont icon-right-right right-icon" /> 
+  </view>
+</block>
+<block wx:if="{{activities.length == 0}}">
+  <import src="../../../../lib/ui/zanui/loadmore/index.wxml" />
+  <template is="zan-loadmore" data="{{ nodata: true }}" />
+</block>

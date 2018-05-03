@@ -28,7 +28,7 @@
     <view class="activity">
       <view class="header">
         <view class="people-info">
-          <image src="{{activity.avatarUrl}}"></image>
+          <image mode='aspectFill' src="{{activity.avatarUrl}}"></image>
           <text class="name">{{activity.initiator}}</text>
         </view>
         <text class="school">{{activity.school}}</text>

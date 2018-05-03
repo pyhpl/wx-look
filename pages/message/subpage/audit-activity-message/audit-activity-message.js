@@ -5,17 +5,17 @@ import api from "../../../../api.js";
 grace.page({
   data: {
     more: false,
-    activity: {},
+    activity: null,
   },
   customData: {
   },
-  // ******************************* 生命周期方法 ******************************* //
+  // ***************** 生命周期方法 *************** //  
   onLoad: function (e) {
     var self = this;
     // if (e[0].uuid != undefined && e[0].uuid != "") {
       wx.showNavigationBarLoading();
       self.$http.get(api['activityWithAudit'] + util.queryString({
-        uuid: "b7387ebf-99ba-49b9-bede-9ee92e9cfd54"
+        uuid: e[0].uuid
       }))
         .then((success) => {
           wx.hideNavigationBarLoading();
@@ -23,6 +23,7 @@ grace.page({
           wx.setNavigationBarTitle({
             title: this.data.activity.fullActivity.title,
           })
+          self.$bus.$emit("read", e[0].index);
         })
         .catch((error) => {
           wx.showToast({

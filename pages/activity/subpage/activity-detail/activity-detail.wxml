@@ -93,7 +93,7 @@
       </view>
       <i style="color: #aba2a2;" class='iconfont icon-close' catchtap="closeComment" />
     </view>
-    <textarea value="{{commentInfo}}" bindconfirm="publishComment" bindinput="inputComment" placeholder-class="editor-textarea-placeholder" placeholder="少于100字" maxlength="100" fixed show-confirm-bar="true" class='content'></textarea>
+    <textarea value="{{commentInfo}}" bindconfirm="publishComment" bindinput="inputComment" placeholder-class="editor-textarea-placeholder" focus placeholder="少于100字" maxlength="100" fixed show-confirm-bar="true" class='content'></textarea>
   </view>
 </view>
 <view class='footer-gap'></view>

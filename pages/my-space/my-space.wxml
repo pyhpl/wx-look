@@ -23,7 +23,7 @@
   <view class='action' hover-class='action-hover' catchtap='toAuditTopics' data-type='publish'>
     <i style='color: #61c3c3;' class='iconfont icon-topic-audit topic-icon' />
     <view class='right splite-bottom'>
-      <view class='my-focus-topic'>待审核的主题</view>
+      <view class='my-focus-topic'>审核主题</view>
       <view class='most-right'>
         <!-- <view class='focus-count'>13</view> -->
         <i class='iconfont icon-forward-to forward-to-icon' />
@@ -33,7 +33,7 @@
   <view class='action' hover-class='action-hover' catchtap='toAuditActivities' data-type='publish'>
     <i style='color: #e62f2d;' class='iconfont icon-activity-audit topic-icon' />
     <view class='right'>
-      <view class='my-focus-topic'>待审核的活动</view>
+      <view class='my-focus-topic'>审核活动</view>
       <view class='most-right'>
         <!-- <view class='focus-count'>13</view> -->
         <i class='iconfont icon-forward-to forward-to-icon' />

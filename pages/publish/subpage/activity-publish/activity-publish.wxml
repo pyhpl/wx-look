@@ -20,7 +20,7 @@
     <label for='activity-detail'>活动详情</label>
     <text class='letter-count-tip'>{{letterCountTip}}</text>
     <view class='textarea-container'>
-      <textarea id='activity-detail' auto-height placeholder="400字以内" maxlength="400" bindinput='onActivityDetailInput' />
+      <textarea id='activity-detail' focus auto-height placeholder="400字以内" maxlength="400" bindinput='onActivityDetailInput' />
     </view>
   </view>
   <!-- 学校、人数、时间、交流群  -->
